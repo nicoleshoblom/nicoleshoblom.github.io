@@ -10,13 +10,19 @@
         <meta name="generator" content={Astro.generator} />
         <title>Astro</title>
         <style>
+			@font-face {
+                font-family: 'Lunar Blossom';
+                src: url('/public/fonts/Lunar-Blossom.otf') format('opentype');
+                font-weight: normal;
+                font-style: normal;
+            }
             /* Add some basic styling for the header and hamburger menu */
             .header {
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                background-color: #333;
-                color: white;
+                /* background-color: #333; */
+                color: black;
                 padding: 10px;
                 position: relative;
             }
@@ -29,13 +35,17 @@
             .title {
                 text-align: center;
                 flex-grow: 1;
+				font-family:"Lunar Blossom", sans-serif;
+				font-size: 35px;
+				word-spacing: 7px;
+				color: black;
             }
             .email {
                 position: absolute;
                 right: 10px;
-                font-size: 24px;
+                font-size: 30px;
                 cursor: pointer;
-				color:white;
+				color: black;;
 				text-decoration: none
             }
         </style>
@@ -43,8 +53,8 @@
     <body>
         <header class="header">
             <div class="hamburger">&#9776;</div>
-            <div class="title">My Website</div>
-			<a href="mailto:nicole.shoblom@gmail.com"class="email">&#9993;</a>
+            <div class="title">Nicole Shoblom</div>
+			<a href="mailto:nicole.shoblom@gmail.com"class="email" title="nicole.shoblom@gmail.com">&#9993;</a>
         </header>
         <h1>Astro</h1>
     </body>
