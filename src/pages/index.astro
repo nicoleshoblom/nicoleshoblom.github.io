@@ -12,7 +12,7 @@ const PageTitle = "Home"
         <title>{PageTitle}</title>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
         <style>
             @font-face {
                 font-family: 'Lunar Blossom';
@@ -28,13 +28,13 @@ const PageTitle = "Home"
                 padding: 10px;
                 position: relative;
             }
-			.nav-links {
+            .nav-links {
                 font-family: 'Poppins', sans-serif;
                 font-size: 17px;
                 color: black;
                 text-decoration: none;
                 display: flex;
-                gap: 13px;
+                gap: 15px;
             }
             .nav-links a {
                 text-decoration: none;
@@ -50,11 +50,9 @@ const PageTitle = "Home"
                 font-size: 35px;
                 word-spacing: 5px;
                 color: black;
-				margin-right: 127px;
+                margin-right: 115px; /* Add space between title and icons */
             }
             .icons {
-                position: absolute;
-                right: 10px;
                 display: flex;
                 gap: 10px;
             }
@@ -74,16 +72,47 @@ const PageTitle = "Home"
                 vertical-align: middle;
                 color: black; /* Ensure the icon is black */
             }
+            .hamburger {
+                display: none;
+                font-size: 30px;
+                cursor: pointer;
+            }
+            .dropdown {
+                display: none;
+                flex-direction: column;
+                gap: 10px;
+                position: absolute;
+                top: 50px;
+                right: 10px;
+                background-color: white;
+                border: 1px solid #ccc;
+                padding: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
+            .dropdown a {
+                color: black;
+                text-decoration: none;
+            }
+            .dropdown a:hover {
+                color: #575757;
+            }
+            @media (max-width: 768px) {
+                .nav-links {
+                    display: none;
+                }
+                .hamburger {
+                    display: block;
+                }
+            }
         </style>
     </head>
     <body>
         <header class="header">
-            <!-- <div class="hamburger">&#9776;</div> -->
-			<div class="nav-links">
-				<a href="/">Home</a>
-				<a href="/resume">Résumé</a>
-				<a href=>Blog</a>
-			</div>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/resume">Résumé</a>
+                <a href="#">Blog</a>
+            </div>
             <div class="title">Nicole Shoblom</div>
             <div class="icons">
                 <a href="mailto:nicole.shoblom@gmail.com" class="icon" title="nicole.shoblom@gmail.com">
@@ -93,7 +122,23 @@ const PageTitle = "Home"
                     <i class="fab fa-linkedin"></i>
                 </a>
             </div>
+            <div class="hamburger" onclick="toggleDropdown()">&#9776;</div>
+            <div class="dropdown" id="dropdown">
+                <a href="/">Home</a>
+                <a href="/resume">Résumé</a>
+                <a href="#">Blog</a>
+            </div>
         </header>
         <h1>Astro</h1>
+        <script>
+            function toggleDropdown() {
+                var dropdown = document.getElementById("dropdown");
+                if (dropdown.style.display === "flex") {
+                    dropdown.style.display = "none";
+                } else {
+                    dropdown.style.display = "flex";
+                }
+            }
+        </script>
     </body>
 </html>
