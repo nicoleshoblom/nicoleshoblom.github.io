@@ -44,13 +44,13 @@ const PageTitle = "Home"
                 color: #575757;
             }
             .title {
-                text-align: center;
-                flex-grow: 1;
+                position: absolute;
+				left: 50%;
+				transform: translateX(-50%);
                 font-family: "Lunar Blossom", sans-serif;
                 font-size: 35px;
                 word-spacing: 5px;
                 color: black;
-                margin-right: 115px; /* Add space between title and icons */
             }
             .icons {
                 display: flex;
@@ -113,6 +113,7 @@ const PageTitle = "Home"
                 <a href="/resume">Résumé</a>
                 <a href="#">Blog</a>
             </div>
+			<div class="hamburger" onclick="toggleDropdown()">&#9776;</div>
             <div class="title">Nicole Shoblom</div>
             <div class="icons">
                 <a href="mailto:nicole.shoblom@gmail.com" class="icon" title="nicole.shoblom@gmail.com">
@@ -122,11 +123,10 @@ const PageTitle = "Home"
                     <i class="fab fa-linkedin"></i>
                 </a>
             </div>
-            <div class="hamburger" onclick="toggleDropdown()">&#9776;</div>
             <div class="dropdown" id="dropdown">
                 <a href="/">Home</a>
                 <a href="/resume">Résumé</a>
-                <a href="#">Blog</a>
+                <a href="">Blog</a>
             </div>
         </header>
         <h1>Astro</h1>
