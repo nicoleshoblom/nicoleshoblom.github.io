@@ -9,8 +9,9 @@
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
         <title>Astro</title>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <style>
-			@font-face {
+            @font-face {
                 font-family: 'Lunar Blossom';
                 src: url('/public/fonts/Lunar-Blossom.otf') format('opentype');
                 font-weight: normal;
@@ -35,18 +36,24 @@
             .title {
                 text-align: center;
                 flex-grow: 1;
-				font-family:"Lunar Blossom", sans-serif;
-				font-size: 35px;
-				word-spacing: 7px;
-				color: black;
+                font-family: "Lunar Blossom", sans-serif;
+                font-size: 35px;
+                word-spacing: 7px;
+                color: black;
             }
-            .email {
+            .icon {
                 position: absolute;
                 right: 10px;
-                font-size: 30px;
+                font-size: 25px;
                 cursor: pointer;
-				color: black;;
-				text-decoration: none
+                color: black;
+                text-decoration: none;
+                margin-left: 10px;
+            }
+            .material-icons {
+                font-size: 25px;
+                vertical-align: middle;
+                color: black; /* Ensure the icon is black */
             }
         </style>
     </head>
@@ -54,7 +61,9 @@
         <header class="header">
             <div class="hamburger">&#9776;</div>
             <div class="title">Nicole Shoblom</div>
-			<a href="mailto:nicole.shoblom@gmail.com"class="email" title="nicole.shoblom@gmail.com">&#9993;</a>
+            <a href="mailto:nicole.shoblom@gmail.com" class="icon" title="nicole.shoblom@gmail.com">
+                <span class="material-icons">email</span>
+            </a>
         </header>
         <h1>Astro</h1>
     </body>
