@@ -39,10 +39,16 @@ const PageTitle = "Home"
             .nav-links a {
                 text-decoration: none;
                 color: black;
+				padding: 5px 10px;
+				border-radius: 5px;
             }
             .nav-links a:hover {
                 /* color: #575757; */
 				color: coral
+            }
+			.nav-links a.active {
+                background-color: coral;
+                color: white;
             }
             .title {
                 position: absolute;
@@ -84,25 +90,31 @@ const PageTitle = "Home"
                 font-size: 30px;
                 cursor: pointer;
             }
-            /* .dropdown {
+            .dropdown {
                 display: none;
                 flex-direction: column;
                 gap: 10px;
                 position: absolute;
-                top: 50px;
-                right: 10px;
+                top: 100%;
+				left: 0;
                 background-color: white;
                 border: 1px solid #ccc;
                 padding: 10px;
                 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+				font: 17px 'Poppins', sans-serif;
+				text-align: center;
             }
             .dropdown a {
                 color: black;
                 text-decoration: none;
-            }*/
-            /* .dropdown a:hover {
-                color: #575757;
-            } */
+            }
+            .dropdown a:hover {
+                color: coral;
+            }
+			.dropdown a.active {
+                background-color: coral;
+                color: white;
+            }
             @media (max-width: 768px) {
                 .nav-links {
                     display: none;
@@ -116,9 +128,9 @@ const PageTitle = "Home"
     <body>
         <header class="header">
             <div class="nav-links">
-                <a href="/">Home</a>
-                <a href="/resume">Résumé</a>
-                <a href="#">Blog</a>
+                <a href="/", class="nav-link">Home</a>
+                <a href="/resume", class="nav-link">Résumé</a>
+                <a href="#", class="nav-link">Blog</a>
             </div>
 			<div class="hamburger" onclick="toggleDropdown()">&#9776;</div>
             <div class="title">Nicole Shoblom</div>
@@ -129,17 +141,35 @@ const PageTitle = "Home"
                 <a href="https://www.linkedin.com/in/navmendoza/" class="icon" title="LinkedIn Profile">
                     <i class="fab fa-linkedin"></i>
                 </a>
+			</div>
+            <div class="dropdown" id="dropdown">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/resume" class="nav-link">Résumé</a>
+                <a href="#" class="nav-link">Blog</a>
+            </div>
         </header>
         <h1>Astro</h1>
-        <!-- <script>
-            function toggleDropdown() {
-                var dropdown = document.getElementById("dropdown");
-                if (dropdown.style.display === "flex") {
-                    dropdown.style.display = "none";
-                } else {
-                    dropdown.style.display = "flex";
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                function toggleDropdown() {
+                    var dropdown = document.getElementById("dropdown");
+                    if (dropdown.style.display === "flex") {
+                        dropdown.style.display = "none";
+                    } else {
+                        dropdown.style.display = "flex";
+                    }
                 }
-            }
-        </script> -->
+                document.querySelector('.hamburger').addEventListener('click', toggleDropdown);
+
+				// Highlight the current page link
+                var currentPath = window.location.pathname;
+                var navLinks = document.querySelectorAll('.nav-link');
+                navLinks.forEach(function(link) {
+                    if (link.getAttribute('href') === currentPath) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        </script>
     </body>
 </html>
