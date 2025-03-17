@@ -99,6 +99,14 @@ const { PageTitle } = Astro.props
 			.fa-linkedin:hover {
                 color: coral; /* Change color to coral on hover */
             }
+            .fa-linkedin a{
+                touch-action: manipulation;
+            }
+            .fa-linkedin:focus,
+            .fa-linkedin:hover {
+                color: black;
+                outline: none
+            }
             .hamburger {
                 display: none;
                 font-size: 30px;
@@ -197,6 +205,14 @@ const { PageTitle } = Astro.props
                 // Remove focus state after click
                 var icons = document.querySelectorAll('.material-icons');
                 icons.forEach(function(icon) {
+                    icon.addEventListener('click', function() {
+                        icon.blur();
+                    });
+                });
+
+                // Remove focus state after click
+                var linkedin_icons = document.querySelectorAll('.fa-linkedin');
+                linkedin_icons.forEach(function(icon) {
                     icon.addEventListener('click', function() {
                         icon.blur();
                     });
