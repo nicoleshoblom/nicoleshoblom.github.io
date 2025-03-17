@@ -74,6 +74,11 @@ const { PageTitle } = Astro.props
             .icon:hover {
                 color: coral; /* Change color to coral on hover */
             }
+            .icon:focus,
+            .icon:active {
+                color: black; /* Ensure the icon returns to black after click */
+                outline: none; /* Remove focus outline */
+            }
             .material-icons {
                 font-size: 25px;
                 vertical-align: middle;
