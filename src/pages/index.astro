@@ -41,7 +41,8 @@ const PageTitle = "Home"
                 color: black;
             }
             .nav-links a:hover {
-                color: #575757;
+                /* color: #575757; */
+				color: coral
             }
             .title {
                 position: absolute;
@@ -56,28 +57,34 @@ const PageTitle = "Home"
                 display: flex;
                 gap: 10px;
             }
-            .icon {
+            /* .icon {
                 font-size: 25px;
                 cursor: pointer;
                 color: black;
                 text-decoration: none;
-            }
+            } */
             .material-icons {
                 font-size: 25px;
                 vertical-align: middle;
                 color: black; /* Ensure the icon is black */
+            }
+			.material-icons:hover {
+                color: coral; /* Change color to coral on hover */
             }
             .fa-linkedin {
                 font-size: 25px;
                 vertical-align: middle;
                 color: black; /* Ensure the icon is black */
             }
+			.fa-linkedin:hover {
+                color: coral; /* Change color to coral on hover */
+            }
             .hamburger {
                 display: none;
                 font-size: 30px;
                 cursor: pointer;
             }
-            .dropdown {
+            /* .dropdown {
                 display: none;
                 flex-direction: column;
                 gap: 10px;
@@ -92,10 +99,10 @@ const PageTitle = "Home"
             .dropdown a {
                 color: black;
                 text-decoration: none;
-            }
-            .dropdown a:hover {
+            }*/
+            /* .dropdown a:hover {
                 color: #575757;
-            }
+            } */
             @media (max-width: 768px) {
                 .nav-links {
                     display: none;
@@ -122,15 +129,9 @@ const PageTitle = "Home"
                 <a href="https://www.linkedin.com/in/navmendoza/" class="icon" title="LinkedIn Profile">
                     <i class="fab fa-linkedin"></i>
                 </a>
-            </div>
-            <div class="dropdown" id="dropdown">
-                <a href="/">Home</a>
-                <a href="/resume">Résumé</a>
-                <a href="">Blog</a>
-            </div>
         </header>
         <h1>Astro</h1>
-        <script>
+        <!-- <script>
             function toggleDropdown() {
                 var dropdown = document.getElementById("dropdown");
                 if (dropdown.style.display === "flex") {
@@ -139,6 +140,6 @@ const PageTitle = "Home"
                     dropdown.style.display = "flex";
                 }
             }
-        </script>
+        </script> -->
     </body>
 </html>
