@@ -194,6 +194,14 @@ const { PageTitle } = Astro.props
                     }
                 });
 
+                // Remove focus state after click
+                var icons = document.querySelectorAll('.material-icons');
+                icons.forEach(function(icon) {
+                    icon.addEventListener('click', function() {
+                        icon.blur();
+                    });
+                });
+
             });
         </script>
     </body>
