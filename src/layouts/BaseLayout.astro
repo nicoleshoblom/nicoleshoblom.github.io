@@ -83,14 +83,6 @@ const { PageTitle } = Astro.props
 			.material-icons:hover {
                 color: coral;
             }
-            .material-icons a{
-                touch-action: manipulation;
-            }
-            .material-icons:focus,
-            .material-icons:hover {
-                color: black;
-                outline: none
-            }
             .fa-linkedin {
                 font-size: 25px;
                 vertical-align: middle;
@@ -98,14 +90,6 @@ const { PageTitle } = Astro.props
             }
 			.fa-linkedin:hover {
                 color: coral; /* Change color to coral on hover */
-            }
-            .fa-linkedin a{
-                touch-action: manipulation;
-            }
-            .fa-linkedin:focus,
-            .fa-linkedin:hover {
-                color: black;
-                outline: none
             }
             .hamburger {
                 display: none;
@@ -145,6 +129,22 @@ const { PageTitle } = Astro.props
                 .hamburger {
                     display: block;
                 }
+            .material-icons a{
+                touch-action: manipulation;
+            }
+            .material-icons:focus,
+            .material-icons:hover {
+                color: black;
+                outline: none
+            }
+            .fa-linkedin a{
+                touch-action: manipulation;
+            }
+            .fa-linkedin:focus,
+            .fa-linkedin:hover {
+                color: black;
+                outline: none
+            }
             }
         </style>
     </head>
