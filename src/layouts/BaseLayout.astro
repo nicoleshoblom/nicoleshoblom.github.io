@@ -137,7 +137,7 @@ const { PageTitle } = Astro.props
                 <a href="mailto:nicole.shoblom@gmail.com" class="icon" title="nicole.shoblom@gmail.com">
                     <span class="material-icons">email</span>
                 </a>
-                <a href="https://www.linkedin.com/in/navmendoza/" class="icon" title="LinkedIn Profile">
+                <a href="https://www.linkedin.com/in/navmendoza/" class="icon" title="www.linkedin.com/in/navmendoza/">
                     <i class="fab fa-linkedin"></i>
                 </a>
 			</div>
@@ -166,6 +166,15 @@ const { PageTitle } = Astro.props
                 navLinks.forEach(function(link) {
                     if (link.getAttribute('href') === currentPath) {
                         link.classList.add('active');
+                    }
+                });
+
+                // Close dropdown if clicked outside
+                document.addEventListener('click', function(event) {
+                    var dropdown = document.getElementById("dropdown");
+                    var hamburger = document.querySelector('.hamburger');
+                    if (!dropdown.contains(event.target) && !hamburger.contains(event.target)) {
+                        dropdown.style.display = 'none';
                     }
                 });
             });
