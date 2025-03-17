@@ -1,0 +1,174 @@
+---
+const { PageTitle } = Astro.props
+---
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{PageTitle}</title>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+        <style>
+            @font-face {
+                font-family: 'Lunar Blossom';
+                src: url('/public/fonts/Lunar-Blossom.otf') format('opentype');
+                font-weight: normal;
+                font-style: normal;
+            }
+            .header {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                color: black;
+                padding: 10px;
+                position: relative;
+            }
+            .nav-links {
+                font-family: 'Poppins', sans-serif;
+                font-size: 17px;
+                color: black;
+                text-decoration: none;
+                display: flex;
+                gap: 15px;
+            }
+            .nav-links a {
+                text-decoration: none;
+                color: black;
+				padding: 5px 10px;
+				border-radius: 5px;
+            }
+            .nav-links a:hover {
+                /* color: #575757; */
+				color: coral
+            }
+			.nav-links a.active {
+                background-color: coral;
+                color: white;
+            }
+            .title {
+                position: absolute;
+				left: 50%;
+				transform: translateX(-50%);
+                font-family: "Lunar Blossom", sans-serif;
+                font-size: 35px;
+                word-spacing: 5px;
+                color: black;
+            }
+            .icons {
+                display: flex;
+                gap: 10px;
+            }
+            /* .icon {
+                font-size: 25px;
+                cursor: pointer;
+                color: black;
+                text-decoration: none;
+            } */
+            .material-icons {
+                font-size: 25px;
+                vertical-align: middle;
+                color: black; /* Ensure the icon is black */
+            }
+			.material-icons:hover {
+                color: coral; /* Change color to coral on hover */
+            }
+            .fa-linkedin {
+                font-size: 25px;
+                vertical-align: middle;
+                color: black; /* Ensure the icon is black */
+            }
+			.fa-linkedin:hover {
+                color: coral; /* Change color to coral on hover */
+            }
+            .hamburger {
+                display: none;
+                font-size: 30px;
+                cursor: pointer;
+            }
+            .dropdown {
+                display: none;
+                flex-direction: column;
+                gap: 10px;
+                position: absolute;
+                top: 100%;
+				left: 0;
+                background-color: white;
+                border: 1px solid #ccc;
+                padding: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+				font: 17px 'Poppins', sans-serif;
+				text-align: center;
+            }
+            .dropdown a {
+                color: black;
+                text-decoration: none;
+            }
+            .dropdown a:hover {
+                color: coral;
+            }
+			.dropdown a.active {
+                background-color: coral;
+                color: white;
+            }
+            @media (max-width: 768px) {
+                .nav-links {
+                    display: none;
+                }
+                .hamburger {
+                    display: block;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <header class="header">
+            <div class="nav-links">
+                <a href="/", class="nav-link">Home</a>
+                <a href="/resume", class="nav-link">Résumé</a>
+                <a href="#", class="nav-link">Blog</a>
+            </div>
+			<div class="hamburger" onclick="toggleDropdown()">&#9776;</div>
+            <div class="title">Nicole Shoblom</div>
+            <div class="icons">
+                <a href="mailto:nicole.shoblom@gmail.com" class="icon" title="nicole.shoblom@gmail.com">
+                    <span class="material-icons">email</span>
+                </a>
+                <a href="https://www.linkedin.com/in/navmendoza/" class="icon" title="LinkedIn Profile">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+			</div>
+            <div class="dropdown" id="dropdown">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/resume" class="nav-link">Résumé</a>
+                <a href="#" class="nav-link">Blog</a>
+            </div>
+        </header>
+        <slot />
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                function toggleDropdown() {
+                    var dropdown = document.getElementById("dropdown");
+                    if (dropdown.style.display === "flex") {
+                        dropdown.style.display = "none";
+                    } else {
+                        dropdown.style.display = "flex";
+                    }
+                }
+                document.querySelector('.hamburger').addEventListener('click', toggleDropdown);
+
+				// Highlight the current page link
+                var currentPath = window.location.pathname;
+                var navLinks = document.querySelectorAll('.nav-link');
+                navLinks.forEach(function(link) {
+                    if (link.getAttribute('href') === currentPath) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>
