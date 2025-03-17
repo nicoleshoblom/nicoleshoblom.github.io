@@ -1,5 +1,6 @@
 ---
 const { PageTitle } = Astro.props
+//refactor base layout by creating separate style file and components files
 ---
 
 <html lang="en">
@@ -65,15 +66,15 @@ const { PageTitle } = Astro.props
                 display: flex;
                 gap: 10px;
             }
-            .icon {
+            /* .icon {
                 font-size: 25px;
                 cursor: pointer;
                 color: black;
                 text-decoration: none;
             }
             .icon:hover {
-                color: coral; /* Change color to coral on hover */
-            }
+                color: coral;
+            } */
             .material-icons {
                 font-size: 25px;
                 vertical-align: middle;
@@ -81,6 +82,9 @@ const { PageTitle } = Astro.props
             }
 			.material-icons:hover {
                 color: coral;
+            }
+            .material-icons a{
+                touch-action: manipulation;
             }
             .fa-linkedin {
                 font-size: 25px;
