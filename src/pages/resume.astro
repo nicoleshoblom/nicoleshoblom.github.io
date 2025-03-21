@@ -4,31 +4,72 @@ const PageTitle = "Resume"
 ---
 
 <BaseLayout PageTitle={PageTitle}>
-<div class="three-sections">
+    <div class="three-sections">
         <div class="section section-1">
-            <h2>Section 1</h2>
-            <p>Content for the first section goes here.</p>
+            <div class="carousel">
+                <div class="carousel-track">
+                    <img src="/images/linkedin_pic.webp" alt="LinkedIn Picture" class="carousel-image" />
+                    <img src="/images/shabushabu.webp" alt="Shabu Shabu" class="carousel-image" />
+                </div>
+                <button class="carousel-button prev">❮</button>
+                <button class="carousel-button next">❯</button>
+            </div>
         </div>
         <div class="section section-2">
-            <h2>Section 2</h2>
-            <p>Content for the second section goes here.</p>
+            <h2>About me</h2>
+            <p></p>
         </div>
         <div class="section section-3">
-            <h2>Section 3</h2>
-            <p>Content for the third section goes here.</p>
+            <h2>Tech Stack</h2>
+            <p></p>
         </div>
     </div>
     <style>
         .three-sections {
             display: flex;
             flex-direction: column;
-            gap: 0px;            
+            gap: 0px;
             margin: 0px;
         }
         .section {
-            padding: 20px;
-            border: 0px solid #ccc;
+            padding: 0px;
             text-align: center;
+        }
+        .carousel {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .carousel-image {
+            min-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 1;
+        }
+        .carousel-button.prev {
+            left: 10px;
+        }
+        .carousel-button.next {
+            right: 10px;
+        }
+        .carousel-button:hover {
+            background-color: rgba(0, 0, 0, 0.8);
         }
         @media (min-width: 768px) {
             .three-sections {
@@ -37,8 +78,34 @@ const PageTitle = "Resume"
             }
             .section {
                 flex: 1;
-                margin: 0 10px;
+                margin: 0 0px;
             }
         }
     </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const track = document.querySelector('.carousel-track');
+            const images = Array.from(track.children);
+            const prevButton = document.querySelector('.carousel-button.prev');
+            const nextButton = document.querySelector('.carousel-button.next');
+            let currentIndex = 0;
+
+            function updateCarousel() {
+                const slideWidth = images[0].getBoundingClientRect().width;
+                track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+            }
+
+            nextButton.addEventListener('click', () => {
+                currentIndex = (currentIndex + 1) % images.length;
+                updateCarousel();
+            });
+
+            prevButton.addEventListener('click', () => {
+                currentIndex = (currentIndex - 1 + images.length) % images.length;
+                updateCarousel();
+            });
+
+            window.addEventListener('resize', updateCarousel);
+        });
+    </script>
 </BaseLayout>
