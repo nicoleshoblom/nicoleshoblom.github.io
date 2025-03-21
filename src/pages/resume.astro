@@ -4,5 +4,41 @@ const PageTitle = "Resume"
 ---
 
 <BaseLayout PageTitle={PageTitle}>
-
+    <div class="three-sections">
+        <div class="section section-1">
+            <h2>Section 1</h2>
+            <p>Content for the first section goes here.</p>
+        </div>
+        <div class="section section-2">
+            <h2>Section 2</h2>
+            <p>Content for the second section goes here.</p>
+        </div>
+        <div class="section section-3">
+            <h2>Section 3</h2>
+            <p>Content for the third section goes here.</p>
+        </div>
+    </div>
+    <style>
+        .three-sections {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin: 20px;
+        }
+        .section {
+            padding: 20px;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+        @media (min-width: 768px) {
+            .three-sections {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+            .section {
+                flex: 1;
+                margin: 0 10px;
+            }
+        }
+    </style>
 </BaseLayout>
