@@ -14,11 +14,13 @@ const PageTitle = "Resume"
                     </div>
                     <div class="carousel-controls">
                         <button class="carousel-button prev">❮</button>
-                        <div class="carousel-dots"></div>
                         <button class="carousel-button next">❯</button>
                     </div>
                 </div>
                 <div class="about">
+                    <p class="location">
+                        <span class="material-icons">location_on</span> Remote | Bay Area, CA | Seoul, SK
+                    </p>
                     <p>
                         Hi, I'm Nicole! I have 10 years of experience as a data scientist with a proven track record in delivering solutions that customers love. I earned a PhD in statistics, plus a BA in women's studies and political science. You can learn more about me at my <a href="/blog" class="blog-link">blog</a>.  
                         <br></br>
@@ -44,6 +46,7 @@ const PageTitle = "Resume"
                 width: 100%; /* Full width on mobile */
                 text-align: center;
                 border-bottom: 2px dotted coral;
+                font-size: 14px;
             }
             .carousel {
                 position: relative;
@@ -86,6 +89,16 @@ const PageTitle = "Resume"
                 padding: 5px;
                 text-align: center;
                 margin-top: 0px;
+            }
+            .about .location {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            margin-bottom: 0px;
+            }
+            .about .location .material-icons {
+                font-size: 18px;
             }
             .main-content {
                 flex: 1;
