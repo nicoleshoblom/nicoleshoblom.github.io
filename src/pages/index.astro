@@ -4,49 +4,51 @@ const PageTitle = "Home"
 ---
 
 <BaseLayout PageTitle={PageTitle}>
-    <div class="content">
-        <img src="/images/family_bus.webp" alt="Family Bus" class="header-image" />
-        <div class="text-content">
-            <h1 class="center-text">Welcome to my Website! 
-                <br>
-                오세요!
-                <br>
-                ¡Bienvenidos!
-            </h1>
+    <body>
+        <div class="content">
+            <img src="/images/family_bus.webp" alt="Family Bus" class="header-image" />
+            <div class="text-content">
+                <h1 class="center-text">Welcome to my Website! 
+                    <br>
+                    오세요!
+                    <br>
+                    ¡Bienvenidos!
+                </h1>
+            </div>
         </div>
-    </div>
-    <style>
-        .content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            margin-top: 0px; /* Adjust as needed */
-        }
-        .header-image {
-            width: 100%;
-            height: auto;
-            margin-bottom: 0px; /* Adjust as needed */
-        }
-        .center-text {
-            width: 100%;
-			font-size:1.5rem;
-        }
-        @media (min-width: 768px) {
+        <style>
             .content {
-                flex-direction: row;
-                justify-content: space-between;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                margin-top: 0px; /* Adjust as needed */
             }
             .header-image {
-                width: 60%;
-                margin-bottom: 0;
-                margin-right: 20px; /* Adjust as needed */
+                width: 100%;
+                height: auto;
+                margin-bottom: 0px; /* Adjust as needed */
             }
-            .text-content {
-                width: 50%;
-                text-align: center;
+            .center-text {
+                width: 100%;
+                font-size:1.5rem;
             }
-        }
-    </style>
+            @media (min-width: 768px) {
+                .content {
+                    flex-direction: row;
+                    justify-content: space-between;
+                }
+                .header-image {
+                    width: 60%;
+                    margin-bottom: 0;
+                    margin-right: 20px; /* Adjust as needed */
+                }
+                .text-content {
+                    width: 50%;
+                    text-align: center;
+                }
+            }
+        </style>
+    </body>
 </BaseLayout>
