@@ -7,8 +7,24 @@ const PageTitle = "Resume"
     <body>
         <div class="layout">
             <div class="sidebar">
-                <h2>Sidebar</h2>
-                <p>Content for the sidebar goes here.</p>
+                <div class="carousel">
+                    <div class="carousel-track">
+                        <img src="/images/linkedin_pic.webp" alt="LinkedIn Picture" class="carousel-image" />
+                        <img src="/images/shabushabu.webp" alt="Shabu Shabu" class="carousel-image" />
+                    </div>
+                    <div class="carousel-controls">
+                        <button class="carousel-button prev">❮</button>
+                        <div class="carousel-dots"></div>
+                        <button class="carousel-button next">❯</button>
+                    </div>
+                </div>
+                <div class="about">
+                    <p>
+                        Hi, I'm Nicole! I have 10 years of experience as a data scientist with a proven track record in delivering solutions that customers love. I earned a PhD in statistics, plus a BA in women's studies and political science. You can learn more about me at my <a href="/blog" class="blog-link">blog</a>.  
+                        <br></br>
+                        <i>Python (Pandas, Polars, Numpy, Matplotlib, Statsmodel, Scikit Learn, SciPy, Ruptures, NetworkX, Streamlit, Plotly, Seaborn) SQL, R, Git, Hadoop Hive, Tableau, Matlab, C++/OpenMP, Astro</i>
+                    </p>
+                </div>
             </div>
             <div class="main-content">
                 <h1>Welcome to My Resume Page</h1>
@@ -22,28 +38,107 @@ const PageTitle = "Resume"
                 height: 100vh; /* Full viewport height */
             }
             .sidebar {
-                background-color: coral;
-                color: white;
-                padding: 20px;
+                background-color: white;
+                color: black;
+                padding: 0px;
                 width: 100%; /* Full width on mobile */
                 text-align: center;
+                border-bottom: 2px dotted coral;
+            }
+            .carousel {
+                position: relative;
+                overflow: hidden;
+                width: 100%;
+                max-width: 200px;
+                margin: 0 auto;
+            }
+            .carousel-track {
+                display: flex;
+                transition: transform 0.5s ease-in-out;
+                width: 100%;
+            }
+            .carousel-image {
+                min-width: 100%;
+                height: auto;
+                border-radius: 0px;
+            }
+            .carousel-controls {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-top: 0px;
+                gap: 10px;
+                margin-bottom: 0px;
+            }
+            .carousel-button {
+                background-color: white;
+                color: black;
+                border: none;
+                padding: 5px;
+                cursor: pointer;
+                z-index: 1;
+            }
+            .carousel-button:hover {
+                color: coral;
+            }
+            .about {
+                flex: 1;
+                padding: 5px;
+                text-align: center;
+                margin-top: 0px;
             }
             .main-content {
                 flex: 1;
-                padding: 20px;
+                padding: 0px;
+                text-align: center;
             }
             @media (min-width: 768px) {
                 .layout {
                     flex-direction: row;
                 }
                 .sidebar {
-                    width: 250px; /* Fixed width for the sidebar on desktop */
+                    width: 300px; /* Fixed width for the sidebar on desktop */
                     text-align: left;
+                    border-bottom: none;
+                    border-right: 2px dotted coral;
+                    padding: 20px;
+                }
+                .about{
+                    flex: 1;
+                    text-align: justify;
+                    padding; 10px;
                 }
                 .main-content {
                     flex: 1;
                 }
             }
         </style>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const track = document.querySelector('.carousel-track');
+                const images = Array.from(track.children);
+                const prevButton = document.querySelector('.carousel-button.prev');
+                const nextButton = document.querySelector('.carousel-button.next');
+                let currentIndex = 0;
+
+                function updateCarousel() {
+                    const slideWidth = images[0].getBoundingClientRect().width;
+                    track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+                }
+
+                nextButton.addEventListener('click', () => {
+                    currentIndex = (currentIndex + 1) % images.length;
+                    updateCarousel();
+                });
+
+                prevButton.addEventListener('click', () => {
+                    currentIndex = (currentIndex - 1 + images.length) % images.length;
+                    updateCarousel();
+                });
+
+                window.addEventListener('resize', updateCarousel);
+                updateCarousel(); // Initialize carousel position
+            });
+        </script>
     </body>
 </BaseLayout>
