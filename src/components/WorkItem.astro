@@ -10,8 +10,12 @@ const { company, jobRole, jobRole2, jobRole3, jobRole4, location, dates, accompl
         <p>{jobRole2}</p>
         <p>{jobRole3}</p>
         <p>{jobRole4}</p>
-        <p>{dates}</p>
-        <p>{location}</p>
+        <p>
+            <span class="material-icons">calendar_today</span> {dates}
+        </p>
+        <p>
+            <span class="material-icons">location_on</span> {location}
+        </p>
     </div>
     <div class="work-accomplishments">
         <ul>
@@ -58,6 +62,10 @@ const { company, jobRole, jobRole2, jobRole3, jobRole4, location, dates, accompl
         font-size: 13px;
         color: gray;
     }
+
+    .work-details .material-icons {
+                font-size: 13px;
+            }
 
     .work-accomplishments {
         flex: 2;

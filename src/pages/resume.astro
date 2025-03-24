@@ -30,33 +30,38 @@ import WorkItem from '../components/WorkItem.astro';
                 </div>
             </div>
             <div class="main-content">
-                <div class="technical-experience">
+                <!-- Navigation Bar -->
+                <nav class="main-nav">
+                    <a href="#technical-experience">Technical Experience</a>
+                    <a href="#other-experience">Other Experience</a>
+                </nav>
+                <div id="technical-experience" class="technical-experience">
                     <WorkItem
-                company="Addium"
-                jobRole="Data Scientist"
-                jobRole2="Director, Data Science"
-                location="Remote"
-                dates="Sep 2023 - Feb 2025"
-                accomplishments={[
-                    "Manage team by tracking team KPI's & ensure team visibility by collaborating with leadership, engineering, product, and customer success",
-                    "Mentor US & offshore team members by understanding their motivations, helping set goals, giving feedback, and providing technical guidance",
-                    "Develop, scale, maintain OOTB platform feature using signal processing on time series data to calculate water uptake by plants. Feature turn-off & turn-on rate equal since release",
-                    "Develop POC solution that predicts when daily plant irrigation should stop using signal processing and regression"
-                ]}
-                />
-                <WorkItem
-                    company="Riverbed Technology"
-                    jobRole="Director, Data Science"
-                    jobRole2="Technical Director"
-                    dates="Oct 2020 - June 2023"
-                    location="Remote"
-                    accomplishments={[
-                        "Develop intelligent software features using network models, density estimation, hypothesis testing, time series models, cluster analysis, linear models, change point detection to provide customers actionable insights for improving digital experience & network performance",
-                        "Strategize cross functionally in launching real-time ML SaaS product that assists customers to automatically identify and remediate network, application, & end-user device problems",
-                        "Stood up company’s first product data science team to provide data science solutions for multiple computer network and end user monitoring products",
-                        "Recognized as a high potential employee to participate in  360 leadership development program"
-                    ]}
-                />
+                        company="Addium"
+                        jobRole="Data Scientist"
+                        jobRole2="Director, Data Science"
+                        location="Remote"
+                        dates="Sep 2023 - Feb 2025"
+                        accomplishments={[
+                        "Manage team by tracking team KPI's & ensure team visibility by collaborating with leadership, engineering, product, and customer success",
+                        "Mentor US & offshore team members by understanding their motivations, helping set goals, giving feedback, and providing technical guidance",
+                        "Develop, scale, maintain OOTB platform feature using signal processing on time series data to calculate water uptake by plants. Feature turn-off & turn-on rate equal since release",
+                        "Develop POC solution that predicts when daily plant irrigation should stop using signal processing and regression"
+                        ]}
+                    />
+                    <WorkItem
+                        company="Riverbed Technology"
+                        jobRole="Director, Data Science"
+                        jobRole2="Technical Director"
+                        dates="Oct 2020 - June 2023"
+                        location="Remote"
+                        accomplishments={[
+                            "Develop intelligent software features using network models, density estimation, hypothesis testing, time series models, cluster analysis, linear models, change point detection to provide customers actionable insights for improving digital experience & network performance",
+                            "Strategize cross functionally in launching real-time ML SaaS product that assists customers to automatically identify and remediate network, application, & end-user device problems",
+                            "Stood up company’s first product data science team to provide data science solutions for multiple computer network and end user monitoring products",
+                            "Recognized as a high potential employee to participate in  360 leadership development program"
+                        ]}
+                    />
                     <WorkItem
                     company="Walmart"
                     jobRole="Staff Data Scientist"
@@ -69,22 +74,69 @@ import WorkItem from '../components/WorkItem.astro';
                         "Boosted online grocery sales by $160 million using Hive to develop an automated weekly audit report for 1 billion store-items that identifies discrepancies among ecommerce site back-end systems to fix items that are erroneously showing as out-of-stock, to provide root cause analysis for back-end system engineers, and to provide leadership with inventory accuracy KPI’s",
                         "Orchestrated development of AI product that automatically assigns items to slots in a warehouse by gathering requirements from stakeholders, designing linear programming optimization model, preparing dataset via R/SQL/Altyerx, overseeing model improvements and CPLEX implementation, providing logistics leadership with project updates, and launching product in 5 warehouses with estimated $5 million in labor savings",
                         "Enhanced demand forecasts by cleansing poor historical sales data for every item in all 4,000+ stores using R and Hadoop Hive to implement linear models that predict when a drop in sales is due to unfulfilled customer demand"
-                    ]}
-                />
-                <WorkItem
-                    company="Walmart"
-                    jobRole="Staff Data Scientist"
-                    jobRole2="Senior Data Scientist"
-                    jobRole3="Decision Manager II"
-                    jobRole4="2015 Summer Intern"
-                    dates="Aug 2016 - Oct 2020"
-                    location="Bentonville, AR"
-                    accomplishments={[
-                        "Boosted online grocery sales by $160 million using Hive to develop an automated weekly audit report for 1 billion store-items that identifies discrepancies among ecommerce site back-end systems to fix items that are erroneously showing as out-of-stock, to provide root cause analysis for back-end system engineers, and to provide leadership with inventory accuracy KPI’s",
-                        "Orchestrated development of AI product that automatically assigns items to slots in a warehouse by gathering requirements from stakeholders, designing linear programming optimization model, preparing dataset via R/SQL/Altyerx, overseeing model improvements and CPLEX implementation, providing logistics leadership with project updates, and launching product in 5 warehouses with estimated $5 million in labor savings",
-                        "Enhanced demand forecasts by cleansing poor historical sales data for every item in all 4,000+ stores using R and Hadoop Hive to implement linear models that predict when a drop in sales is due to unfulfilled customer demand"
-                    ]}
-                />
+                        ]}
+                    />
+                    <WorkItem
+                        company="University of California"
+                        jobRole="Grad Student Researcher"
+                        jobRole2="Teacher Assistant"
+                        dates="Sep 2011 - Aug 2016"
+                        location="Santa Cruz, CA"
+                        accomplishments={[
+                        "Researched, developed, and applied spatial model selection algorithms such as the Fused LASSO, Bayesian indicator model selection, and Bayesian spatial models to hypersepctral images using R, Matlab, and C++ OpenMP to identify chemicals in gasses released in the atmosphere",
+                        "Produced academic papers with proven interest in PhD research as demonstrated by accepted talks and awards at academic conferences. ",
+                        "Mapped connectivity in the brain by fitting ARIMA time series models, dynamic linear models, and the cross-correlation function to MEG brain data in R and Matlab as part of masters thesis",
+                        "Educated undergraduate students in probability and statistics courses with proven effectiveness as showcased in excellent teacher assistant evaluations"
+                        ]}
+                    />
+                    <WorkItem
+                        company="MIT Lincoln Laboratory"
+                        jobRole="Research Intern"
+                        dates="Summer 2013 & 2014"
+                        location="Boston, MA"
+                        accomplishments={[
+                        "Acquired physics knowledge and Matlab skills from expert researchers in spectral imaging and continued remote collaboration as part of PhD research",
+                        ]}
+                    />
+                </div>
+                <div id="other-experience" class="other-experience">
+                    <WorkItem
+                        company="CTB McGraw Hill"
+                        jobRole="SOX Technical Writer Intern"
+                        dates="Jun 2011 - Aug 2011"
+                        location="Monterey, CA"
+                        accomplishments={[
+                        "Discovered weaknesses in and conveyed improvements for SOX compliance to finance team by producing narratives and Visio flowcharts of billing and revenue recognition processes",
+                        "Delivered company-wide presentation explaining company’s financial processes and the importance of SOX compliance"
+                        ]}
+                    />            
+                    <WorkItem
+                        company="Law Office of W. Parks"
+                        jobRole="Legal Assistant"
+                        dates="Mar 2009 - Oct 2010"
+                        location="Sunnyvale, CA"
+                        accomplishments={[
+                        "Advocated over 200 clients in filling out legal forms to successfully discharge debts"
+                        ]}
+                    />  
+                    <WorkItem
+                        company="Equality California"
+                        jobRole="Administrative Assistant"
+                        dates="Aug 2008 - Jan 2009"
+                        location="San Francisco, CA"
+                        accomplishments={[
+                        "Worked for the No On 8 campaign by campaigning for monetary donations and maintaining large donor databases"
+                        ]}
+                    /> 
+                    <WorkItem
+                        company="UC Center Sacramento"
+                        jobRole="Scholar Intern"
+                        dates="Jun 2008 - Aug 2008"
+                        location="Sacramento, CA"
+                        accomplishments={[
+                        "Wrote reports analyzing the financial feasibility of bills regarding various topics, such as California’s budget crisis, California’s state prison crisis, and child poverty"
+                        ]}
+                    /> 
                 </div>
             </div>
         </div>
