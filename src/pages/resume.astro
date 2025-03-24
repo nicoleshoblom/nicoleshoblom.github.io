@@ -30,7 +30,8 @@ import WorkItem from '../components/WorkItem.astro';
                 </div>
             </div>
             <div class="main-content">
-                <WorkItem
+                <div class="technical-experience">
+                    <WorkItem
                 company="Addium"
                 jobRole="Data Scientist"
                 jobRole2="Director, Data Science"
@@ -42,34 +43,61 @@ import WorkItem from '../components/WorkItem.astro';
                     "Develop, scale, maintain OOTB platform feature using signal processing on time series data to calculate water uptake by plants. Feature turn-off & turn-on rate equal since release",
                     "Develop POC solution that predicts when daily plant irrigation should stop using signal processing and regression"
                 ]}
-            />
-            <WorkItem
-                company="Riverbed Technology"
-                jobRole="Director, Data Science"
-                jobRole2="Technical Director"
-                dates="Oct 2020 - June 2023"
-                location="Remote"
-                accomplishments={[
-                    "Develop intelligent software features using network models, density estimation, hypothesis testing, time series models, cluster analysis, linear models, change point detection to provide customers actionable insights for improving digital experience & network performance",
-                    "Strategize cross functionally in launching real-time ML SaaS product that assists customers to automatically identify and remediate network, application, & end-user device problems",
-                    "Stood up company’s first product data science team to provide data science solutions for multiple computer network and end user monitoring products",
-                    "Recognized as a high potential employee to participate in  360 leadership development program"
-                ]}
-            />
+                />
+                <WorkItem
+                    company="Riverbed Technology"
+                    jobRole="Director, Data Science"
+                    jobRole2="Technical Director"
+                    dates="Oct 2020 - June 2023"
+                    location="Remote"
+                    accomplishments={[
+                        "Develop intelligent software features using network models, density estimation, hypothesis testing, time series models, cluster analysis, linear models, change point detection to provide customers actionable insights for improving digital experience & network performance",
+                        "Strategize cross functionally in launching real-time ML SaaS product that assists customers to automatically identify and remediate network, application, & end-user device problems",
+                        "Stood up company’s first product data science team to provide data science solutions for multiple computer network and end user monitoring products",
+                        "Recognized as a high potential employee to participate in  360 leadership development program"
+                    ]}
+                />
+                    <WorkItem
+                    company="Walmart"
+                    jobRole="Staff Data Scientist"
+                    jobRole2="Senior Data Scientist"
+                    jobRole3="Decision Manager II"
+                    jobRole4="2015 Summer Intern"
+                    dates="Aug 2016 - Oct 2020"
+                    location="Bentonville, AR"
+                    accomplishments={[
+                        "Boosted online grocery sales by $160 million using Hive to develop an automated weekly audit report for 1 billion store-items that identifies discrepancies among ecommerce site back-end systems to fix items that are erroneously showing as out-of-stock, to provide root cause analysis for back-end system engineers, and to provide leadership with inventory accuracy KPI’s",
+                        "Orchestrated development of AI product that automatically assigns items to slots in a warehouse by gathering requirements from stakeholders, designing linear programming optimization model, preparing dataset via R/SQL/Altyerx, overseeing model improvements and CPLEX implementation, providing logistics leadership with project updates, and launching product in 5 warehouses with estimated $5 million in labor savings",
+                        "Enhanced demand forecasts by cleansing poor historical sales data for every item in all 4,000+ stores using R and Hadoop Hive to implement linear models that predict when a drop in sales is due to unfulfilled customer demand"
+                    ]}
+                />
+                <WorkItem
+                    company="Walmart"
+                    jobRole="Staff Data Scientist"
+                    jobRole2="Senior Data Scientist"
+                    jobRole3="Decision Manager II"
+                    jobRole4="2015 Summer Intern"
+                    dates="Aug 2016 - Oct 2020"
+                    location="Bentonville, AR"
+                    accomplishments={[
+                        "Boosted online grocery sales by $160 million using Hive to develop an automated weekly audit report for 1 billion store-items that identifies discrepancies among ecommerce site back-end systems to fix items that are erroneously showing as out-of-stock, to provide root cause analysis for back-end system engineers, and to provide leadership with inventory accuracy KPI’s",
+                        "Orchestrated development of AI product that automatically assigns items to slots in a warehouse by gathering requirements from stakeholders, designing linear programming optimization model, preparing dataset via R/SQL/Altyerx, overseeing model improvements and CPLEX implementation, providing logistics leadership with project updates, and launching product in 5 warehouses with estimated $5 million in labor savings",
+                        "Enhanced demand forecasts by cleansing poor historical sales data for every item in all 4,000+ stores using R and Hadoop Hive to implement linear models that predict when a drop in sales is due to unfulfilled customer demand"
+                    ]}
+                />
+                </div>
             </div>
         </div>
+
         <style>
-            .layout {
+            .layout{
                 display: flex;
                 flex-direction: column;
-                height: 100vh; /* Full viewport height */
+                height: 100%;
             }
-            .sidebar {
+            .sidebar{
+                width:100%;
                 background-color: white;
-                color: black;
-                padding: 0px;
-                width: 100%; /* Full width on mobile */
-                text-align: center;
                 border-bottom: 2px dotted coral;
                 font-size: 14px;
             }
@@ -125,28 +153,21 @@ import WorkItem from '../components/WorkItem.astro';
             .about .location .material-icons {
                 font-size: 18px;
             }
-            .main-content {
+            .main-content{
                 flex: 1;
-                padding: 0px;
-                text-align: center;
             }
-            @media (min-width: 768px) {
+            @media (min-width: 768px){
                 .layout {
-                    flex-direction: row;
-                }
+                        flex-direction: row;
+                        align-items: stretch;
+                        height: auto;
+                    }
                 .sidebar {
                     width: 300px; /* Fixed width for the sidebar on desktop */
-                    text-align: left;
-                    border-bottom: none;
                     border-right: 2px dotted coral;
-                    padding: 20px;
+                    border-bottom: none;
                 }
-                .about{
-                    flex: 1;
-                    text-align: justify;
-                    padding; 10px;
-                }
-                .main-content {
+                .main-content{
                     flex: 1;
                 }
             }
@@ -178,5 +199,5 @@ import WorkItem from '../components/WorkItem.astro';
                 updateCarousel(); // Initialize carousel position
             });
         </script>
-    </body>
+</body>
 </BaseLayout>
