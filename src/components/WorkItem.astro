@@ -71,6 +71,7 @@ const { company, jobRole, jobRole2, jobRole3, jobRole4, location, dates, accompl
         flex: 2;
         max-width: 70%; /* Allow the right section to take more space */
         text-align: left;
+        font-size: 13px;
     }
 
     .work-accomplishments ul {
@@ -92,5 +93,11 @@ const { company, jobRole, jobRole2, jobRole3, jobRole4, location, dates, accompl
         display: inline-block;
         width: 1em;
         margin-left: -1em;
+    }
+
+    @media (max-width: 768px) and (orientation: landscape) {
+        .work-accomplishments {
+            font-size: 13px; /* Reduce font size for landscape mode on small screens */
+        }
     }
 </style>
