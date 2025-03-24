@@ -34,6 +34,7 @@ import WorkItem from '../components/WorkItem.astro';
                 <nav class="main-nav">
                     <a href="#technical-experience">Technical Experience</a>
                     <a href="#other-experience">Other Experience</a>
+                    <a href="#education">Education</a>
                 </nav>
                 <div id="technical-experience" class="technical-experience">
                     <WorkItem
@@ -138,6 +139,9 @@ import WorkItem from '../components/WorkItem.astro';
                         ]}
                     /> 
                 </div>
+                <div id="education" class="education">
+                    <h2>Education</h2>
+                </div>
             </div>
         </div>
 
@@ -150,8 +154,7 @@ import WorkItem from '../components/WorkItem.astro';
             .sidebar{
                 width:100%;
                 background-color: white;
-                border-bottom: 2px dotted coral;
-                font-size: 14px;
+                font-size: 13px;
             }
             .carousel {
                 position: relative;
@@ -208,19 +211,49 @@ import WorkItem from '../components/WorkItem.astro';
             .main-content{
                 flex: 1;
             }
+            .main-nav{
+                display: flex;
+                justify-content: center;
+                gap: 20px;
+                position: sticky;
+                top:50px;
+                z-index:1000;
+                font-size: 14px;
+                background-color: coral;
+                padding-top: 5px;
+                padding-bottom: 5px;
+            }
+            .main-nav a {
+                text-decoration: None;
+                color: white;
+                font-size: 14px;
+                font-family: 'Poppins';
+            }
+            .main-nav a:hover {
+                text-decoration: underline;
+            }
+            #technical-experience {
+                scroll-margin-top: 90px; /* Adjust this value to match the height of the sticky nav bar */
+            }
             @media (min-width: 768px){
                 .layout {
                         flex-direction: row;
-                        align-items: stretch;
+                        align-items: flex-start;
                         height: auto;
                     }
                 .sidebar {
                     width: 300px; /* Fixed width for the sidebar on desktop */
                     border-right: 2px dotted coral;
                     border-bottom: none;
+                    position: sticky;
+                    top: 55px;
+                    height: 100vh;
+                    overflow: auto;
                 }
                 .main-content{
                     flex: 1;
+                    margin-right: 10px;
+                    margin-left: 10px;
                 }
             }
         </style>
