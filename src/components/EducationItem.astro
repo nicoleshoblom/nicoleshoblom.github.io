@@ -1,17 +1,14 @@
 ---
 // Props for the WorkItem component
-const { company, jobRole, jobRole2, jobRole3, jobRole4, location, dates, accomplishments } = Astro.props;
+const { degree, school, location, dates, accomplishments } = Astro.props;
 ---
 
 <div class="work-item">
     <div class="work-details">
-        <h3>{company}</h3>
-        <p>{jobRole}</p>
-        <p>{jobRole2}</p>
-        <p>{jobRole3}</p>
-        <p>{jobRole4}</p>
+        <h3>{degree}</h3>
+        <h4>{school}</h4>
         <p>
-            <span class="material-icons">calendar_today</span> {dates}
+            <span class="material-icons">school</span> {dates}
         </p>
         <p>
             <span class="material-icons">location_on</span> {location}
@@ -55,6 +52,11 @@ const { company, jobRole, jobRole2, jobRole3, jobRole4, location, dates, accompl
         margin: 0;
         font-size: 13px;
         font-weight: bold;
+    }
+
+    .work-details h4{
+        margin:0;
+        font-size: 13px;
     }
 
     .work-details p {

@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro'
 const PageTitle = "Resume"
 import WorkItem from '../components/WorkItem.astro';
+import EducationItem from '../components/EducationItem.astro';
 ---
 
 <BaseLayout PageTitle={PageTitle}>
@@ -32,7 +33,7 @@ import WorkItem from '../components/WorkItem.astro';
             <div class="main-content">
                 <!-- Navigation Bar -->
                 <nav class="main-nav">
-                    <a href="#technical-experience">Technical Experience</a>
+                    <a href="#technical-experience">Tech Experience</a>
                     <a href="#other-experience">Other Experience</a>
                     <a href="#education">Education</a>
                 </nav>
@@ -140,7 +141,45 @@ import WorkItem from '../components/WorkItem.astro';
                     /> 
                 </div>
                 <div id="education" class="education">
-                    <h2>Education</h2>
+                    <EducationItem
+                        degree="PhD, Statistics & Applied Mathematics"
+                        school="University of California"
+                        dates="Jun 2018"
+                        location="Santa Cruz, CA"
+                        accomplishments={[
+                        "Dissertation: “Model selection methods for linear, non-linear, and spatial data in hyperspectral imagery” with advisor, Dr. Abel Rodríguez",
+                        "NSF S-STATS MODEL Fellowship recipient, 2012-2013 & 2013-2014",
+                        "Courses include: Bayesian statistics, multivariate statistics, linear models, general linear models, non-parametric modeling, spatial modeling, times-series modeling, stochastic processes, machine learning, data mining, econometrics, micro- and macro- economic analysis, financial analysis, corporate finance, accounting"
+                        ]}
+                    />
+                    <EducationItem
+                        degree="M.S., Statistics & Applied Mathematics"
+                        school="University of California"
+                        dates="Jun 2014"
+                        location="Santa Cruz, CA"
+                        accomplishments={[
+                        "Thesis: “Time series models for MEG data” with advisor, Dr. Raquel Prado"
+                        ]}
+                    />
+                    <EducationItem
+                        degree="B.A., Women's Studies & Political Science"
+                        school="University of California"
+                        dates="Aug 2008"
+                        location="Santa Barbara, CA"
+                        accomplishments={[
+                        "Activities and societies: Events Officer, UCSB Society of Leadership and Success (2006-2007)",
+                        "Courses include: Economics, Modern US Law, Third-World Politics, Philosophy, Gender Studies"
+                        ]}
+                    />
+                    <EducationItem
+                        degree="Machine Learning Certificate"
+                        school="Cornell University"
+                        dates="Oct 2020"
+                        location="Online"
+                        accomplishments={[
+                        "Courses in Python covering linear classifiers, decision trees & model selection, kernel machines, deep learning and neural networks"
+                        ]}
+                    />
                 </div>
             </div>
         </div>
@@ -216,8 +255,8 @@ import WorkItem from '../components/WorkItem.astro';
                 justify-content: center;
                 gap: 20px;
                 position: sticky;
-                top:50px;
-                z-index:1000;
+                top:55px;
+                z-index:2000;
                 font-size: 14px;
                 background-color: coral;
                 padding-top: 5px;
@@ -233,7 +272,13 @@ import WorkItem from '../components/WorkItem.astro';
                 text-decoration: underline;
             }
             #technical-experience {
-                scroll-margin-top: 90px; /* Adjust this value to match the height of the sticky nav bar */
+                scroll-margin-top: 80px; /* Adjust this value to match the height of the sticky nav bar */
+            }
+            #other-experience {
+                scroll-margin-top: 80px;
+            }
+            #education {
+                scroll-margin-top: 80px;
             }
             @media (min-width: 768px){
                 .layout {
