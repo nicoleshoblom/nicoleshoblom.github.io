@@ -194,6 +194,7 @@ import EducationItem from '../components/EducationItem.astro';
             .sidebar{
                 width:100%;
                 font-size: 13px;
+                overflow-y: auto;
             }
             .carousel {
                 position: relative;
@@ -303,8 +304,8 @@ import EducationItem from '../components/EducationItem.astro';
                     border-bottom: none;
                     position: sticky;
                     top: 55px;
-                    height: 100vh;
-                    overflow: auto;
+                    height: calc(100vh - 55px);
+                    overflow-y: auto;
                 }
                 .main-content{
                     flex: 1;
@@ -327,8 +328,8 @@ import EducationItem from '../components/EducationItem.astro';
                     border-bottom: none;
                     position: sticky;
                     top: 55px;
-                    height: 100vh;
-                    overflow: auto;
+                    height: calc(100vh - 55px);
+                    overflow-y: auto;
                 }
                 .main-content{
                     flex: 1;
