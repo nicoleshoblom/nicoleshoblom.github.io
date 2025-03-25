@@ -315,6 +315,30 @@ import EducationItem from '../components/EducationItem.astro';
                     padding-top: 5px;
                 }
             }
+            @media(max-width: 768px) and (orientation: landscape){
+                .layout {
+                        flex-direction: row;
+                        align-items: flex-start;
+                        height: auto;
+                    }
+                .sidebar {
+                    width: 300px; /* Fixed width for the sidebar on desktop */
+                    border-right: 2px dotted coral;
+                    border-bottom: none;
+                    position: sticky;
+                    top: 55px;
+                    height: 100vh;
+                    overflow: auto;
+                }
+                .main-content{
+                    flex: 1;
+                    margin-right: 10px;
+                    margin-left: 10px;
+                }
+                .main-nav{
+                    padding-top: 5px;
+                }
+            }
         </style>
         <script>
             document.addEventListener('DOMContentLoaded', function () {
