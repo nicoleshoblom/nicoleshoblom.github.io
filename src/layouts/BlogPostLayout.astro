@@ -6,14 +6,28 @@ import pic from '../assets/afghanwomen_pic1.webp';
 ---
 
 <BaseLayout>
-    <Image src={pic} alt="Picture from src folder" class="blog-image"></Image>
+    <div class="blog-header">
+        <h1>This page is under construction 🛠️</h1>
+        <Image src={pic} alt="Picture from src folder" class="blog-image"></Image>
+    </div>
     <slot />
     <style>
-    .blog-image {
-        width: 50%;
-        height: auto;
-        margin: 20px auto;
-        display: block;
-    }
+        .blog-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .blog-image {
+            width: 50%;
+            height: auto;
+            margin: 20px auto;
+            display: block;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-family: 'Poppins', sans-serif;
+            margin-bottom: 10px;
+        }
     </style>
 </BaseLayout>
