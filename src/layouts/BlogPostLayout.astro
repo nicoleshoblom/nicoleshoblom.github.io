@@ -14,8 +14,8 @@ const images = Object.values(import.meta.glob('../assets/afghanwomen/*.webp', { 
                 ))}
             </div>
             <div class="carousel-controls">
-                <button class="carousel-button" onclick="prevSlide()">Previous</button>
-                <button class="carousel-button" onclick="nextSlide()">Next</button>
+                <button class="carousel-button prev">❮</button>
+                <button class="carousel-button next">❯</button>
             </div>
         </div>
         <div class="content">
@@ -41,12 +41,14 @@ const images = Object.values(import.meta.glob('../assets/afghanwomen/*.webp', { 
         .carousel-track {
             display: flex;
             transition: transform 0.5s ease-in-out;
+            width: calc(100% * var(--image-count)); /* Dynamically set width based on the number of images */
         }
 
         .carousel-image {
-            min-width: 100%;
+            flex-shrink: 0;
+            width: 100%;
             height: auto;
-            border-radius: 10px;
+            border-radius: 0px;
         }
 
         .carousel-controls {
@@ -77,42 +79,44 @@ const images = Object.values(import.meta.glob('../assets/afghanwomen/*.webp', { 
             }
 
             .carousel {
-                flex: 1; /* Allow the carousel to take up space on the left */
+                flex: 2; /* Allow the carousel to take up space on the left */
                 max-width: 50%; /* Limit the carousel width */
-                margin: 0; /* Remove auto margin for side-by-side layout */
+                margin-left: 10px; /* Remove auto margin for side-by-side layout */
             }
 
             .content {
                 flex: 2; /* Allow the content to take up more space on the right */
                 padding-left: 20px; /* Add spacing between the carousel and content */
+                margin-right: 10px;
             }
         }
     </style>
 
     <script>
-        let currentIndex = 0;
-
-        function updateCarousel() {
+        document.addEventListener('DOMContentLoaded', function () {
             const track = document.querySelector('.carousel-track');
-            const slides = document.querySelectorAll('.carousel-image');
-            if (slides.length === 0) return; // Prevent errors if no images are loaded
-            const slideWidth = slides[0].clientWidth;
-            track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
-        }
+            const images = Array.from(track.children);
+            const prevButton = document.querySelector('.carousel-button.prev');
+            const nextButton = document.querySelector('.carousel-button.next');
+            let currentIndex = 0;
 
-        function prevSlide() {
-            const slides = document.querySelectorAll('.carousel-image');
-            currentIndex = (currentIndex > 0) ? currentIndex - 1 : slides.length - 1;
-            updateCarousel();
-        }
+            function updateCarousel() {
+                const slideWidth = images[0].getBoundingClientRect().width;
+                track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+            }
 
-        function nextSlide() {
-            const slides = document.querySelectorAll('.carousel-image');
-            currentIndex = (currentIndex < slides.length - 1) ? currentIndex + 1 : 0;
-            updateCarousel();
-        }
+            nextButton.addEventListener('click', () => {
+                currentIndex = (currentIndex + 1) % images.length;
+                updateCarousel();
+            });
 
-        window.addEventListener('resize', updateCarousel);
-        window.addEventListener('DOMContentLoaded', updateCarousel);
+            prevButton.addEventListener('click', () => {
+                currentIndex = (currentIndex - 1 + images.length) % images.length;
+                updateCarousel();
+            });
+
+            window.addEventListener('resize', updateCarousel);
+            updateCarousel(); // Initialize carousel position
+        });
     </script>
 </BaseLayout>
