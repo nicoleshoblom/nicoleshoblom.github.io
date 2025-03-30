@@ -1,11 +1,19 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
 
-// Dynamically import all .webp images from the src/afghanwomen folder
-const images = Object.values(import.meta.glob('../afghanwomen/*.{webp,jpg}', { eager: true }));
-console.log(images);
+import { Image } from 'astro:assets';
+import pic from '../assets/afghanwomen_pic1.webp';
 ---
 
 <BaseLayout>
+    <Image src={pic} alt="Picture from src folder" class="blog-image"></Image>
     <slot />
+    <style>
+    .blog-image {
+        width: 50%;
+        height: auto;
+        margin: 20px auto;
+        display: block;
+    }
+    </style>
 </BaseLayout>
