@@ -1,8 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
-
 import { Image } from 'astro:assets';
 const images = Object.values(import.meta.glob('../assets/afghanwomen/*.webp', { eager: true }));
+const { frontmatter } = Astro.props;
 ---
 
 <BaseLayout>
@@ -19,6 +19,8 @@ const images = Object.values(import.meta.glob('../assets/afghanwomen/*.webp', { 
             </div>
         </div>
         <div class="content">
+            <h1>{frontmatter.title}</h1>
+            <h5>{frontmatter.date} | {frontmatter.location}</h5>
             <slot />
         </div>
     </div>
@@ -27,7 +29,8 @@ const images = Object.values(import.meta.glob('../assets/afghanwomen/*.webp', { 
         .blog-layout {
             display: flex;
             flex-direction: column; /* Default to column layout for mobile */
-            gap: 20px;
+            gap: 0px;
+            margin-top: 0px;
         }
 
         .carousel {
@@ -35,7 +38,7 @@ const images = Object.values(import.meta.glob('../assets/afghanwomen/*.webp', { 
             overflow: hidden;
             width: 100%;
             max-width: 800px;
-            margin: 20px auto;
+            margin-top: 0px;
         }
 
         .carousel-track {
@@ -70,25 +73,53 @@ const images = Object.values(import.meta.glob('../assets/afghanwomen/*.webp', { 
         .carousel-button:hover {
             background-color: darkorange;
         }
+        
+        .content{
+            margin-left: 5px;
+            margin-right: 5px;
+            margin-top: 0px;
+            padding-top:0;
+            font-family: 'Open Sans', sans-serif;
+        }
+        .content h1 {
+            font-size: 2rem;
+            margin: 0;
+            margin-top: 10px;
+            text-align: center;
+            padding-top: 0px;
+            font-family: 'Poppins', sans-serif;
+        }
+        .content h5 {
+            text-align: center;
+            margin: 0px;
+        }
 
         /* Desktop-specific layout */
         @media (min-width: 768px) {
             .blog-layout {
                 flex-direction: row; /* Arrange carousel and content side by side */
                 align-items: flex-start;
+                height: auto;
             }
 
             .carousel {
                 flex: 2; /* Allow the carousel to take up space on the left */
                 max-width: 50%; /* Limit the carousel width */
-                margin-left: 10px; /* Remove auto margin for side-by-side layout */
+                margin-left: 9px; /* Remove auto margin for side-by-side layout */
             }
 
             .content {
                 flex: 2; /* Allow the content to take up more space on the right */
-                padding-left: 20px; /* Add spacing between the carousel and content */
-                margin-right: 10px;
+                padding-left: 10px; /* Add spacing between the carousel and content */
+                margin-right: 5px;
+                margin-top: 0px;
+                padding-top: 0;
             }
+
+            .content h1 {
+                margin-top: 0px;
+            }
+
         }
     </style>
 
