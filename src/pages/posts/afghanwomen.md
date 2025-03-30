@@ -6,7 +6,7 @@ description: 'Blog about talk I attended on Afghan Women'
 author: 'Nicolita42'
 tags: ["women's rights","seoul", "", "expat spouse"]
 ---
-# Men and Women are Equal
+
 Before the Taliban took over Afghanistan in 2021 women were allowed to work in a diverse number of fields. Since the takeover, women may now only work in a scant few fields, like healthcare and customs. Technically speaking, Afghan women are not allowed in public green spaces, and they must be accompanied by a man whenever they leave their house. Worst of all, young women and girls are not allowed to go to school.
 
 At her powerful talk at Heyground next to 뚝섬역, Ms. Alison Mariam Davidian of UN Women explained that half of the Taliban believe that the ulimate goal for Afghans is to reach heaven. However, to do so one must be protected from sin. A seemingly easy way to do this is through segragation of the sexes. So, women and girls can't go out in public and can't attend school until women-only public places and women-only schools are built. 
