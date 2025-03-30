@@ -3,6 +3,9 @@ layout: ../../layouts/BlogPostLayout.astro
 title: 'Men and Women are Equal'
 date: 'March 30, 2025'
 location: 'Seoul, SK'
+captions:
+    - "A large audience listens to Ms. Alison Davidian speak about women in Afghanistan on March 11, 2025 at Heyground coworking space in Seoul, SK"
+    - "Ms. Alison Davidian taking questions after her talk about women in Afghanistan on March 11, 2025 at Heyground coworking space in Seoul, SK"
 ---
 &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; Before the Taliban took over Afghanistan in 2021 women were allowed to work in a diverse number of fields. Since the takeover, women may now only work in a scant few fields, like healthcare and customs. Technically speaking, Afghan women are not allowed in public green spaces, and they must be accompanied by a man whenever they leave their house. Worst of all, young women and girls are not allowed to go to school.
 
