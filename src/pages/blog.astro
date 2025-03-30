@@ -1,16 +1,13 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
 const PageTitle = "Blog"
+import pic from '../assets/afghanwomen_pic1.webp';
 ---
 
 <BaseLayout PageTitle={PageTitle}>
-    <h1>Coming Soon ^^</h1>
-    <style>
-        h1 {
-            text-align: center;
-            margin-top: 100px;
-            font-size: 2rem;
-            font-family: Poppins;
-        }
-    </style>
+    <h1>This page is under construction 🛠️</h1>
+    <ul>
+        <li><a href="/posts/afghanwomen/">Men and Women are Equal</a></li>
+    </ul>
+    <img src={pic} alt="Picture from src folder">
 </BaseLayout>

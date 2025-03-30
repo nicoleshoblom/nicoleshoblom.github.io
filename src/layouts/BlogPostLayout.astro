@@ -1,0 +1,11 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+
+// Dynamically import all .webp images from the src/afghanwomen folder
+const images = Object.values(import.meta.glob('../afghanwomen/*.{webp,jpg}', { eager: true }));
+console.log(images);
+---
+
+<BaseLayout>
+    <slot />
+</BaseLayout>
