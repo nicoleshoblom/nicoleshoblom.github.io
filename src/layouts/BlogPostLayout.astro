@@ -2,32 +2,117 @@
 import BaseLayout from '../layouts/BaseLayout.astro'
 
 import { Image } from 'astro:assets';
-import pic from '../assets/afghanwomen/pic1.webp';
+const images = Object.values(import.meta.glob('../assets/afghanwomen/*.webp', { eager: true }));
 ---
 
 <BaseLayout>
-    <div class="blog-header">
-        <h1>Men and Women are Equal</h1>
-        <Image src={pic} alt="Picture from src folder" class="blog-image"></Image>
+    <div class="blog-layout">
+        <div class="carousel">
+            <div class="carousel-track">
+                {images.map((image, index) => (
+                    <Image src={image.default} alt={`Image ${index + 1}`} class="carousel-image" />
+                ))}
+            </div>
+            <div class="carousel-controls">
+                <button class="carousel-button" onclick="prevSlide()">Previous</button>
+                <button class="carousel-button" onclick="nextSlide()">Next</button>
+            </div>
+        </div>
+        <div class="content">
+            <slot />
+        </div>
     </div>
-    <slot />
+
     <style>
-        .blog-header {
-            text-align: center;
-            margin-bottom: 20px;
+        .blog-layout {
+            display: flex;
+            flex-direction: column; /* Default to column layout for mobile */
+            gap: 20px;
         }
 
-        .blog-image {
-            width: 50%;
-            height: auto;
+        .carousel {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            max-width: 800px;
             margin: 20px auto;
-            display: block;
         }
 
-        h1 {
-            font-size: 2rem;
-            font-family: 'Poppins', sans-serif;
-            margin-bottom: 10px;
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-image {
+            min-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .carousel-controls {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+            gap: 10px;
+        }
+
+        .carousel-button {
+            background-color: coral;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .carousel-button:hover {
+            background-color: darkorange;
+        }
+
+        /* Desktop-specific layout */
+        @media (min-width: 768px) {
+            .blog-layout {
+                flex-direction: row; /* Arrange carousel and content side by side */
+                align-items: flex-start;
+            }
+
+            .carousel {
+                flex: 1; /* Allow the carousel to take up space on the left */
+                max-width: 50%; /* Limit the carousel width */
+                margin: 0; /* Remove auto margin for side-by-side layout */
+            }
+
+            .content {
+                flex: 2; /* Allow the content to take up more space on the right */
+                padding-left: 20px; /* Add spacing between the carousel and content */
+            }
         }
     </style>
+
+    <script>
+        let currentIndex = 0;
+
+        function updateCarousel() {
+            const track = document.querySelector('.carousel-track');
+            const slides = document.querySelectorAll('.carousel-image');
+            if (slides.length === 0) return; // Prevent errors if no images are loaded
+            const slideWidth = slides[0].clientWidth;
+            track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+        }
+
+        function prevSlide() {
+            const slides = document.querySelectorAll('.carousel-image');
+            currentIndex = (currentIndex > 0) ? currentIndex - 1 : slides.length - 1;
+            updateCarousel();
+        }
+
+        function nextSlide() {
+            const slides = document.querySelectorAll('.carousel-image');
+            currentIndex = (currentIndex < slides.length - 1) ? currentIndex + 1 : 0;
+            updateCarousel();
+        }
+
+        window.addEventListener('resize', updateCarousel);
+        window.addEventListener('DOMContentLoaded', updateCarousel);
+    </script>
 </BaseLayout>
