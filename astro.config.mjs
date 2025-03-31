@@ -5,5 +5,8 @@ import { defineConfig } from 'astro/config';
 export default defineConfig({
     output: "static",
     base:"/",
-    site: "https://nicoleshoblom.github.io"
+    site: "https://nicoleshoblom.github.io",
+    integrations: [mdx()]
 });
+
+import mdx from '@astrojs/mdx';
