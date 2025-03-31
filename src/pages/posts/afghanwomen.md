@@ -19,3 +19,12 @@ Ms. Davidian explained that to fight the dire situation of women in Afghanistan,
 Thanks to all the organizations, like The Gallery, AWC, BASS that helped make this amazing talk possible.
 
 To my readers - Whoever you are, I hope you'll stand up 저는하고 같이 (with me) for women's rights and 고마워요 (thank you) for stopping by.
+
+
+
+
+
+
+
+
+
