@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro'
 import { Image } from 'astro:assets';
 const images = Object.values(import.meta.glob('../assets/afghanwomen/*.webp', { eager: true }));
-const { frontmatter } = Astro.props;
+const { captions, title, date, location } = Astro.props;
 ---
 
 <BaseLayout>
@@ -12,7 +12,7 @@ const { frontmatter } = Astro.props;
                 {images.map((image, index) => (
                     <div class="carousel-item" key={index}>
                     <Image src={image.default} alt={`Image ${index + 1}`} class="carousel-image"/>
-                    <p class="carousel-caption">{frontmatter.captions[index]}</p>
+                    <p class="carousel-caption">{captions[index]}</p>
                     </div>
                 ))}
             </div>
@@ -31,8 +31,8 @@ const { frontmatter } = Astro.props;
             </div>
         </div>
         <div class="content">
-            <h1>{frontmatter.title}</h1>
-            <h5>{frontmatter.date} | {frontmatter.location}</h5>
+            <h1>{title}</h1>
+            <h5>{date} | {location}</h5>
             <div class="article">
                 <slot />
             </div>
