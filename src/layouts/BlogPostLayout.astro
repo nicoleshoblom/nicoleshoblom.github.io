@@ -1,8 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
 import { Image } from 'astro:assets';
-const images = Object.values(import.meta.glob('../assets/afghanwomen/*.webp', { eager: true }));
-const { captions, title, date, location } = Astro.props;
+import BlogCarousel from '../components/BlogCarousel.astro';
+const { captions, title, date, location, images} = Astro.props;
 ---
 
 <BaseLayout>
