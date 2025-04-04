@@ -1,6 +1,5 @@
 ---
 import BlogPostLayout from '../../layouts/BlogPostLayout.astro';
-import '../../styles/BlogSpacing.css';
 const captions = [
     "Ms. Shoblom and friend, Mrs. Shub, are welcomed at ScentOn HQ on March 11, 2025.",
     "Synthetic scents to choose from in making our own perfume.",
@@ -31,3 +30,12 @@ const images = Object.values(import.meta.glob('../../assets/perfume/*.webp', { e
     <span class="end"></span>
 </p>
 </BlogPostLayout>
+<style>
+    span{
+            display: block;
+            height: 1.05rem;
+        }
+        .end{
+            height:10px;
+        }
+</style>
