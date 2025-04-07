@@ -171,6 +171,10 @@ const { captions, title, date, location, images} = Astro.props;
             margin-right: 10px;
             font-size: 14px;
         }
+        html {
+                -webkit-text-size-adjust: 100%;
+                text-size-adjust: 100%;
+        }
 
         /* Desktop-specific layout */
         @media (min-width: 768px) {
@@ -233,6 +237,10 @@ const { captions, title, date, location, images} = Astro.props;
 
             .content .article{
                 font-size: clamp(14px);
+            }
+            html {
+                -webkit-text-size-adjust: 100%;
+                text-size-adjust: 100%;
             }
         }
     </style>
