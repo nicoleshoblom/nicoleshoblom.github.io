@@ -1,0 +1,284 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import { Image } from 'astro:assets';
+import BlogCarousel from '../components/BlogCarousel.astro';
+const { captions, title, date, location, images} = Astro.props;
+---
+
+<BaseLayout>
+    <div class="blog-layout">
+        <div class="carousel">
+            <div class="carousel-track">
+                {images.map((image, index) => (
+                    <div class="carousel-item" key={index}>
+                        {index === 0 ? (
+                            <div class="video-wrapper">
+                                <iframe 
+                                    src="https://www.youtube.com/embed/Gl83mI69nX4?si=nQRhUYDoluZtamAF&amp;start=89" 
+                                    title="YouTube video player"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                    referrerpolicy="strict-origin-when-cross-origin" 
+                                    style="width: 100%; height: auto; aspect-ratio: 16 / 9; border: none;"
+                                    allowfullscreen>
+                                </iframe>
+                            </div>
+                        ) : (
+                            <Image src={image.default} alt={`Image ${index + 1}`} class="carousel-image" />
+                        )}
+                        {/* <p class="carousel-caption">{captions[index]}</p> */}
+                    </div>
+                ))}
+            </div>
+            <!-- <div class="carousel-controls">
+                <button class="carousel-button prev">❮</button>
+                <div class="carousel-indicators">
+                    {images.map((_, index) => (
+                        <span
+                            class={`carousel-dot ${index === 0 ? 'active' : ''}`}
+                            data-index={index}
+                            onclick="setSlide({index})"
+                        ></span>
+                    ))}
+                </div>
+                <button class="carousel-button next">❯</button>
+            </div> -->
+        </div>
+        <div class="content">
+            <h1>{title}</h1>
+            <h5>{date} | {location}</h5>
+            <div class="article">
+                <slot />
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .blog-layout {
+            display: flex;
+            flex-direction: column; /* Default to column layout for mobile */
+            gap: 0px;
+            margin-top: 0px;
+        }
+
+        .carousel {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            max-width: 800px;
+            margin-top: 0px;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-item {
+            flex-shrink: 0;
+            width: 100%;
+            text-align: center; /* Center-align the caption */
+        }
+
+        .carousel-image {
+            width: 100%;
+            height: auto;
+            border-radius: 0px;
+            margin-bottom: 0px;
+        }
+
+        .carousel-video {
+            width: 100%;
+            height: auto;
+            border-radius: 0px;
+            margin-bottom: 0px;
+        }
+
+        .carousel-caption{
+            font-size: 12px;
+            margin-top: 0px;
+            margin: 5px;
+            margin-bottom: 0px;
+        }
+
+        .carousel-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 0px;
+            margin-bottom: 10px;
+            gap: 10px;
+        }
+
+        .carousel-button {
+            background-color: coral;
+            color: white;
+            border: none;
+            padding: 5px 5px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .carousel-button:hover {
+            background-color: darkorange;
+        }
+
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            margin-top: 0px;
+        }
+
+        .carousel-dot {
+            width: 5px;
+            height: 5px;
+            background-color: #ccc;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .carousel-dot.active {
+            background-color: coral;
+        }
+
+        .carousel-dot:hover {
+            background-color: darkorange;
+        }
+ 
+        .content{
+            margin-left: 10px;
+            margin-right: 5px;
+            padding:0px;
+            font-family: 'Open Sans', sans-serif;
+            text-align: justify;
+            padding-bottom: 200px;
+        }
+        .content h1 {
+            font-size: 1.5rem;
+            margin-bottom: 0px;;
+            margin-top: 0px;
+            text-align: center;
+            padding-top: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+        .content h5 {
+            text-align: center;
+            margin: 0px;
+        }
+        .content .article{
+            margin-right: 10px;
+            font-size: 14px;
+        }
+
+        /* Desktop-specific layout */
+        @media (min-width: 768px) {
+            .blog-layout {
+                display: block;
+            }
+
+            .carousel {
+                max-width: 50%; /* Limit the carousel width */
+                float: left;
+                margin-right: 20px;
+            }
+
+            .carousel-caption{
+                font-size: 14px;
+            }
+
+            .content {
+                flex: 2; /* Allow the content to take up more space on the right */
+                padding: 0px; /* Add spacing between the carousel and content */
+                margin-right: 10px;
+                margin-left: 20px;
+                margin-top: -8px;
+            }
+
+            .content h1 {
+                margin-top: 0px;
+            }
+
+            .content .article{
+                font-size: 17px;
+            }
+        }
+        @media (max-width: 768px) and (orientation: landscape) {
+            .blog-layout {
+                flex-direction: row; /* Arrange carousel and content side by side */
+                align-items: flex-start;
+            }
+
+            .carousel {
+                flex: 1; /* Allow the carousel to take up space on the left */
+                max-width: 50%; /* Limit the carousel width */
+                margin-left: 9px;
+                height: 100vh;
+                overflow: hidden;
+            }
+
+            .carousel-image{
+                width: 100%;
+                object-fit: cover;
+            }
+
+            .content {
+                flex: 2; /* Allow the content to take up more space on the right */
+                padding: 0px; /* Add spacing between the carousel and content */
+                max-width: 50%;
+                margin-top: -8px;
+                padding-top: 0px;
+                margin-left: 20px;
+                margin-right: 5px;
+                font-size: 20px;
+
+            }
+            .content h1 {
+                margin-top: 0px;
+            }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const track = document.querySelector('.carousel-track');
+            const images = Array.from(track.children);
+            const prevButton = document.querySelector('.carousel-button.prev');
+            const nextButton = document.querySelector('.carousel-button.next');
+            const dots = Array.from(document.querySelectorAll('.carousel-dot'));
+            let currentIndex = 0;
+
+            function updateCarousel() {
+                const slideWidth = images[0].getBoundingClientRect().width;
+                track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+
+                // Update active dot
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentIndex);
+                });
+            }
+
+            function setSlide(index) {
+                currentIndex = index;
+                updateCarousel();
+            }
+
+            nextButton.addEventListener('click', () => {
+                currentIndex = (currentIndex + 1) % images.length;
+                updateCarousel();
+            });
+
+            prevButton.addEventListener('click', () => {
+                currentIndex = (currentIndex - 1 + images.length) % images.length;
+                updateCarousel();
+            });
+
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => setSlide(index));
+            });
+
+            window.addEventListener('resize', updateCarousel);
+            updateCarousel(); // Initialize carousel position
+        });
+    </script>
+</BaseLayout>

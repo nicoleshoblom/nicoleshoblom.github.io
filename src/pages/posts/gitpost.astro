@@ -1,0 +1,142 @@
+---
+import BlogPostLayout from '../../layouts/BlogPostLayoutVideo.astro';
+const captions = [
+    "I always think of this song by Lupe Fiasco when using Git. In this post we won't 'kick push'. Instead we'll 'git push'."
+];
+const title = "Git Basics for a Personal Website"
+const date = "March 30, 2025"
+const location = "Seoul, South Korea"
+const images = Object.values(import.meta.glob('../../assets/gitpost/*.webp', { eager: true}));
+---
+<BlogPostLayout
+    captions={captions}, 
+    title={title},
+    date={date},
+    location={location},
+    images={images}
+>
+<p> 
+    When using Git I always think of the song "Kick, Push" by Lupe Fiasco, but in this post we will <code>git push</code> ;). If you want to make a personal website basically for free, Git will be essential for you to learn, especially if you don't want to deal with the deploy process of your website. So let's get started!
+    
+    <!-- Git can be be useful for even non-technical projects, like writing a book because Git is a version control tool. What is version control? Essentially, its keeping track of changes made to files so that an individual or team can revert to past versions if necessary. Put another way, no one needs to fear making changes to files! And there doesn’t need to be separate files for different versions! -->
+    <span></span>
+    First sign up to make a free account with <a href="https://github.com/">Github</a>. Git can be used without a Github account, but for building a personal website from scratch (i.e., not using Wix, Wordpress, Squarespace, etc.) it's absolutely necessary. Additionally, pushing your work to a remote Github server acts as a backup in case anything should happen to you local computer!
+    <span></span>
+    Next you will need to install Git on your computer, which is also free. Unfortunately for Windows users, this is where my post will be more helpful for Mac users. If on Windows or Linux please refer <a href="https://github.com/git-guides/install-git">here</a> for more instructions. So, if you have a Mac, I recommend installing Git via Homebrew, which is also free and also requires installation. To install Homebrew first search for the Terminal application and open a Terminal window. You will see a command prompt that looks like this.
+<pre class="code-block">
+<code>
+nicole@Nicoles-MacBook-Pro ~ %
+</code>
+</pre>
+    If you haven't installed Homebrew yet, you can run the following command after the command prompt to do so. 
+<pre class="code-block">
+<code>
+nicole@Nicoles-MacBook-Pro ~ % /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+</code>
+</pre>
+    The installer will list what will be installed and the new folders that will be created. Follow the prompt to press RETURN/ENTER to continue. Then after successful installation you'll see "Next steps" commands to add Homebrew to your <b>PATH</b>. Copy and paste the commands directly into your terminal. Now installation of Git is easy by running the following command.
+<pre class="code-block">
+<code>
+brew install git
+</code>
+</pre>
+    You can verify that git installed by running <code>git --version</code>, and you should see something like <code>git version 2.39.5 (Apple Git-154)</code>. If you'd made it this far you've won half the Git battle.
+    <span></span>
+    Now let's do a toy example to give you an idea of how Git works. In Finder create a new folder wherever you like. I will make a "test" folder in my home directory. Now in your Terminal window <code>cd</code>, which stands for "change directory", to the folder you just made. For me it looks like:
+<pre class="code-block">
+<code>
+cd /Users/nicole/test
+</code>
+</pre>
+    The command prompt should now show your folder. For example, my command prompt now shows test at the end.
+<pre class="code-block">
+<code>
+nicole@Nicoles-MacBook-Pro test %
+</code>
+</pre>
+    Next initialize the folder as a git respository by running:
+<pre class="code-block">
+<code>
+nicole@Nicoles-MacBook-Pro test % git init
+</code>
+</pre>
+    Now create a readme file in your test folder like so:
+<pre class="code-block">
+<code>
+echo "# Test project" > README.md
+</code>
+</pre>
+    You can verify that the README.md file is in your folder in Finder.
+    <span></span>
+    Now stage and commit the README.md file with the following commands.
+<pre class="code-block">
+<code>
+git add .
+git commit -m "Initial commit"
+</code>
+</pre>
+    Next make sure you are logged into to your Github account and go to <a href=https://github.com/new>github.com/new</a> to create a new repository. Give the repository the same name as the folder you just created. You can make it public or private. Make sure "Add a README file" is <b>not</b> checked, then click "Create repository". You will then be redirected to the repository page. Scroll down to "...or push an existing repository from the command line" to see the commands that will sync your local folder with the remote Github repository. For me I am instructed to run:
+<pre class="code-block">
+<code>
+git remote add origin https://github.com/nicoleshoblom/test.git
+git branch -M main
+git push -u origin main
+</code>
+</pre>
+    At this point you may be asked to provide github credentials inside the terminal and provide author name and email. If so, follow the prompts to do so and then run the previous commands again. If you made it this far, then you've done your first <code>git push</code>! Congrats! You can now go back to Github.com and see that README.md (plus the .DS_Store file which was created with <code>git init</code>) shows up on the repository page.
+    <span></span>
+    Now let's make a change to the README.md by opening it in Mac's TextEdit application on your local computer. In TextEdit make a new line that says anything you want. I wrote "This is a toy example". Save the file with your new change and then close it. Now in your terminal you can run <code>git status</code> and you should see that your "branch is up to date with origin/main", which means your local git folder and your remote git repo are fully synced. You'll also see that the modified "README.md" change has not been staged. So let's stage, commit, and push our recent changes.
+<pre class="code-block">
+<code>
+git add .
+git commit -m "Update readme"
+git push
+</code>
+</pre>
+    Note that <code>git add .</code> stages all modified or new files in your local git folder, but you can choose to stage only certain files. You can now refresh the Github.com repo page and see that the README.md on the remote repo has been updated.
+<span></span>
+    OK let's make some more changes to README.md, again in the TextEdit application. Add a dollar sign after every word in the sentence you made previously, then save and close the file. The second line in my readme file looks like this now: "This $ is $ a $ toy $ example". Now let's pretend you've decided you don't want to have these dollar signs, and it would be too cumbersome to remove them one by one. Whatever can you do??? Git to the rescue! Run the following command in your terminal.
+<pre class="code-block">
+<code>
+git checkout -- README.md
+</code>
+</pre>
+    Reopen the README.md file to see that all the dollar signs are gone because the previous command reverted the readme file to the version you pushed with your last commit.
+    <span></span>
+    To my readers - if you can stage, commit, push, and revert using Git, then you've taken a big step to building your personal website from scratch. Muchas gracias for reading my post and I hope it was helpful. Feel free to email me if you run into any trouble. Also, please stay tuned for sequential posts on using Visual Studio Code, Astro web framework, and Github Pages all for the purposes of building a personal website. 잘가요! Goodbye!
+<span class="end"></span>
+</p>
+</BlogPostLayout>
+<style>
+    span{
+        display: block;
+        height: 1.05rem;
+    }
+    .end{
+        height:10px;
+    }
+    .code-block {
+    background-color: lightgray; /* Light gray background */
+    border: 1px solid #ddd; /* Border around the code block */
+    border-radius: 5px; /* Rounded corners */
+    padding: 0px; /* Padding inside the code block */
+    font-family: 'Courier New', Courier, monospace; /* Monospace font for code */
+    font-size: 12px; /* Font size */
+    overflow-x: auto; /* Horizontal scrolling for long lines */
+    /* white-space: pre-wrap; Preserve whitespace and wrap lines */
+    }
+    code{
+        font-family: 'Courier New', Courier, monospace; /* Monospace font for code */
+        font-size: 14px; /* Font size */
+        background-color: lightgray; /* Light gray background */
+        border: 1px solid #ddd; /* Border around the code block */
+        border-radius: 5px; /* Rounded corners */
+        padding: 0px;
+    }
+    @media (min-width: 768px) {
+        .code-block {
+            font-size: 14px; /* Smaller font size for mobile */
+        }
+
+    }
+</style>
