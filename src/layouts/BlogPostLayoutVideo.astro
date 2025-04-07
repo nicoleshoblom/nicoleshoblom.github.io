@@ -204,38 +204,35 @@ const { captions, title, date, location, images} = Astro.props;
                 font-size: 17px;
             }
         }
-        @media (max-width: 768px) and (orientation: landscape) {
+         @media (max-width: 768px) and (orientation: landscape) {
             .blog-layout {
-                flex-direction: row; /* Arrange carousel and content side by side */
-                align-items: flex-start;
+                display: block;
             }
 
             .carousel {
-                flex: 1; /* Allow the carousel to take up space on the left */
                 max-width: 50%; /* Limit the carousel width */
-                margin-left: 9px;
-                height: 100vh;
-                overflow: hidden;
+                float: left;
+                margin-right: 20px;
             }
 
-            .carousel-image{
-                width: 100%;
-                object-fit: cover;
+            .carousel-caption{
+                font-size: 14px;
             }
 
             .content {
                 flex: 2; /* Allow the content to take up more space on the right */
                 padding: 0px; /* Add spacing between the carousel and content */
-                max-width: 50%;
-                margin-top: -8px;
-                padding-top: 0px;
+                margin-right: 10px;
                 margin-left: 20px;
-                margin-right: 5px;
-                font-size: 20px;
-
+                margin-top: -8px;
             }
+
             .content h1 {
                 margin-top: 0px;
+            }
+
+            .content .article{
+                font-size: 14px;
             }
         }
     </style>
