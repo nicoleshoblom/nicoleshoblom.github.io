@@ -149,7 +149,7 @@ const { captions, title, date, location, images, videos} = Astro.props;
             justify-content: center; /* Horizontally center the iframe */
             align-items: center; /* Vertically center the iframe */
             width: 100%; /* Ensure the wrapper takes up the full width */
-            height: 89%; 
+            height: 84%; 
             background-color: black; /* Optional: Add a background color for contrast */
         }
 
@@ -216,6 +216,9 @@ const { captions, title, date, location, images, videos} = Astro.props;
 
             .content .article{
                 font-size: 17px;
+            }
+            .video-wrapper{
+                height: 89%;
             }
         }
         @media (max-width: 768px) and (orientation: landscape) {
