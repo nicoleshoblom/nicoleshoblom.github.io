@@ -3,6 +3,8 @@ import BaseLayout from '../layouts/BaseLayout.astro'
 import { Image } from 'astro:assets';
 import BlogCarousel from '../components/BlogCarousel.astro';
 const { captions, title, date, location, images} = Astro.props;
+
+let currentIndex = 0;
 ---
 
 <BaseLayout>
@@ -11,37 +13,26 @@ const { captions, title, date, location, images} = Astro.props;
             <div class="carousel-track">
                 {images.map((image, index) => (
                     <div class="carousel-item" key={index}>
-                        {index === 0 ? (
-                            <div class="video-wrapper">
-                                <iframe 
-                                    src="https://www.youtube.com/embed/Gl83mI69nX4?si=nQRhUYDoluZtamAF&amp;start=89" 
-                                    title="YouTube video player"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                                    referrerpolicy="strict-origin-when-cross-origin" 
-                                    style="width: 100%; height: auto; aspect-ratio: 16 / 9; border: none;"
-                                    allowfullscreen>
-                                </iframe>
-                            </div>
-                        ) : (
-                            <Image src={image.default} alt={`Image ${index + 1}`} class="carousel-image" />
-                        )}
-                        {/* <p class="carousel-caption">{captions[index]}</p> */}
+                    <Image src={image.default} alt={`Image ${index + 1}`} class="carousel-image"/>
+                    <p class="carousel-caption">{captions[index]}</p>
                     </div>
                 ))}
             </div>
-            <!-- <div class="carousel-controls">
+            <div class="carousel-controls">
                 <button class="carousel-button prev">❮</button>
-                <div class="carousel-indicators">
-                    {images.map((_, index) => (
-                        <span
-                            class={`carousel-dot ${index === 0 ? 'active' : ''}`}
-                            data-index={index}
-                            onclick="setSlide({index})"
-                        ></span>
-                    ))}
-                </div>
+                    <div class="carousel-indicators">
+                        {images.map((_, index) => (
+                            index >= currentIndex - 3 && index <= currentIndex + 4 && (
+                                <span
+                                    class={`carousel-dot ${index === 0 ? 'active' : ''}`}
+                                    data-index={index}
+                                    onclick="setSlide({index})"
+                                ></span>
+                            )
+                        ))}
+                    </div>
                 <button class="carousel-button next">❯</button>
-            </div> -->
+            </div>
         </div>
         <div class="content">
             <h1>{title}</h1>
@@ -80,13 +71,6 @@ const { captions, title, date, location, images} = Astro.props;
         }
 
         .carousel-image {
-            width: 100%;
-            height: auto;
-            border-radius: 0px;
-            margin-bottom: 0px;
-        }
-
-        .carousel-video {
             width: 100%;
             height: auto;
             border-radius: 0px;
@@ -146,7 +130,7 @@ const { captions, title, date, location, images} = Astro.props;
         .carousel-dot:hover {
             background-color: darkorange;
         }
- 
+        
         .content{
             margin-left: 10px;
             margin-right: 5px;
@@ -171,22 +155,19 @@ const { captions, title, date, location, images} = Astro.props;
             margin-right: 10px;
             font-size: 14px;
         }
-        html {
-                -webkit-text-size-adjust: 100%;
-                text-size-adjust: 100%;
-        }
 
         /* Desktop-specific layout */
         @media (min-width: 768px) {
             .blog-layout {
-                display: block;
+                flex-direction: row; /* Arrange carousel and content side by side */
+                align-items: flex-start;
+                height: auto;
             }
 
             .carousel {
+                flex: 2; /* Allow the carousel to take up space on the left */
                 max-width: 50%; /* Limit the carousel width */
-                float: left;
-                margin-right: 20px;
-                margin-bottom: 0px;
+                margin-left: 9px; /* Remove auto margin for side-by-side layout */
             }
 
             .carousel-caption{
@@ -209,35 +190,38 @@ const { captions, title, date, location, images} = Astro.props;
                 font-size: 17px;
             }
         }
-         @media (max-width: 768px) and (orientation: landscape) {
+        @media (max-width: 768px) and (orientation: landscape) {
             .blog-layout {
-                display: block;
+                flex-direction: row; /* Arrange carousel and content side by side */
+                align-items: flex-start;
             }
 
             .carousel {
+                flex: 1; /* Allow the carousel to take up space on the left */
                 max-width: 50%; /* Limit the carousel width */
-                float: left;
-                margin-right: 20px;
+                margin-left: 9px;
+                height: 100vh;
+                overflow: hidden;
             }
 
-            .carousel-caption{
-                font-size: 14px;
+            .carousel-image{
+                width: 100%;
+                object-fit: cover;
             }
 
             .content {
                 flex: 2; /* Allow the content to take up more space on the right */
                 padding: 0px; /* Add spacing between the carousel and content */
-                margin-right: 10px;
-                margin-left: 20px;
+                max-width: 50%;
                 margin-top: -8px;
-            }
+                padding-top: 0px;
+                margin-left: 20px;
+                margin-right: 5px;
+                font-size: 20px;
 
+            }
             .content h1 {
                 margin-top: 0px;
-            }
-
-            .content .article{
-                font-size: clamp(14px);
             }
         }
     </style>
