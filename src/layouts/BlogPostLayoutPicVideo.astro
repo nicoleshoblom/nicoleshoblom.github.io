@@ -22,13 +22,11 @@ let currentIndex = 0;
                 <button class="carousel-button prev">❮</button>
                     <div class="carousel-indicators">
                         {images.map((_, index) => (
-                            index >= currentIndex - 3 && index <= currentIndex + 4 && (
                                 <span
                                     class={`carousel-dot ${index === 0 ? 'active' : ''}`}
                                     data-index={index}
                                     onclick="setSlide({index})"
                                 ></span>
-                            )
                         ))}
                     </div>
                 <button class="carousel-button next">❯</button>
