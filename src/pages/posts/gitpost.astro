@@ -7,6 +7,7 @@ const title = "Git Basics for a Personal Website"
 const date = "April 8, 2025"
 const location = "Seoul, South Korea"
 const images = Object.values(import.meta.glob('../../assets/gitpost/*.webp', { eager: true}));
+const videoIndex = 0; // Index of the video in the images array
 ---
 <BlogPostLayout
     captions={captions}, 
@@ -14,6 +15,7 @@ const images = Object.values(import.meta.glob('../../assets/gitpost/*.webp', { e
     date={date},
     location={location},
     images={images}
+    videoIndex={videoIndex}
 >
 <p class="text"> 
     When using Git I always think of the song "Kick, Push" by Lupe Fiasco, but in this post we will <code>git push</code> ;). If you want to make a personal website basically for free, learning Git is essential. So let's get started!

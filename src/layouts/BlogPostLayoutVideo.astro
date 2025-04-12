@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro'
 import { Image } from 'astro:assets';
 import BlogCarousel from '../components/BlogCarousel.astro';
-const { captions, title, date, location, images} = Astro.props;
+const { captions, title, date, location, images, videoIndex} = Astro.props;
 ---
 
 <BaseLayout>
@@ -11,7 +11,7 @@ const { captions, title, date, location, images} = Astro.props;
             <div class="carousel-track">
                 {images.map((image, index) => (
                     <div class="carousel-item" key={index}>
-                        {index === 0 ? (
+                        {index === videoIndex ? (
                             <div class="video-wrapper">
                                 <iframe 
                                     src="https://www.youtube.com/embed/Gl83mI69nX4?si=nQRhUYDoluZtamAF&amp;start=89" 
