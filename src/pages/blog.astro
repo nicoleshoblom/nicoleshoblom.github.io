@@ -6,7 +6,7 @@ const postFiles = import.meta.glob('./posts/*.astro', { eager: true });
 const posts = Object.entries(postFiles).map(([path, module]) => {
   const slug = path.replace('./posts/', '').replace('.astro', '');
   const title = module.title ?? slug;
-  const imagePath = `/src/assets/${slug}/pic01.webp`;
+  const imagePath = `/public/images/${slug}/pic01.webp`;
   return {
     slug,
     title,
