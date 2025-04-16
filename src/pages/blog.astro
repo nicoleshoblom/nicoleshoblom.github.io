@@ -21,7 +21,9 @@ const posts = Object.entries(postFiles).map(([path, module]) => {
         {posts.map((post) => (
         <li class="post-item">
             <div class="post-content">
-            <img src={post.imagePath} alt={`Cover image for ${post.title}`} class="post_image"/>
+                <a href={post.url} class="post-link-image">
+                    <img src={post.imagePath} alt={`Cover image for ${post.title}`} class="post_image"/>
+                </a>
             <a href={post.url} class="post-link">{post.title}</a>
             </div>
         </li>
@@ -47,15 +49,19 @@ const posts = Object.entries(postFiles).map(([path, module]) => {
             flex-direction: column; /* Stack image and title vertically */
             align-items: flex-start; /* Center align the content */
         }
+        .post-link-image{
+            margin-top: 0px;
+        }
         .post-link {
             text-decoration: none; /* Remove underline from links */
             color: inherit; /* Use the inherited text color */
             margin-top: 0px; /* Add spacing between the image and the title */
             font-size: 20px; /* Adjust font size for better readability */
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             font-family: 'Poppins', sans-serif;
             text-align: left;
             font-weight: 600;
+            margin-left: 5px;
         }
         .post-link:hover {
             color: coral; /* Optional: Add hover effect */
@@ -64,11 +70,11 @@ const posts = Object.entries(postFiles).map(([path, module]) => {
             width: 100%; /* Set the width of the image */
             height: auto; /* Maintain the aspect ratio */
             max-width: 100%; /* Ensure the image doesn't exceed the container width */
-            margin-bottom: 10px; /* Add spacing below the image */
+            margin-bottom: 0px; /* Add spacing below the image */
         }
         @media (min-width: 768px) {
             .post-list{
-                width: 60%
+                width: 50%
             }
         }
     </style>
