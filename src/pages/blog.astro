@@ -6,19 +6,69 @@ const postFiles = import.meta.glob('./posts/*.astro', { eager: true });
 const posts = Object.entries(postFiles).map(([path, module]) => {
   const slug = path.replace('./posts/', '').replace('.astro', '');
   const title = module.title ?? slug;
+  const imagePath = `/src/assets/${slug}/pic01.webp`;
   return {
     slug,
     title,
-    url: `/posts/${slug}`
+    url: `/posts/${slug}`,
+    imagePath
   };
 });
 ---
 
 <BaseLayout PageTitle={PageTitle}>
-    <h2>This page is under construction 🛠️</h2>
-    <ul>
+    <ul class="post-list">
         {posts.map((post) => (
-          <li><a href={post.url}>{post.title}</a></li>
+        <li class="post-item">
+            <div class="post-content">
+            <img src={post.imagePath} alt={`Cover image for ${post.title}`} class="post_image"/>
+            <a href={post.url} class="post-link">{post.title}</a>
+            </div>
+        </li>
         ))}
     </ul>
 </BaseLayout>
+    <style>
+        .post-list {
+            list-style-type: none; /* Remove bullets */
+            padding: 0; /* Remove default padding */
+            margin: 2rem auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 0px;
+            width: 100%
+        }
+        .post-item {
+            margin-bottom: 10px; /* Add spacing between items */
+        }
+        .post-content {
+            display: flex;
+            flex-direction: column; /* Stack image and title vertically */
+            align-items: flex-start; /* Center align the content */
+        }
+        .post-link {
+            text-decoration: none; /* Remove underline from links */
+            color: inherit; /* Use the inherited text color */
+            margin-top: 0px; /* Add spacing between the image and the title */
+            font-size: 20px; /* Adjust font size for better readability */
+            margin-bottom: 20px;
+            font-family: 'Poppins', sans-serif;
+            text-align: left;
+            font-weight: 600;
+        }
+        .post-link:hover {
+            color: coral; /* Optional: Add hover effect */
+        }
+        .post_image {
+            width: 100%; /* Set the width of the image */
+            height: auto; /* Maintain the aspect ratio */
+            max-width: 100%; /* Ensure the image doesn't exceed the container width */
+            margin-bottom: 10px; /* Add spacing below the image */
+        }
+        @media (min-width: 768px) {
+            .post-list{
+                width: 60%
+            }
+        }
+    </style>
