@@ -5,9 +5,9 @@ const captions = [
     "Ms. Alison Davidian taking questions after her talk about women in Afghanistan on March 11, 2025 at Heyground coworking space in Seoul, SK"
 ];
 export const title = "Women and Men are Equal"
-const date = "March 30, 2025"
-const location = "Seoul, South Korea"
-const images = Object.values(import.meta.glob('../../assets/afghanwomen/*.webp', { eager: true}));
+export const date = "March 30, 2025"
+export const location = "Seoul, South Korea"
+export const images = Object.values(import.meta.glob('../../assets/afghanwomen/*.webp', { eager: true}));
 ---
 <BlogPostLayout
     captions={captions}, 

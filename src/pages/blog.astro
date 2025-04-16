@@ -11,9 +11,11 @@ const posts = Object.entries(postFiles).map(([path, module]) => {
     slug,
     title,
     url: `/posts/${slug}`,
-    imagePath
+    date: new Date(module.date),
+    imagePath,
   };
-});
+})
+.sort((a, b) => b.date - a.date);
 ---
 
 <BaseLayout PageTitle={PageTitle}>
