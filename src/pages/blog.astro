@@ -1,21 +1,24 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro'
-const PageTitle = "Blog"
-import { Image } from 'astro:assets';
-import pic from '../assets/afghanwomen_pic1.webp';
+import BaseLayout from '../layouts/BaseLayout.astro';
+const PageTitle = "Blog";
+const postFiles = import.meta.glob('./posts/*.astro', { eager: true });
+
+const posts = Object.entries(postFiles).map(([path, module]) => {
+  const slug = path.replace('./posts/', '').replace('.astro', '');
+  const title = module.title ?? slug;
+  return {
+    slug,
+    title,
+    url: `/posts/${slug}`
+  };
+});
 ---
-<BaseLayout PageTitle="{PageTitle}"></BaseLayout>
+
+<BaseLayout PageTitle={PageTitle}>
     <h2>This page is under construction 🛠️</h2>
     <ul>
-        <li><a href="/posts/folkmuseum/">A Visit to the National Folk Museum of Korea</a></li>
+        {posts.map((post) => (
+          <li><a href={post.url}>{post.title}</a></li>
+        ))}
     </ul>
-    <ul>
-        <li><a href="/posts/gitpost/">Git Basics for a Personal Website</a></li>
-    </ul>
-    <ul>
-        <li><a href="/posts/afghanwomen/">Women and Men are Equal</a></li>
-    </ul>
-    <ul>
-        <li><a href="/posts/perfume/">A Feast for the Nose</a></li>
-    </ul>
-</Baselayout>
+</BaseLayout>
