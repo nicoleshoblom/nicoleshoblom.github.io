@@ -225,48 +225,6 @@ const { captions, title, date, location, images} = Astro.props;
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            const track = document.querySelector('.carousel-track');
-            const images = Array.from(track.children);
-            const prevButton = document.querySelector('.carousel-button.prev');
-            const nextButton = document.querySelector('.carousel-button.next');
-            const dots = Array.from(document.querySelectorAll('.carousel-dot'));
-            let currentIndex = 0;
-
-            function updateCarousel() {
-                const slideWidth = images[0].getBoundingClientRect().width;
-                track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
-
-                // Update active dot
-                dots.forEach((dot, index) => {
-                    dot.classList.toggle('active', index === currentIndex);
-                });
-            }
-
-            function setSlide(index) {
-                currentIndex = index;
-                updateCarousel();
-            }
-
-            nextButton.addEventListener('click', () => {
-                currentIndex = (currentIndex + 1) % images.length;
-                updateCarousel();
-            });
-
-            prevButton.addEventListener('click', () => {
-                currentIndex = (currentIndex - 1 + images.length) % images.length;
-                updateCarousel();
-            });
-
-            dots.forEach((dot, index) => {
-                dot.addEventListener('click', () => setSlide(index));
-            });
-
-            window.addEventListener('resize', updateCarousel);
-            updateCarousel(); // Initialize carousel position
-        });
-
-        //make coursel swipeable
-        document.addEventListener('DOMContentLoaded', function () {
         const track = document.querySelector('.carousel-track');
         const images = Array.from(track.children);
         const prevButton = document.querySelector('.carousel-button.prev');
@@ -293,6 +251,7 @@ const { captions, title, date, location, images} = Astro.props;
             updateCarousel();
         }
 
+        // Button click handlers
         nextButton.addEventListener('click', () => {
             setSlide(currentIndex + 1);
         });
@@ -301,6 +260,7 @@ const { captions, title, date, location, images} = Astro.props;
             setSlide(currentIndex - 1);
         });
 
+        // Dot click handlers
         dots.forEach((dot, index) => {
             dot.addEventListener('click', () => setSlide(index));
         });
@@ -337,8 +297,11 @@ const { captions, title, date, location, images} = Astro.props;
             currentX = 0;
         });
 
+        // Handle window resize
         window.addEventListener('resize', updateCarousel);
-        updateCarousel(); // Initialize carousel position
+
+        // Initialize carousel position
+        updateCarousel();
     });
     </script>
 </BaseLayout>
