@@ -265,76 +265,80 @@ const { captions, title, date, location, images} = Astro.props;
             updateCarousel(); // Initialize carousel position
         });
 
+        //make coursel swipeable
         document.addEventListener('DOMContentLoaded', function () {
-    const track = document.querySelector('.carousel-track');
-    const images = Array.from(track.children);
-    const prevButton = document.querySelector('.carousel-button.prev');
-    const nextButton = document.querySelector('.carousel-button.next');
-    const dots = Array.from(document.querySelectorAll('.carousel-dot'));
-    let currentIndex = 0;
+        const track = document.querySelector('.carousel-track');
+        const images = Array.from(track.children);
+        const prevButton = document.querySelector('.carousel-button.prev');
+        const nextButton = document.querySelector('.carousel-button.next');
+        const dots = Array.from(document.querySelectorAll('.carousel-dot'));
+        let currentIndex = 0;
 
-    let startX = 0;
-    let isDragging = false;
+        let startX = 0;
+        let currentX = 0;
+        let isDragging = false;
 
-    function updateCarousel() {
-        const slideWidth = images[0].getBoundingClientRect().width;
-        track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+        function updateCarousel() {
+            const slideWidth = images[0].getBoundingClientRect().width;
+            track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
 
-        // Update active dot
-        dots.forEach((dot, index) => {
-            dot.classList.toggle('active', index === currentIndex);
-        });
-    }
-
-    function setSlide(index) {
-        currentIndex = (index + images.length) % images.length; // Ensure index wraps around
-        updateCarousel();
-    }
-
-    nextButton.addEventListener('click', () => {
-        setSlide(currentIndex + 1);
-    });
-
-    prevButton.addEventListener('click', () => {
-        setSlide(currentIndex - 1);
-    });
-
-    dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => setSlide(index));
-    });
-
-    // Touch event handlers for swipe
-    track.addEventListener('touchstart', (e) => {
-        startX = e.touches[0].clientX;
-        isDragging = true;
-    });
-
-    track.addEventListener('touchmove', (e) => {
-        if (!isDragging) return;
-        const currentX = e.touches[0].clientX;
-        const deltaX = currentX - startX;
-
-        // Prevent accidental swipes by requiring a minimum threshold
-        if (Math.abs(deltaX) > 50) {
-            if (deltaX > 0) {
-                // Swipe right
-                setSlide(currentIndex - 1);
-            } else {
-                // Swipe left
-                setSlide(currentIndex + 1);
-            }
-            isDragging = false; // Reset dragging state after a valid swipe
+            // Update active dot
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentIndex);
+            });
         }
+
+        function setSlide(index) {
+            currentIndex = (index + images.length) % images.length; // Ensure index wraps around
+            updateCarousel();
+        }
+
+        nextButton.addEventListener('click', () => {
+            setSlide(currentIndex + 1);
+        });
+
+        prevButton.addEventListener('click', () => {
+            setSlide(currentIndex - 1);
+        });
+
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => setSlide(index));
+        });
+
+        // Touch event handlers for swipe
+        track.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+            isDragging = true;
+        });
+
+        track.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+            currentX = e.touches[0].clientX;
+        });
+
+        track.addEventListener('touchend', () => {
+            if (!isDragging) return;
+            const deltaX = currentX - startX;
+
+            // Prevent accidental swipes by requiring a minimum threshold
+            if (Math.abs(deltaX) > 50) {
+                if (deltaX > 0) {
+                    // Swipe right
+                    setSlide(currentIndex - 1);
+                } else {
+                    // Swipe left
+                    setSlide(currentIndex + 1);
+                }
+            }
+
+            // Reset dragging state
+            isDragging = false;
+            startX = 0;
+            currentX = 0;
+        });
+
+        window.addEventListener('resize', updateCarousel);
+        updateCarousel(); // Initialize carousel position
     });
-
-    track.addEventListener('touchend', () => {
-        isDragging = false; // Reset dragging state
-    });
-
-    window.addEventListener('resize', updateCarousel);
-    updateCarousel(); // Initialize carousel position
-    
-    });;
-
     </script>
 </BaseLayout>
