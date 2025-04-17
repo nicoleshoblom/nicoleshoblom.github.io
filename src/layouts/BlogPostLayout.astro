@@ -235,6 +235,7 @@ const { captions, title, date, location, images} = Astro.props;
         let startX = 0;
         let currentX = 0;
         let isDragging = false;
+        let isSwiping = false;
 
         function updateCarousel() {
             const slideWidth = images[0].getBoundingClientRect().width;
@@ -269,15 +270,27 @@ const { captions, title, date, location, images} = Astro.props;
         track.addEventListener('touchstart', (e) => {
             startX = e.touches[0].clientX;
             isDragging = true;
+            isSwiping = false; // Reset swiping state
         });
 
         track.addEventListener('touchmove', (e) => {
             if (!isDragging) return;
             currentX = e.touches[0].clientX;
+            const deltaX = currentX - startX;
+
+            // Mark as swiping if the threshold is exceeded
+            if (Math.abs(deltaX) > 10) {
+                isSwiping = true;
+            }
         });
 
         track.addEventListener('touchend', () => {
-            if (!isDragging) return;
+            if (!isDragging || !isSwiping) {
+                // Reset dragging state if no valid swipe occurred
+                isDragging = false;
+                return;
+            }
+
             const deltaX = currentX - startX;
 
             // Prevent accidental swipes by requiring a minimum threshold
@@ -293,6 +306,7 @@ const { captions, title, date, location, images} = Astro.props;
 
             // Reset dragging state
             isDragging = false;
+            isSwiping = false;
             startX = 0;
             currentX = 0;
         });
