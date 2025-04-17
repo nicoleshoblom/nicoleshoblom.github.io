@@ -264,5 +264,78 @@ const { captions, title, date, location, images} = Astro.props;
             window.addEventListener('resize', updateCarousel);
             updateCarousel(); // Initialize carousel position
         });
+
+        document.addEventListener('DOMContentLoaded', function () {
+        const track = document.querySelector('.carousel-track');
+        const images = Array.from(track.children);
+        const prevButton = document.querySelector('.carousel-button.prev');
+        const nextButton = document.querySelector('.carousel-button.next');
+        const dots = Array.from(document.querySelectorAll('.carousel-dot'));
+        let currentIndex = 0;
+
+        let startX = 0;
+        let currentX = 0;
+        let isDragging = false;
+
+        function updateCarousel() {
+            const slideWidth = images[0].getBoundingClientRect().width;
+            track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+
+            // Update active dot
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentIndex);
+            });
+        }
+
+        function setSlide(index) {
+            currentIndex = index;
+            updateCarousel();
+        }
+
+        nextButton.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % images.length;
+            updateCarousel();
+        });
+
+        prevButton.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            updateCarousel();
+        });
+
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => setSlide(index));
+        });
+
+        // Touch event handlers for swipe
+        track.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+            isDragging = true;
+        });
+
+        track.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+            currentX = e.touches[0].clientX;
+        });
+
+        track.addEventListener('touchend', () => {
+            if (!isDragging) return;
+            const deltaX = currentX - startX;
+
+            if (deltaX > 50) {
+                // Swipe right
+                currentIndex = (currentIndex - 1 + images.length) % images.length;
+            } else if (deltaX < -50) {
+                // Swipe left
+                currentIndex = (currentIndex + 1) % images.length;
+            }
+
+            isDragging = false;
+            updateCarousel();
+        });
+
+        window.addEventListener('resize', updateCarousel);
+        updateCarousel(); // Initialize carousel position
+    });
+
     </script>
 </BaseLayout>
