@@ -41,7 +41,7 @@ const posts = Object.entries(postFiles).map(([path, module]) => {
             flex-direction: column;
             align-items: center;
             margin-top: 0px;
-            width: 100%
+            max-width: 100%
         }
         .post-item {
             margin-bottom: 10px; /* Add spacing between items */
@@ -76,13 +76,13 @@ const posts = Object.entries(postFiles).map(([path, module]) => {
         }
         @media (min-width: 768px) {
             .post-list{
-                width: 50%
+                max-width: 50%
             }
         }
 
         @media (orientation: landscape) {
             .post-list{
-                width: 50%
+                max-width: 50%
             }
         }
     </style>
