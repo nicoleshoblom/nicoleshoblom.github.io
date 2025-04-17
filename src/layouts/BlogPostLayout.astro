@@ -225,98 +225,44 @@ const { captions, title, date, location, images} = Astro.props;
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-        const track = document.querySelector('.carousel-track');
-        const images = Array.from(track.children);
-        const prevButton = document.querySelector('.carousel-button.prev');
-        const nextButton = document.querySelector('.carousel-button.next');
-        const dots = Array.from(document.querySelectorAll('.carousel-dot'));
-        let currentIndex = 0;
+            const track = document.querySelector('.carousel-track');
+            const images = Array.from(track.children);
+            const prevButton = document.querySelector('.carousel-button.prev');
+            const nextButton = document.querySelector('.carousel-button.next');
+            const dots = Array.from(document.querySelectorAll('.carousel-dot'));
+            let currentIndex = 0;
 
-        let startX = 0;
-        let currentX = 0;
-        let isDragging = false;
-        let isSwiping = false;
+            function updateCarousel() {
+                const slideWidth = images[0].getBoundingClientRect().width;
+                track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
 
-        function updateCarousel() {
-            const slideWidth = images[0].getBoundingClientRect().width;
-            track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+                // Update active dot
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentIndex);
+                });
+            }
 
-            // Update active dot
-            dots.forEach((dot, index) => {
-                dot.classList.toggle('active', index === currentIndex);
+            function setSlide(index) {
+                currentIndex = index;
+                updateCarousel();
+            }
+
+            nextButton.addEventListener('click', () => {
+                currentIndex = (currentIndex + 1) % images.length;
+                updateCarousel();
             });
-        }
 
-        function setSlide(index) {
-            // Wrap around the index to ensure it loops
-            currentIndex = (index + images.length) % images.length;
-            updateCarousel();
-        }
+            prevButton.addEventListener('click', () => {
+                currentIndex = (currentIndex - 1 + images.length) % images.length;
+                updateCarousel();
+            });
 
-        // Button click handlers
-        nextButton.addEventListener('click', () => {
-            setSlide(currentIndex + 1);
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => setSlide(index));
+            });
+
+            window.addEventListener('resize', updateCarousel);
+            updateCarousel(); // Initialize carousel position
         });
-
-        prevButton.addEventListener('click', () => {
-            setSlide(currentIndex - 1);
-        });
-
-        // Dot click handlers
-        dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => setSlide(index));
-        });
-
-        // Touch event handlers for swipe
-        track.addEventListener('touchstart', (e) => {
-            startX = e.touches[0].clientX;
-            isDragging = true;
-            isSwiping = false; // Reset swiping state
-        });
-
-        track.addEventListener('touchmove', (e) => {
-            if (!isDragging) return;
-            currentX = e.touches[0].clientX;
-            const deltaX = currentX - startX;
-
-            // Mark as swiping if the threshold is exceeded
-            if (Math.abs(deltaX) > 10) {
-                isSwiping = true;
-            }
-        });
-
-        track.addEventListener('touchend', () => {
-            if (!isDragging || !isSwiping) {
-                // Reset dragging state if no valid swipe occurred
-                isDragging = false;
-                return;
-            }
-
-            const deltaX = currentX - startX;
-
-            // Prevent accidental swipes by requiring a minimum threshold
-            if (Math.abs(deltaX) > 50) {
-                if (deltaX > 0) {
-                    // Swipe right (backward)
-                    setSlide(currentIndex - 1);
-                } else {
-                    // Swipe left (forward)
-                    setSlide(currentIndex + 1);
-                }
-            }
-
-            // Reset dragging state
-            isDragging = false;
-            isSwiping = false;
-            startX = 0;
-            currentX = 0;
-        });
-
-        // Handle window resize
-        window.addEventListener('resize', updateCarousel);
-
-        // Initialize carousel position
-        updateCarousel();
-    });
     </script>
 </BaseLayout>
