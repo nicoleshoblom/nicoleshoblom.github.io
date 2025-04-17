@@ -84,5 +84,18 @@ const posts = Object.entries(postFiles).map(([path, module]) => {
             .post-list{
                 max-width: 50%
             }
+            .post-content {
+                display: flex;
+                flex-direction: row; /* Arrange items in a row */
+                align-items: center; /* Center-align items vertically */
+                justify-content: flex-start; /* Align items to the left */
+            }
+            .post-link {
+                margin-left: 15px; /* Add spacing between the image and the title */
+                text-align: left; /* Ensure the title is left-aligned */
+            }
+            .post-image {
+                flex-shrink: 0; /* Prevent the image from shrinking */
+            }
         }
     </style>
