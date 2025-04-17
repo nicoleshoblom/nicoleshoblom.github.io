@@ -297,10 +297,10 @@ const { captions, title, date, location, images} = Astro.props;
             // Prevent accidental swipes by requiring a minimum threshold
             if (Math.abs(deltaX) > 50) {
                 if (deltaX > 0) {
-                    // Swipe right
+                    // Swipe right (backward)
                     setSlide(currentIndex - 1);
                 } else {
-                    // Swipe left
+                    // Swipe left (forward)
                     setSlide(currentIndex + 1);
                 }
             }
