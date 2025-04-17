@@ -248,7 +248,8 @@ const { captions, title, date, location, images} = Astro.props;
         }
 
         function setSlide(index) {
-            currentIndex = (index + images.length) % images.length; // Ensure index wraps around
+            // Wrap around the index to ensure it loops
+            currentIndex = (index + images.length) % images.length;
             updateCarousel();
         }
 
