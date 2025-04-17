@@ -82,13 +82,14 @@ const posts = Object.entries(postFiles).map(([path, module]) => {
 
         @media (orientation: landscape) {
             .post-list{
-                max-width: 100%
+                max-width: 90%
             }
             .post-content {
                 display: flex;
                 flex-direction: row; /* Arrange items in a row */
                 align-items: center; /* Center-align items vertically */
                 justify-content: flex-start; /* Align items to the left */
+                max-width: 40%;
             }
             .post-link {
                 margin-left: 15px; /* Add spacing between the image and the title */
@@ -96,6 +97,7 @@ const posts = Object.entries(postFiles).map(([path, module]) => {
             }
             .post-image {
                 flex-shrink: 0; /* Prevent the image from shrinking */
+                max-width: 60%;
             }
         }
     </style>
