@@ -11,7 +11,6 @@ const { captions, title, date, location, images, videos} = Astro.props;
         <div class="carousel">
             <div class="carousel-track">
                 {images.map((image, index) => {
-                    // Check if the current index matches any video index
                     const video = videos.find(video => video.index === index);
                     return (
                         <div class="carousel-item" key={index}>
@@ -36,17 +35,18 @@ const { captions, title, date, location, images, videos} = Astro.props;
             </div>
             <div class="carousel-controls">
                 <button class="carousel-button prev">❮</button>
-                    <div class="carousel-indicators">
-                        {images.map((_, index) => (
-                                <span
-                                    class={`carousel-dot ${index === 0 ? 'active' : ''}`}
-                                    data-index={index}
-                                    onclick="setSlide({index})"
-                                ></span>
-                        ))}
-                    </div>
+                <div class="carousel-indicators">
+                    {images.map((_, index) => (
+                        <span
+                            class={`carousel-dot ${index === 0 ? 'active' : ''}`}
+                            data-index={index}
+                            onclick="setSlide({index})"
+                        ></span>
+                    ))}
+                </div>
                 <button class="carousel-button next">❯</button>
             </div>
+            <button class="fullscreen-button" id="fullscreen-toggle">⛶</button>
         </div>
         <div class="content">
             <h1>{title}</h1>
@@ -160,6 +160,69 @@ const { captions, title, date, location, images, videos} = Astro.props;
             aspect-ratio: 16 / 9; /* Maintain the aspect ratio */
         }
         
+        .fullscreen-button {
+            position: absolute;
+            top: 5px; /* Position the button at the bottom */
+            right: 5px; /* Position the button at the right */
+            background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 1000;
+            border-radius: 5px;
+        }
+
+        .fullscreen-button:hover {
+            background: rgba(0, 0, 0, 0.8); /* Darker background on hover */
+        }
+
+        .carousel:fullscreen .fullscreen-button {
+            top: 5px; /* Move the button lower when in full-screen mode */
+            right:5px; /* Adjust the right position if needed */
+        }
+
+        .carousel:fullscreen .carousel-controls {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            z-index: 1000;
+        }
+
+        .carousel:fullscreen .carousel-button {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            cursor: pointer;
+            border-radius: 50%;
+            font-size: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .carousel:fullscreen .carousel-button.prev {
+            position: absolute;
+            left: 10px;
+        }
+
+        .carousel:fullscreen .carousel-button.next {
+            position: absolute;
+            right: 10px;
+        }
+
+        .carousel:fullscreen .carousel-button:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .carousel:fullscreen .carousel-indicators {
+            display: none; /* Hide the dot indicators in full-screen mode */
+        }
+
         .content{
             margin-left: 10px;
             margin-right: 5px;
@@ -261,6 +324,8 @@ const { captions, title, date, location, images, videos} = Astro.props;
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const track = document.querySelector('.carousel-track');
+            const carousel = document.querySelector('.carousel');
+            const fullscreenButton = document.getElementById('fullscreen-toggle');
             const images = Array.from(track.children);
             const prevButton = document.querySelector('.carousel-button.prev');
             const nextButton = document.querySelector('.carousel-button.next');
@@ -294,6 +359,17 @@ const { captions, title, date, location, images, videos} = Astro.props;
 
             dots.forEach((dot, index) => {
                 dot.addEventListener('click', () => setSlide(index));
+            });
+
+            // Fullscreen functionality
+            fullscreenButton.addEventListener('click', () => {
+                if (!document.fullscreenElement) {
+                    carousel.requestFullscreen().catch(err => {
+                        console.error(`Error attempting to enable full-screen mode: ${err.message}`);
+                    });
+                } else {
+                    document.exitFullscreen();
+                }
             });
 
             window.addEventListener('resize', updateCarousel);
