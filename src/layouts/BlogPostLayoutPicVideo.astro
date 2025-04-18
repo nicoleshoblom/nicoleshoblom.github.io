@@ -363,12 +363,24 @@ const { captions, title, date, location, images, videos} = Astro.props;
 
             // Fullscreen functionality
             fullscreenButton.addEventListener('click', () => {
-                if (!document.fullscreenElement) {
-                    carousel.requestFullscreen().catch(err => {
-                        console.error(`Error attempting to enable full-screen mode: ${err.message}`);
-                    });
+                if (carousel.requestFullscreen) {
+                    // Standard Fullscreen API
+                    if (!document.fullscreenElement) {
+                        carousel.requestFullscreen().catch(err => {
+                            console.error(`Error attempting to enable full-screen mode: ${err.message}`);
+                        });
+                    } else {
+                        document.exitFullscreen();
+                    }
+                } else if (carousel.webkitRequestFullscreen) {
+                    // Safari Fullscreen API
+                    if (!document.webkitFullscreenElement) {
+                        carousel.webkitRequestFullscreen();
+                    } else {
+                        document.webkitExitFullscreen();
+                    }
                 } else {
-                    document.exitFullscreen();
+                    alert('Fullscreen mode is not supported on this device.');
                 }
             });
 
