@@ -223,14 +223,6 @@ const { captions, title, date, location, images, videos} = Astro.props;
             display: none; /* Hide the dot indicators in full-screen mode */
         }
 
-        /* Ensure the carousel images fit properly in full-screen mode */
-
-        .carousel:fullscreen .carousel-image {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain; /* Ensure the image scales while maintaining aspect ratio */
-        }
-
         .content{
             margin-left: 10px;
             margin-right: 5px;
@@ -293,6 +285,13 @@ const { captions, title, date, location, images, videos} = Astro.props;
                 height: 89%;
             }
         }
+
+        @media (max-width: 768px) {
+            .fullscreen-button {
+                display: none; /* Hide the full-screen button on mobile */
+            }
+}
+
         @media (max-width: 768px) and (orientation: landscape) {
             .blog-layout {
                 flex-direction: row; /* Arrange carousel and content side by side */
@@ -310,6 +309,10 @@ const { captions, title, date, location, images, videos} = Astro.props;
             .carousel-image{
                 width: 100%;
                 object-fit: cover;
+            }
+
+            .fullscreen-button {
+                display: none; /* Hide the full-screen button on mobile */
             }
 
             .content {
