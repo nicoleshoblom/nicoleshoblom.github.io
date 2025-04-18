@@ -62,13 +62,14 @@ nicole@Nicoles-MacBook-Pro test %
 nicole@Nicoles-MacBook-Pro test % git init
 </code>
 </pre>
-    Now create a readme file in your test folder like so:
+    Now create a readme file and .gitignore in your test folder like so:
 <pre class="code-block">
 <code>
 echo "# Test project" > README.md
+touch .gitignore
 </code>
 </pre>
-    You can verify that the README.md file is in your folder in Finder.
+    Creating these files are Git best practices. The README.md file typically describes the repo and how others can get started with the repo. The .gitignore file is where you can list folders or files that you don't want Git to track.   Check that the README.md and .gitignore files are in your folder in Finder.
     <span></span>
     Now stage and commit README.md with the following commands.
 <pre class="code-block">
@@ -85,7 +86,7 @@ git branch -M main
 git push -u origin main
 </code>
 </pre>
-    At this point you may be asked to provide github credentials inside the terminal and provide author name and email. If so, follow the prompts to do so and then run the previous commands again. If you made it this far, then you've done your first <code>git push</code>! Congrats! You can now go back to Github.com and see that README.md (plus the .DS_Store file which was created with <code>git init</code>) shows up on the repository page.
+    At this point you may be asked to provide github credentials inside the terminal and provide author name and email. If so, follow the prompts to do so and then run the previous commands again. If you made it this far, then you've done your first <code>git push</code>! Congrats! You can now go back to Github.com and see that README.md and .gitignore show up on the repository page.
     <span></span>
     Now let's make a change to README.md by opening it in Mac's TextEdit application on your local computer. In TextEdit make a new line that says anything you want. I wrote "This is a toy example". Save the file with your new change and then close it. Now in your terminal you can run <code>git status</code> and you should see that your "branch is up to date with origin/main", which means your local git folder and your remote git repo are fully synced. You'll also see that the modified "README.md" change has not been staged. So let's stage, commit, and push our recent changes.
 <pre class="code-block">
