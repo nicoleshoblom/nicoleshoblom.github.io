@@ -1,0 +1,63 @@
+---
+import BlogPostLayout from '../../layouts/BlogPostLayoutPicVideo.astro';
+const captions = [
+    "Outside of busy Seoul station on Friday April 4, 2025. Arrived here in mid-morning to take the KTX speed train to Ulsan",
+    "Jeremy checking out the train schedule board at Seoul station for our train to Gyeongju in route to Bugulsan, which is located in Buk-gu, Ulsan ",
+    "Second train between Gyeongju and Bugulsan.",
+    "Ezra ended up sitting on my lap during the train ride to Gyeongju because Korail seated us in different cars and we couldn't change seats.",
+    "Atticus reading his book on the train as part of a school reading challenge",
+    "Taxi ride from Bugulsan station to our hotel. Many of the streets in Ulsan were lined with full-bloom cherry blossom trees (벚꽃).",
+    "View from our hotel, the Mercure Ambassador Ulsan",
+    "Entering Gangdong Beach (강동해벽). Just a short walk from our hotel. Camping, grilling, and fireworks are permitted at this beach.",
+    "This beach is also called Gangdong Pebble Beach, and it's clear why! Infinite amount of beautiful pebbles at this beach!",
+    "Ezra picking up pebbles that he likes. <3",
+    "Ezra showing off the rocks he has collected.",
+    "Atticus unknowingly posing for the portrait mode picture <3",
+    "Discovering Gangdong Jungang Park at sunset. The park consisted of 3 playgrounds going up a big hill.",
+    "Second highest playground at Gangdong Jungang Park. Discovered a 3 story climbing structure that the kids couldn't get enough of.",
+    "Ezra climbing the structure with no fear!",
+    "Atticus was very quick to figure out how to get to the very top of the climbing structure.",
+    "Reward at the top was a huge slide to ride down. It was difficult to get the slide and structure into one frame because it was so huge!",
+    "Another impressive digital art piece. The digital leaves on the floor looked so real!",
+    "아녕하세요, 선셍님! Hello, teacher! The kiddos take a picture with a wax figure of a teacher during the Joseon Dynasty",
+    "Kids playing a game that taught them how to do some traditional Korean dance moves, and also allowed the kids to freestyle at the end of the game.",
+    "Kids with our wonderful nanny, Lolita, in front of one of the buildings of the Gyeongbokgu Palace",
+    "Eating our convenience store lunch on the second floor of a Seven Eleven right nearby the National Folk Museum of Korea",
+    "Ezra admiring the view from the fancy Seven Eleven",
+    "The most beautiful (예버요) Seven Eleven I have ever seen! :)"
+
+];
+export const title = "Train to Ulsan"
+export const date = "April 18, 2025"
+const location = "Seoul, South Korea"
+const images = Object.values(import.meta.glob('../../assets/ulsanday1/*.webp', { eager: true}));
+const videos = [];
+---
+<BlogPostLayout
+    captions={captions}, 
+    title={title},
+    date={date},
+    location={location},
+    images={images},
+    videos={videos}
+>
+<p> 
+    It’s on my to-do-list to watch Train to Busan, and take the train there for real! Recently I did take a Korail speed KTX train from Seoul to Ulsan for a 2박 3일 (2 night, 3 day) weekend getaway with the family. We booked the train tickets only a week in advance, and we were lucky to find enough seats. However, we were all placed in different seats and in different cars! Korail economy seats don’t allow for seat selection. First class seats do allow seat selection, but those were all sold out. Lesson learned - book Korail speed train tickets one month in advance! We did try to change our seats at the Seoul Station ticket counter about an hour before our departure, but all seats were sold out and only standing room was available. Another lesson I learned as a first time KTX ticket buyer - don’t buy your tickets on railmonsters.com (AI might recommend this). Just by them directly from <a href="https://www.korail.com/global/eng/main">Korail</a>.
+    <span></span>
+    Ulsan is in the South East of South Korea just North of Busan. We stayed right on the ocean in 강동 in 북구 (Gang neighborhood in Buk district), which was a quiet, small town, but lightly peppered with high rise apartments and hotels, including ours. 
+    <span></span>
+    Shortly after checking in, we took a stroll along the Gangdong Beach on our way to dinner. The beach was of course stunning, and we discovered that you can camp, have fires, and shoot off fireworks on the beach.  However, the real highlight of our walk was 강동중앙공원 (Gangdong Jungang Park). This park was a set of 3 playgrounds going up a hill. The second hightest playground had a 3 story climbing structure that my boys climbed like pros. Their motivation was of course the long slide they could ride from the very top.
+    <span></span>
+    To my readers - the only reason I’d visit Gangong again would be to camp on the beach. If you check it out, be ready for the desire to explore outside of the town. This will of course require some traveling by bus, car, or taxi. Thanks for reading and 오세요 (come) again!.
+    <span class="end"></span>
+</p>
+</BlogPostLayout>
+<style>
+span{
+        display: block;
+        height: 1.05rem;
+    }
+    .end{
+        height:10px;
+    }
+</style>

@@ -20,3 +20,6 @@ for file in "$INPUT_DIR"/*.HEIC; do
 done
 
 echo "✅ Conversion complete. Files saved in '$OUTPUT_DIR'"
+
+#terminal commands
+#/Users/nicole/nicoleshoblom.github.io/scripts/heic_to_webp.sh /Users/nicole/Downloads /Users/nicole/nicoleshoblom.github.io/src/assets/traintoulsan

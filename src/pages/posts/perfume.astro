@@ -1,5 +1,5 @@
 ---
-import BlogPostLayout from '../../layouts/BlogPostLayout.astro';
+import BlogPostLayout from '../../layouts/BlogPostLayoutPicVideo.astro';
 const captions = [
     "Ms. Shoblom and friend, Mrs. Shub, are welcomed at ScentOn HQ on March 11, 2025.",
     "Synthetic scents to choose from in making our own perfume.",
@@ -11,13 +11,15 @@ export const title = "A Feast for the Nose"
 export const date = "April 2, 2025"
 const location = "Seoul, South Korea"
 const images = Object.values(import.meta.glob('../../assets/perfume/*.webp', { eager: true}));
+const videos = [];
 ---
 <BlogPostLayout 
     captions={captions}, 
     title={title},
     date={date},
     location={location},
-    images={images}
+    images={images},
+    videos={videos}
 >
 <p> 
     I didn't know that smelling different scents would make me so happy! I was unsure what to expect from ScentOn's perfume making class in Seoul's Gangnam district. 하지만 지금 (But now) I may have become hooked on making my own beauty products. Such an activity brings me joy akin to arts and crafts, or cooking!
