@@ -1,0 +1,25 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+const PageTitle = "Home"
+---
+
+<BaseLayout PageTitle={PageTitle}>
+    <h3 style="text-align: center; margin-left: 50px; margin-right: 50px;">
+        Interactive time series plot of my step count data from FulcraAPI metric_time_series endpoint with sample_rate = 86400
+    </h3>
+    <iframe 
+      src="/plotly/stepcount.html"
+      width="90%"
+      height="450"
+      style="border:none; display: block; margin: 0 auto;">
+    </iframe>
+
+    <h3 style="text-align: center; margin-left: 50px; margin-right: 50px;">
+        Why does Fulcra return decimals? Also why is does Fulcra return a lower step count number than Apple Health (see image below) on August 13, 2024? You can hover to highest point in time series plot above to see the value.
+    </h3>
+
+    <img 
+      src="/images/myhealth_aug132024.jpeg" 
+      alt="My Health - August 13, 2024" 
+      style="display: block; margin: 20px auto; max-width: 40%; height: auto;">
+</BaseLayout>
