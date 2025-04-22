@@ -1,0 +1,57 @@
+---
+import BlogPostLayout from '../../layouts/BlogPostLayoutPicVideo.astro';
+const captions = [
+    "회무짐 (hwe-mu-chim) dish at 다해식당 (Da Hae Restaurant) in Gampo on April 5, 2025",
+    "Menu at Da Hae Restaurant. Can see from the clock we were here for 점심 (lunch).",
+    "Seafood soondubu stew (순두부찌개). Perfect for the 날씨 (weather) because it was rainy and windy!",
+    "The 반찬 (banchan aka side dishes) at Da Hae Restaurant. Like many other Korean restaurants, the banchan was all-you-can-eat",  
+    "Self-serve banchan buffet station at Da Hae Restaurant",
+    "Gampo tourism book that the owners of Da Hae Restaurant gave us to read while waiting for our main dishes",
+    "Da Hae Restaurant can sit about 4 groups.",
+    "Saw many stands like this drying fish in the open air.",
+    "Entrance to Gampo public market",
+    "Welcome sign inside of Gampo public market",
+    "Ezra checking out the market as he eats his candy treat <3",
+    "Some very interesting fish at this market!",
+    "A white light house at the end of a pier in Gampo",
+];
+export const title = "Exploring Gampo Port"
+export const date = "April 22, 2025"
+const location = "Seoul, South Korea"
+const images = Object.values(import.meta.glob('../../assets/ulsanday2/*.webp', { eager: true}));
+const videos = [
+    {index: 2, src: "https://drive.google.com/file/d/10U8F5t_5ehbo6T5MNATbTYMt0WNXZVyX/preview"},
+];
+---
+<BlogPostLayout
+    captions={captions}, 
+    title={title},
+    date={date},
+    location={location},
+    images={images},
+    videos={videos}
+>
+<p> 
+    During my kids’ Spring break we took a <a href="https://www.nicoleshoblom.com/posts/ulsanday1/">train to Ulsan</a> for a mini vacation. We stayed at the Grand Mercure in 북구 (Buk-gu), which is a small town in Ulsan. On the second day of our trip we ventured to an even more remote place, called Gampo. Gampo is a fishing port town in Gyeongju-si about 45 minutes away from Buk-gu by taxi.
+    <span></span>
+    For 점심 (lunch), we decided to try <a href="https://www.google.com/maps/place/%EB%8B%A4%ED%95%B4%EC%8B%9D%EB%8B%B9/data=!3m1!4b1!4m6!3m5!1s0x3567a596ac35e16d:0x8432dbea9a2767de!8m2!3d35.8073937!4d129.502884!16s%2Fg%2F1q5bsxgy1?entry=ttu&g_ep=EgoyMDI1MDQxNi4xIKXMDSoASAFQAw%3D%3D">Da Hae Restaurant</a> where I tried a Korean dish called Whae Mu Chim (회무침). 회, pronounced “whae”, is the Korean word for raw fish or sashimi. The raw fish was sliced up over a bed of vegetables and topped with gochujang sauce and sesame seeds. I learned from some locals that 회무힘 is considered a “very Korean” dish. Based on a “회무침” Google search, it looks like the lovely owners of Da Hae may be plating their version of Whae Mu Chim more modernly, with more vegetables, and with less sauce. It was delicious and paired excellently with a cold 맥주 pronounced,  “mek-ju” aka beer.  
+    <span></span>
+    We also ordered a boiling pot of 해물 순두부찌개 (sea food soft tofu stew), which is one of my favorite Korean dishes. Da Hae’s  순두부, pronounced “soon-du-bu",  was very good! However, unlike Whae Mu Chim, one can get an authentic bowl of Korean seafood soft tofu stew in probably any metropolitan area of the US.  Even Fayetteville, Arkansas has a few Korean restaurants that serve delicious soon-du-bu! 
+    <span></span>
+    Lastly, we also made several trips to the restaurant’s banchan (side dishes) buffet line. They served side dishes with seaweed, tofu, leafy greens, and of course, kimchi. The nice people running the restaurant also gave us a Gampo tourism book with our side dishes :). We read/translated the book while waiting for our main entrees. Note that many Korean restaurants in South Korea have a self-serve all-you-can-eat banchan station. Apparently, it is well known that Korean restaurants will never let their customers leave hungry, and Da Hae is no exception!
+    <span></span>
+    After lunch we took a stroll through the Gampo public market, which sold a variety of items, but was heavy on the seaweed and seafood. Saw some very interesting looking fish! We also braved the strong winds that were occurring and walked out to the end of a pier where we got a closer look at a beautiful white lighthouse.
+    <span></span> 
+    To my readers - If the weather was better we would have walked more along the ocean in this port city. However, would I return to Gampo? Probably not. But if you find yourself here, I do recommend Da Hae Restaurant, or at least finding a restaurant that serves 회 (raw fish)! As always 감사합니다 (thanks) for reading!
+    <span class="end"></span>
+</p>
+</BlogPostLayout>
+<style>
+span{
+        display: block;
+        height: 1.05rem;
+    }
+    .end{
+        height:10px;
+    }
+</style>
