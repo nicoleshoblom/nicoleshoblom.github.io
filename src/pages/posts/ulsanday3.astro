@@ -1,0 +1,68 @@
+---
+import BlogPostLayout from '../../layouts/BlogPostLayoutPicVideo.astro';
+const captions = [
+    "Me with big cherry blossom trees in the forest at Daewangam (대왕암) Park in Ulsan on April 6, 2025",
+    "Obligatory cherry blossom family picture. Ezra wanted to stay at the playground.",
+    "Canopy of cherry blossom trees at Daewangam Park",
+    "Massive dragon slide play structure at Daewangam Park",  
+    "Kids enjoying the playground",
+    "Ropes course hanging from pine trees with cherry blossom trees nestled in between",
+    "Jeremy and the boys picking up fallen cherry blossom petals",
+    "Ezra showing off the cherry blossom",
+    "The trail we were on led us to the ocean and a legendary rock formation",
+    "Map of Daewangam Park",
+    "Outdoor ocean side restaurant at the start of the rock formation. The fresh seafood served here was caught by female divers",
+    "Hiking on the rock formation where bridges were built to connect the mainland to the rock formation",
+    "Looking back on Daewangam Park from the rock formation",
+    "Enjoying the ocean view from the end of the rock formation. LOL that lady is not me!",
+    "Cute cat bench. We spotted several wild cats at this park",
+    "Kiddos enjoyed throwing rocks into the ocean before getting back on the trail to the park entrance.",
+    "We took a different trail back to the park entrance which was much more rigorous than the first trail we took",
+    "Taking what looked like a shortcut on the map",
+    "This part of the park reminded me so much of Half Moon Bay in California",
+    "One last cherry blossom picture with my boys!",
+    "Gotta be clean and blow off the dust from our shoes!", 
+    "Walkway from Daewangam park to Ilsan Beach", 
+    "View of Ilsan Beach", 
+    "Korean BBQ restaurant specializing in ribs that we ate at for lunch",
+    "The BBQ ribs were delicious and high quality!"
+];
+export const title = "Cherry Blossoms at Daewangam Park"
+export const date = "April 23, 2025"
+const location = "Seoul, South Korea"
+const images = Object.values(import.meta.glob('../../assets/ulsanday3/*.webp', { eager: true}));
+const videos = [
+    {index: 20, src: "https://drive.google.com/file/d/1216eung1bIM3kegyPjnGK5cISnx9O6x3/preview"},
+    {index: 24, src: "https://drive.google.com/file/d/1V75r-49ECy28Jy-srxAb9dNRemgU_lk-/preview"},
+];
+---
+<BlogPostLayout
+    captions={captions}, 
+    title={title},
+    date={date},
+    location={location},
+    images={images},
+    videos={videos}
+>
+<p> 
+    Some may agree that seeing cherry blossoms (벚꽃) is the most coveted experience in South Korea. And rightly so because the cherry blossoms lasted only 2.5 weeks this season! My family and I were lucky to experience 한국 (Korean) cherry blossoms at Daewangam (대왕암) park in Ulsan. The park is breathtaking because it is actually a small forest filled with 15,000 pine trees next to the ocean. Cherry blossom trees line a paved trail in the forest, and are nestled within the pine trees. There were also some really big cherry blossom trees!
+    <span></span>
+    At the entrance of the park is a plaza with convenience stores and restaurants. There is also an impressive children’s playground that boasts a massive and colorful dragon slide play structure. Just past the playground, in the forest, is a kids ropes course hanging from the pine trees. 
+    <span></span>
+    The few forest trails at the park all led to a stunning rock formation in the ocean. Legend has it that King Munmu’s wife, Queen Jaui, became a guardian dragon and placed herself under the rock formation to protect Korea and its people. Bridges were built to allow people to walk on the rock formation. And there is even an outdoor restaurant at the start of rock formation! It was serving seafood freshly caught by Haenyeo (해녀) aka female free divers. 
+    <span></span>
+    We spent about 2.5 hours at Daewangam before deciding to leave for lunch. On our way to the restaurant we walked passed Ilsan Beach. Had it been Summer time, I would have jumped right in! Our chosen lunch spot was a Korean BBQ joint specializing in ribs called Yukhyang. The food was fantastic and the decor was delightful!
+    <span></span>
+    To my readers - visiting Daewangam was part of a family  2 night 3 day trip to Ulsan. We took the <a href = "/posts/ulsanday1">train from Seoul</a> and also visited <a href ="/posts/ulsanday2">Gampo</a>. Daewangam was my favorite part of the trip. It honestly reminded me of Half Moon Bay in California. We were so impressed with Ulsan that 우리는 육월에 부산에 가려고 해요 (we are going to Busan in June)! Busan is just south of Ulsan and also right on the coast. I hope you enjoyed this post and 고마워요 (thank you) for stopping by!
+    <span class="end"></span>
+</p>
+</BlogPostLayout>
+<style>
+span{
+        display: block;
+        height: 1.05rem;
+    }
+    .end{
+        height:10px;
+    }
+</style>
