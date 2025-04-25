@@ -88,14 +88,14 @@ git commit -m "Initial commit"
     Next make sure you are logged into to your Github account and go to <a href=https://github.com/new>github.com/new</a> to create a new repository. Give the repository the same name as the folder you just created. Set the repository to be "Public", and make sure "Add a README file" is <b>not</b> checked, and that both ".gitignore template" and "License" are set to <b>None</b>. Then click "Create repository", which will redirect you to your newly created repository page. Scroll down to "...or push an existing repository from the command line" to see the commands that will sync your local folder with the remote Github repository. For me I am instructed to run:
 <pre class="code-block">
 <code>
-git remote add origin https://github.com/nicoleshoblom/test.git
+git remote add origin https://github.com/lupefiasco42/test.git
 git branch -M main
 git push -u origin main
 </code>
 </pre>
-    At this point you may be asked to provide github credentials inside the terminal and provide author name and email. If so, follow the prompts to do so and then run the previous commands again. If you made it this far, then you've done your first <code>git push</code>! Congrats! You can now go back to Github.com and see that README.md and .gitignore show up on the repository page.
+    (Yes, I made a new github account with username, lupefiasco42, just for those post &#128514;) You will then be prompted for your Github username and password. Go ahead and input your Github username. You will then be prompted for your password. However, in August 2021 Github now requires you to input a Github personal access token for your password. To get your personal access token go to <a href="https://github.com">github.com</a>. Click on your profile photo in the top right hand corner, and select "Settings". Then in the left menu click on "Developer Settings". In the left menu of Developer Settings click on "Personal access tokens" and choose "Tokens (classic)". Click on "Generate new token" and choose "Generate new token (classic)". Provide a name for the token under <b>Note</b>, keep the default expiration date, and select all scopes. Then hit "Generate token", and copy the generated token. Go back to your terminal and paste the token in as the response to the password prompt. If you made it this far, then you've done your first <code>git push</code>! Congrats! You can now go back to Github.com and see that README.md and .gitignore show up on the repository page.
     <span></span>
-    Now let's make a change to README.md by opening it in Mac's TextEdit application on your local computer. In TextEdit make a new line that says anything you want. I wrote "This is a toy example". Save the file with your new change and then close it. Now in your terminal you can run <code>git status</code> and you should see that your "branch is up to date with origin/main", which means your local git folder and your remote git repo are fully synced. You'll also see that the modified "README.md" change has not been staged. So let's stage, commit, and push our recent changes.
+    Now let's make a change to README.md by opening it in Mac's TextEdit application on your local computer. In TextEdit make a new line that says anything you want. I wrote "This is a toy example". Save the file with your new change and then close it. Now in your terminal you can run <code>git status</code> and you should see that your "README.md" file is listed under "Changes not staged for commit". So let's stage, commit, and push our recent changes.
 <pre class="code-block">
 <code>
 git add .
@@ -105,7 +105,7 @@ git push
 </pre>
     Note that <code>git add .</code> stages all modified or new files in your local git folder, but you can choose to stage only certain files. You can now refresh the Github.com repo page and see that README.md on the remote repo has been updated.
 <span></span>
-    OK let's make some more changes to README.md, again in the TextEdit application. Add a dollar sign after every word in the sentence you made previously, then save and close the file. The second line in my readme file looks like this now: "This $ is $ a $ toy $ example". Now let's pretend you've decided you don't want to have these dollar signs, and it would be too cumbersome to remove them one by one. Whatever can you do??? Git to the rescue! Run the following command in your terminal.
+    OK let's make some more changes to README.md, again in the TextEdit application. Reopen README.md in TextEdit, and add a dollar sign after every word in the sentence you made previously, then save and close the file. The second line in my readme file looks like this now: "This $ is $ a $ toy $ example $". Now let's pretend you've decided you don't want to have these dollar signs, and it would be too cumbersome to remove them one by one. Whatever can you do??? Git to the rescue! Run the following command in your terminal.
 <pre class="code-block">
 <code>
 git checkout -- README.md
