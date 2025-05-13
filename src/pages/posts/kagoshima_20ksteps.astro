@@ -1,0 +1,67 @@
+---
+import BlogPostLayout from '../../layouts/BlogPostLayoutPicVideo.astro';
+const captions = [
+    "Family pic at the observation deck at the peak of Shiroyama Park on May 2, 2025 ",
+    "Our Airbnb was a 5 minute walk from Chuo Station in the center of Kagoshima city",
+    "Atticus overlooking Kotsuki River",
+    "Ezra picking up a pretty flower :)",  
+    "Jeremy and Ezra walking along Kotsuki River",
+    "Statue of Hirata Yukie at the historical former site of his residence",
+    "Playground at the historical former site of Hirata Yukie’s Residence",
+    "Steep climb to the top of Shiroyama Park",
+    "Almost to the top. Sakurajima volcano in the distance blowing smoke",
+    "View of Kagoshima city and Sakurajima volcano from the top of Shiroyama Park",
+    "Kids enjoying their ice cream reward",
+    "Playground at Shiroyama Park",
+    "Relaxing arboretum at Shiroyama Park",
+    "<3 ^^",
+    "Walking down the mountain towards the wagyu restaurant",
+    "Kiddos enjoyed walking through a tunnel instead of driving through it. They tried to hold their breath!",
+    "Passed this historical site with 13 Buddha statues built to commemorate Kobo Taishi",
+    "View of 月とアネモネ restaurant from the street",
+    "Entrace to 月とアネモネ restaurant",
+    "Taking our seats. We are the first customers to arrive!",
+    "Ezra enjoying his drink in a cute kids cup",
+    "I of course ordered a beer to go with....", 
+    "...my wagyu beef!", 
+    "The restaurant was top notch and served ice cream on-the-house for dessert", 
+    "The boys were also given a complimentary bag of sweet treats to take home",
+];
+export const title = "20,000 Steps in Kagoshima, Japan"
+export const date = "May 14, 2025"
+const location = "Seoul, South Korea"
+const images = Object.values(import.meta.glob('../../assets/kagoshima_20ksteps/*.webp', { eager: true}));
+const videos = [
+    {index: 22, src: "https://drive.google.com/file/d/1ufN8JlZF4IjScLbNgjC9zKWFNfcBeXPV/preview"},
+];
+---
+<BlogPostLayout
+    captions={captions}, 
+    title={title},
+    date={date},
+    location={location},
+    images={images},
+    videos={videos}
+>
+<p> 
+    During a string of Korean holidays (Children’s Day 어린이 날, Buddha’s Birthday), my family took a 5 night, 6 day trip to Kagoshima City in Japan, which is also located in the prefecture (similar to a US state) of Kagoshima.  Kagoshima International Airport is located in the city of Krishima. From the airport you can take a ~40 minute cab or bus ride to Chuo Station, which is located in the center of Kagoshima City. <a href="https://www.airbnb.com/l/EVpuwnNl">Our Airbnb</a> was about a 5 minute walk from Chuo Station, and I highly recommend it, or anywhere near it. We were close to so many restaurants, shopping, attractions, and nightlife. It is also possible to board trains at Chuo Station that will take you to other cities like Fukuoka or Ibusuki.
+    <span></span>
+    On our first full day in Kagoshima we took a ‘stroll’ from our Airbnb to Kotsuki River, and to the historical former site of Hirata Yukie’s Residence, at which there was a playground for the kids. Hirata Yukie is memorialized for leading the Kisogawa River project. However, many men working on the project died under his leadership. Yukie took full responsibility for their deaths, and took his own life in atonement.
+    <span></span>
+    After enjoying our time with Hirata Yukie, we continued on to the main goal of our ‘stroll’, which was to reach Shiroyama Park. The park is actually a mountain, which we climbed to the top to see a spectacular view of Kagoshima and Sakurajima volcano. Sakurajima is still active, and we saw it smoking on several occasions. The climb was steep, but possible even with our 6 and 4 year olds. Kids can also look forward to the store that sells ice cream at the top!
+    <span></span>
+    By 1030 AM we had already walked more steps than I do in a typical day, and we were hungry for lunch! Thanks to Google, we found a highly rated <a href="https://maps.app.goo.gl/XjWaLdjduAKqQcnm8?g_st=com.google.maps.preview.copy">wagyu restaurant</a> which was a short walk on a road down the mountain (yes, you can drive to the top of Shiroyama). On our way we walked through a tunnel, and by another historical site that had 13 Buddha statues built to commemorate a Buddhist priest named Kobo Taishi. The restaurant had an eccentric decor yet homey feeling, especially because the owners were so welcoming and kind. The wagyu beef was of high quality and the chef cooked all the dishes perfectly. I am salivating just thinking about the food at this restaurant! The kids were also satisfied, especially because they served ice cream on-the-house, and sent our kids home with a complimentary bag of sweet treats.
+    <span></span>
+    To my readers - after lunch we of course walked home, and by the end of the day my Apple Health showed over 20,000 steps! Which means both my kids also walked over 20,000 steps! The last time we reached that many steps was on our trip to the Hokkaido area of Japan back in August. So if you like walking, nature, active volcanoes, and a big-city feel, add Kagoshima to your bucket list! 재 포스트을 읽어주셔요, arigato go sai mas! (Thanks for reading my post!) 
+    <span class="end"></span>
+</p>
+</BlogPostLayout>
+<style>
+span{
+        display: block;
+        height: 1.05rem;
+    }
+    .end{
+        height:10px;
+    }
+</style>
