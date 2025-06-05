@@ -1,0 +1,64 @@
+---
+import BlogPostLayout from '../../layouts/BlogPostLayoutPicVideo.astro';
+const captions = [
+    "Outdoor area of Seoul Folk Flea Market in 신설동 (Sinseol Dong) on July 20, 2024 ",
+    "An entrance to the indoor part of the Seoul Folk Flea Market.",
+    "Seoul Folk Flea Market directory",
+    "Jeremy in heaven at the Seoul Folk Flea Market",
+    "Play zone at the Seoul Folk Flea Market",
+    "Play zone at the Seoul Folk Flea Market",
+    "Water Fountain at 우산각 어린이궁원 (Usangak Children's Park) next to Seoul Folk Flea Market",
+    "Playground at Usangak Children's Park next to Seoul Folk Flea Market",
+    "Ezra showing off his 수박 (watermelon) snack",
+    "Laura showing off her 고기 (meat) snack on May 18 2025",
+    "Walked 5 minutes to the 청계천 (Cheonggyecheon Stream) from Seoul Folk Flea Market",
+    "Hanging out under Biudang Bridge next Cheonggyecheon Stream with Luara and 시아버지 (father-in-law), Scott",
+    "Jeremy, Ezra, and Atticus playing soccer under the bridge with a ball we got for free at the Seoul Folk Flea Market!",
+    "Scott and a fish swimming at Cheonggyecheon Stream",
+    "Jonchie pier attraction at Cheonggyecheon Stream",
+    "Old pillars that used to support an elevated highway that ran above the stream",
+    "Walking from Cheonggyecheon Stream towards Majang Meat Market. 우리는 청계천에서 마장동 시장으로 걸고 있어요",
+    "City walking!",
+    "Entrace to Majang Meat Market",
+    "Waiting for Nammun Hanwoo Sutbul Gobchang Reastaurant to open up so we can cook our Hanwoo beef!",
+    "We are the first to arrive at the restaurant",
+    "Laura enjoying Korean BBQ - a must-do experience in South Korea!",
+    "Walking trip over. Waiting for our taxi to take us back home ^^"
+
+];
+export const title = "A Walking Itinerary in Seoul"
+export const date = "June 5, 2025"
+export const location = "Seoul, South Korea"
+const images = Object.values(import.meta.glob('../../assets/walkingseoul/*.webp', { eager: true}));
+const videos = [];
+---
+<BlogPostLayout
+    captions={captions}, 
+    title={title},
+    date={date},
+    location={location},
+    images={images},
+    videos={videos}
+>
+<p> 
+    In this suggested itinerary you can bargain shop ‘till you drop, walk along the famous Cheonggyecheon Stream, and personally select cuts of hanwoo to bbq and gobble up all by foot.
+    <span></span>
+    First on the itinerary is the Seoul Folk Flea Market. The market is overflowing with stalls both outside and inside that sell all kinds of stuff both used and new. The indoor part of the 시장 (market) has some fun kids play zones. Also right next to the flea market is a children’s park with a playground and splash pad. Be sure to try some if the 싼 (cheap) street food also for sale at the market. 
+    <span></span>
+    Once you’ve had your fill of bargain hunting, head South towards 청계천 (Cheonggyecheon Stream). In 5 minutes you’ll hit a stream entrance by Biudang bridge. From under this bridge we enjoyed the stream view with a snack, and even played a little soccer! There is impressive wildlife to be observed at this part of the stream. Walk East along the stream for a bit to see Jonchi pier. At this attraction, there are old pillars that used to support an elevated highway that ran above the stream.
+    <span></span>
+    The next and last stop of this itinerary takes you East towards Majangdong Meat Market which is about a 30 minute walk from Jonchi pier. Walking along the stream all the way to the meat market will probably double the time, but will also double your appetite! Once you enter the meat market you will be approached by the lovely folks working in the meat stalls trying to sell you their gogi (meat). The lucky folks you buy from will then take you to a restaurant where you will K-BBQ up the meat you've bought. We ate at <a href="https://maps.app.goo.gl/p5YYPLPys8zP5MMe6?g_st=com.google.maps.preview.copy">Nammun Hanwoo Sutbul Gobchang</a> Restaurant who were very friendly and opened up their restaurant early for us.
+    <span></span>
+    To my readers - we've done this walk several times, and I'm sure we'll do it again! My pictures don't capture the massiveness of the Seoul Folk Flea Market...you could spend ages there if you love to thrift shop. Also a tip from yours truly - hidden inside one of the buildings at Majangdong Meat Market is an intimate French steak restaurant called <a href="https://www.instagram.com/majangdong_tiger_official/">Majangdong Tiger (마장동 호랑이) </a>. I highly recommend this restaurant as the chef and owner cooks all the dishes on the menu to absolute perfection! Thanks for reading my post, and Happy Seoul walking, 재 친구's (my friends)!
+    <span class="end"></span>
+</p>
+</BlogPostLayout>
+<style>
+span{
+        display: block;
+        height: 1.05rem;
+    }
+    .end{
+        height:10px;
+    }
+</style>
