@@ -1,0 +1,77 @@
+---
+import BlogPostLayout from '../../layouts/BlogPostLayoutPicVideo.astro';
+const captions = [
+    "Discovered that there is a Kpop band named, Astro (아스트로)!",
+];
+export const title = "Deploy a Personal Website with Astro and Github Pages"
+export const date = "June 12, 2025"
+export const location = "Seoul, South Korea"
+const images = Object.values(import.meta.glob('../../assets/astrogitdeploy/*.webp', { eager: true}));
+const videos = [
+    {index: 0, src: "https://www.youtube.com/embed/yHQ-J-4z6i8?si=YG7dXQ_JcEARXhbC"}
+];
+---
+<BlogPostLayout
+    captions={captions}, 
+    title={title},
+    date={date},
+    location={location},
+    images={images},
+    videos={videos}
+>
+<p> 
+    Astro is a <a href="https://thejetsons.fandom.com/wiki/Astro">dog</a>, a Kpop boy band, and an awesome web framework written in Python. Who knew?!? Trivia facts aside,  as promised in my <a href="/posts/gitpost">post</a> about Git, here is my post outlining the steps to deploy a personal website using Astro and Github Pages. Note that this article assumes familiarity with using a code editor like VScode.
+    <span></span>
+    First open up a terminal window and follow these <a href="https://docs.astro.build/en/tutorial/1-setup/2/">instructions</a> on Astro's website to create a new Astro project.
+    <span></span>
+    Next, open up the folder in your preferred code editor. I'm going to us VScode.
+
+    
+    <span class="end"></span>
+</p>
+</BlogPostLayout>
+<style>
+span{
+        display: block;
+        height: 1.05rem;
+    }
+    .end{
+        height:10px;
+    }
+.code-block {
+    background-color: lightgray; /* Light gray background */
+    border: 1px solid #ddd; /* Border around the code block */
+    border-radius: 5px; /* Rounded corners */
+    padding: 0px; /* Padding inside the code block */
+    font-family: 'Courier New', Courier, monospace; /* Monospace font for code */
+    font-size: 12px; /* Font size */
+    overflow-x: auto; /* Horizontal scrolling for long lines */
+    align-items: center;
+    }
+    code{
+        font-family: 'Courier New', Courier, monospace; /* Monospace font for code */
+        font-size: 14px; /* Font size */
+        background-color: lightgray; /* Light gray background */
+        border: 1px solid #ddd; /* Border around the code block */
+        border-radius: 5px; /* Rounded corners */
+        padding: 0px;
+        margin: 0px;
+    }
+    @media (min-width: 768px) {
+        .code-block {
+            font-size: 14px;
+        }
+
+    }
+    kbd {
+        display: inline-block;
+        padding: 4px 8px;
+        font-family: 'Menlo', monospace;
+        font-size: 0.9rem;
+        background: #f2f2f2;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-shadow: inset 0 -1px 0 #bbb;
+        margin: 0 2px;
+    }
+</style>
