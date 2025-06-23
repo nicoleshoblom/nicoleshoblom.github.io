@@ -71,7 +71,7 @@ const { PageTitle } = Astro.props
 				left: 50%;
 				transform: translateX(-50%);
                 font-family: "Lunar Blossom", sans-serif;
-                font-size: clamp(1.2rem, 5vw, 35px); /* Responsive font size */
+                font-size: clamp(1.5rem, 7vw, 35px); /* Responsive font size */
                 word-spacing: 5px;
                 color: black;
             }
@@ -163,9 +163,9 @@ const { PageTitle } = Astro.props
                 outline: none
             }
             }
-            @media (max-width: 350px) {
+            @media (max-width: 300px) {
                 .title {
-                    font-size: 1rem; /* Even smaller on very narrow screens */
+                    font-size: 1.2rem; /* Even smaller on very narrow screens */
                 }
                 .hamburger {
                     font-size: 1.2rem;
