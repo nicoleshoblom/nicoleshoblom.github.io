@@ -71,9 +71,15 @@ const { PageTitle } = Astro.props
 				left: 50%;
 				transform: translateX(-50%);
                 font-family: "Lunar Blossom", sans-serif;
-                font-size: 35px;
+                font-size: clamp(1.2rem, 5vw, 35px); /* Responsive font size */
                 word-spacing: 5px;
                 color: black;
+            }
+            .hamburger {
+                display: none;
+                font-size: 30px;
+                cursor: pointer;
+                position: relative;
             }
             .icons {
                 display: flex;
@@ -103,12 +109,6 @@ const { PageTitle } = Astro.props
             }
 			.fa-linkedin:hover {
                 color: coral; /* Change color to coral on hover */
-            }
-            .hamburger {
-                display: none;
-                font-size: 30px;
-                cursor: pointer;
-                position: relative;
             }
             .dropdown {
                 display: none;
@@ -163,6 +163,18 @@ const { PageTitle } = Astro.props
                 outline: none
             }
             }
+            @media (max-width: 350px) {
+                .title {
+                    font-size: 1rem; /* Even smaller on very narrow screens */
+                }
+                .hamburger {
+                    font-size: 1.2rem;
+                }
+                .material-icons,
+                .fa-linkedin {
+                    font-size: 1.2rem;
+                }
+            }
         </style>
     </head>
     <body>
@@ -183,7 +195,7 @@ const { PageTitle } = Astro.props
                 </a>
 			</div>
             <div class="dropdown" id="dropdown">
-                <a href="/", class="nav-link">Home</a>
+                <a href="/"), class="nav-link">Home</a>
                 <a href="/resume/", class="nav-link">Resume</a>
                 <a href="/blog/", class="nav-link">Blog</a>
             </div>
