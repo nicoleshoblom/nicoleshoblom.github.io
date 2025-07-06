@@ -1,0 +1,61 @@
+---
+import BlogPostLayout from '../../layouts/BlogPostLayoutPicVideo.astro';
+const captions = [
+    "My Dad (재 아빠) at an art installation at Montmartre Park on June 13, 2025",
+    "Kiddos enjoying the small playground at the top of Montmartre Park on June 13 2024",
+    "Jeremy was at work so I took a picture with his doppelganger, Vincent Van Gogh ^^",
+    "My 가족 (family) flying a kite at Montmartre Park on November 2, 2024",  
+    "Many parks have outdoor gym equipment!",
+    "View of Banpo with Seoul Tower in the distance looking north from Nae Bridge between Montmartre and Seoripul Parks",
+    "View from Nae Bridge looking South on a very polluted day, March 9 2025. Seoul Arts Center is behind the pollution",
+    "Nae Bridge beginning to light up at dusk",
+    "Atticus riding the balance bike on Nae Bridge on June 24, 2024",
+    "Ezra riding his bike on Nae Bridge on April 25, 2025",
+    "A pond located below the large field at Montmartre Park on Nov 19, 2024",
+    "An art installation redrawing famous paintings using the Hangeul alphabet at Montmartre Park on March 9, 2025",
+    "Walking path from the main entrance of Montmartre Park",
+    "A trail at Seoripul Park on June 24, 2024",
+    "Grandfather Rest Area at the top of Seoripul Park on July 17, 2024",
+    "Grandfather Rest Area on March 18, 2025",
+    "A Winter view from Granfather Rest Area",
+    "A trail blanketed in snow at Seoripul Park",
+    "Flowers starting to bloom on a trail at Seoripul Park on March 21 2025",
+    "An entrance to Seouripul Park on April 17, 2025",
+];
+export const title = "Four Seasons at Montmartre & Seoripul Parks, Seoul"
+export const date = "July 4, 2025"
+const location = "Pacifica, CA, USA"
+const images = Object.values(import.meta.glob('../../assets/seoripul_montmartre/*.webp', { eager: true}));
+const videos = [
+    {index: 3, src: "https://drive.google.com/file/d/13Buil41VpNWeJhn-3Udg1eO4rOb715tt/preview"},
+    {index: 9, src: "https://drive.google.com/file/d/1LXn8JdhhqfL9S5Sf8PxP4cJ78ZTXRxE-/preview"},
+];
+---
+<BlogPostLayout
+    captions={captions}, 
+    title={title},
+    date={date},
+    location={location},
+    images={images},
+    videos={videos}
+>
+<p> 
+    South of the Han River (한강) in Seocho (서초) district is a neighborhood called Seorae Maeul or the French Village. It’s a quieter part of Seoul where apartment buildings are only mid-rise (about 4 stories), and the nearest subway station is a 15 minute walk. The village’s main road, Seorae-ro has countless restaurants and cafes. Two parks that I hike frequently, Seoripul Park and Monamartre Park, are also located in the village.
+    <span></span>
+    Monamartre park is well manicured with a small play area, art accents, and a large open field. It connects to the North East part of Seoripul Park via the Nae bridge, which lights up at night. One will see folks of all ages here exercising, picnicking, and even commuting to and from Express Bus Terminal.
+    <span></span>
+    The South West part of Seouripul park is a small forest up a steep mountain. It takes 10-20 min to hike up to the summit where a beautiful city and mountain view awaits at Grandfather Rest Area to reward those who make it to the top. One can continue South through park all the way to Bangbae station.
+    <span></span>
+   To my readers - this post is to celebrate one year of living in Seoul! Seoripul and Monamartre park were the very first places I visited as a newcomer to Seoul.  One year later I now have hundreds of pictures at these parks through all four seasons. Here's to making it one year as a US expat in Seoul! 건배 (Cheers)!
+    <span class="end"></span>
+</p>
+</BlogPostLayout>
+<style>
+span{
+        display: block;
+        height: 1.05rem;
+    }
+    .end{
+        height:10px;
+    }
+</style>
