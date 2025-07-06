@@ -126,6 +126,7 @@ const { captions, title, date, location, images, videos} = Astro.props;
             align-items: center;
             gap: 5px;
             margin-top: 0px;
+            pointer-events: none; /* Make indicators unclickable */
         }
 
         .carousel-dot {
@@ -133,7 +134,7 @@ const { captions, title, date, location, images, videos} = Astro.props;
             height: 5px;
             background-color: #ccc;
             border-radius: 50%;
-            cursor: pointer;
+            cursor: default; /* Change cursor to indicate not clickable */
             transition: background-color 0.3s ease;
         }
 
