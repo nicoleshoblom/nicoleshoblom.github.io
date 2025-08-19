@@ -34,6 +34,6 @@ done
 echo "✅ Conversion complete. Files saved in '$OUTPUT_DIR'"
 
 #terminal commands
-#/Users/nicole/nicoleshoblom.github.io/scripts/heic_to_webp.sh /Users/nicole/Downloads /Users/nicole/nicoleshoblom.github.io/src/assets/traintoulsan
+#/Users/nicole/nicoleshoblom.github.io/scripts/heic_to_webp.sh /Users/nicole/Downloads /Users/nicole/Downloads
 
 #/Users/nicole/nicoleshoblom.github.io/scripts/heic_to_webp.sh /Users/nicole/Downloads/Photos-1-001 /Users/nicole/nicoleshoblom.github.io/src/assets/kagoshima_20ksteps
