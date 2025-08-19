@@ -1,16 +1,22 @@
 ---
 // Props for the WorkItem component
-const { degree, degree2, school, location, dates, accomplishments } = Astro.props;
+const { degree, degree2, degree3, school, location, dates, dates2, accomplishments } = Astro.props;
 ---
 
 <div class="work-item">
     <div class="work-details">
         <h3>{degree}</h3>
         <h3>{degree2}</h3h3>
+        <h3>{degree3}</h3h3>
         <h4>{school}</h4>
         <p>
             <span class="material-icons">school</span> {dates}
         </p>
+        {dates2 && (
+            <p>
+                <span class="material-icons">school</span> {dates2}
+            </p>
+        )}
         <p>
             <span class="material-icons">location_on</span> {location}
         </p>
