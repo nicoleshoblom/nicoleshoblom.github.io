@@ -1,0 +1,84 @@
+---
+import BlogPostLayout from '../../layouts/BlogPostLayoutPicVideo.astro';
+const captions = [
+    'Pacifica locals set off fireworks on America\'s Independence day holiday. You can get a good and loud view from this <a href="https://www.airbnb.com/rooms/1219899249495627133?guests=1&adults=1&s=67&unique_share_id=e3124f76-d6e3-4203-9a8d-30cd32d3bd8e" target="_blank" rel="noopener">AirBnB</a>.',
+    "Slide ride during Pacifica's 2025 July 4th Festival at Frontierland Park.",
+    "Swing carousel ride during Pacifica's 2025 July 4th Festival at Frontierland Park.",
+    "Entrance to Pedro Point Playground in Pacifica",
+    "Next to Pedro Point Playground is a meadow that leads to the South side of Linda Mar Beach, which is also referred to as Pacifica State Beach on Google Maps",
+    "San Pedro Creek meets the Pacific Ocean on the South side of Linda Mar Beach",
+    "Skatepark at the Pacifica Community Center with a playground in the background",
+    "Ezra and Atticus playing in the sand at Rockaway Beach",
+    "Playing with our dog, Dixie, at Pacifica Esplanade Beach. We gave her up for adoption in Sacramento, CA before moving to 서을 (Seoul). On the off chance you adopted this dog or you know who did, please email me at nicole.shoblom@gmail.com",
+    "제 엄마 My mom on the North side of Linda Mar Beach",
+    "Uncle Bob enjoying the view from Mori Point",
+    "Hiking on a trail in San Pedro Valley Park in Pacifica",
+    "Enjoying another trail in San Pedro Valley Park with Uncle Michael",
+    "Ezra biking along the Pacifica Quarry Running Trail",
+    "View at the top of a trail in Pedro Point Headlands",
+    "Walking along the protected beach at JV Fitzgerald Marine Reserve.",
+    'Whale sighting at Pedro Point from the backyard of this <a href="https://t.vrbo.io/R5k8qofn7Vb">short term rental</a>.',
+    "Jeremy crabbing at the Pacifica Pier",
+    "Be cautious of big surf in Pacifica! We got hit by a big wave off the Pier during King Tide season in December 2024",
+    "Seafood boil at the Half Moon Bay Fish Market",
+    "Enjoying the beach front Taco Bell Catina at Linda Mar Beach",
+    "La Costanera restaurant in Half Moon Bay"
+
+];
+export const title = "Summer in Pacifica, California"
+export const date = "Aug 25, 2025"
+export const location = "Seoul, South Korea"
+const images = Object.values(import.meta.glob('../../assets/summerpacifica/*.webp', { eager: true}));
+const videos = [{index: 0, src:"https://drive.google.com/file/d/1JH6c8U08kNryGOo6m6EAJA8W7PVAwz7z/preview"},
+{index:1, src:"https://drive.google.com/file/d/101SLcg6GVsN3acDOYuAC46pgF6ztJUNm/preview"},
+    {index: 2, src:"https://drive.google.com/file/d/1-wcqetMuihOq1DX3YZ4ffa1wr3yH9bPq/preview"}, 
+    {index: 8, src:"https://drive.google.com/file/d/19AUI5rlaeGJ4z4OlYkMQABqy0uvdYNzJ/preview"},
+    {index: 16, src:"https://drive.google.com/file/d/1sNTuizcxiS5qk0HO_U7SE-lgU2gXJM97/preview"},
+    {index: 18, src:"https://drive.google.com/file/d/1XuhPgxvCnluLSnA0AjHDf4QH118HubJZ/preview"}
+];
+---
+<BlogPostLayout
+    captions={captions}, 
+    title={title},
+    date={date},
+    location={location},
+    images={images},
+    videos={videos}
+>
+<p> 
+    I am lucky that Pacifica is my home base whenever I travel back to the Bay Area in California. I recently stayed in Pacifica for a month for my kids' 2025 여름 방학 (Summer Vacation). It was our first time staying in the area during the July 4th holiday, which turned out be a big spectacle! Be ready for the best and loudest independent firework show of your life. If you want a really good seat, I recommend staying at this <a href="https://www.airbnb.com/rooms/1219899249495627133?guests=1&adults=1&s=67&unique_share_id=c7ae11d2-9356-43bf-8bb6-ec76756aeaa5">AirBnB</a>. There is also an annual July 4th festival hosted at Frontierland Park complete with rides, food, drinks, and live music!
+    <span></span>
+    Speaking of Frontierland Park, it's the only park in Pacifica with a big playground, an expansive well manicured field, picnic tables, and bbq's. There are a few other small playgrounds of note including the Pedro Point Community Playground, and one at the Pacifica Community Center right next to a sweet skate park. Kids will of course have a blast playing in the sand and water at Linda Mar Beach (aka Pacifica State Beach) and Rockaway Beach. Just be cautious during times of strong surf! 
+    <span></span>
+    The highlight of beaches in Pacifica during the Summer are the whales! Frequent sightings are possible at any of the beaches in Pacifica, like Mussel Rock, Pacifica Esplanade, and at the pier. A hot tip from yours truly: try to book some nights at this <a href="https://t.vrbo.io/DduCOUsp7Vb">short term rental gem</a>. It has a spectacular backyard view of Pedro Point where, with the help of binoculars, you can see whales at all the aforementioned places.
+    <span></span>
+    Pacifica is of course known for its beautiful trails. A few I have hiked are Pedro Point Headlands, Pacifica Rockaway Trail, Mori Point, Pacifica Quarry Trail, and trails at San Pedro Valley Park. I also highly recommend taking a short drive South to Moss Beach to explore JV Fitzgerald Marine Reserve.
+    <span></span>
+    After all the outdoor activity, explore the food and bar scene in Pacifica. Some of my faves are 
+    Dinosaurs, 
+    Top Pot, 
+    Breakers, 
+    Nick’s, and you have to visit the beachfront 
+    Taco Bell Cantina at Linda Mar Beach! Since it’s a Cantina they serve alcohol! Also check out 
+    Winter’s Tavern and 
+    Long Boards if you’re wanting a dive bar scene. Craving something sweet? The señorita bread at 
+    Starbread is a must-try, or visit the iconic 
+    Mazetti Bakery for a wide selection of sweet treats. A bit further South are 
+    Sam’s Chowder House, 
+    La Costanera, and the 
+    Fish Market in Half Moon Bay. You can also drive north to Daly City for Korean cuisine at 자갈치 (Jagalchi) at the Serramonte Mall. I also love 
+    Cafe Colma inside of Lucky Chances Casino that serves top notch Filipino food 24 hours a day!
+    <span></span>
+    To my readers - staying in Pacifica will give you the quintessential oceanside California experience. It’s also very easy to reach both San Francisco and the SF international airport from Pacifica. I can’t wait to visit this small, hippy, beach town again! Thanks for reading my post, and happy travels! 잘 여행예요!
+    <span class="end"></span>
+</p>
+</BlogPostLayout>
+<style>
+span{
+        display: block;
+        height: 1.05rem;
+    }
+    .end{
+        height:10px;
+    }
+</style>

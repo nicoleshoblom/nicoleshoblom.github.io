@@ -28,7 +28,7 @@ const { captions, title, date, location, images, videos} = Astro.props;
                             ) : (
                                 <Image src={image.default} alt={`Image ${index + 1}`} class="carousel-image" />
                             )}
-                            <p class="carousel-caption">{captions[index]}</p>
+                            <p class="carousel-caption" set:html={captions[index]}></p>
                         </div>
                     );
                 })}
