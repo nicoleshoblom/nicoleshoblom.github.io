@@ -348,6 +348,8 @@ const { captions, title, date, location, images, videos} = Astro.props;
             const prevButton = document.querySelector('.carousel-button.prev');
             const nextButton = document.querySelector('.carousel-button.next');
             const dots = Array.from(document.querySelectorAll('.carousel-dot'));
+            // Use a unique key per page
+            const carouselKey = `carouselIndex-${window.location.pathname}`;
             let currentIndex = 0;
 
             function updateCarousel() {
@@ -363,26 +365,36 @@ const { captions, title, date, location, images, videos} = Astro.props;
             function setSlide(index) {
                 currentIndex = index;
                 updateCarousel();
+                localStorage.setItem(carouselKey, currentIndex); // Save index
             }
 
             nextButton.addEventListener('click', () => {
                 currentIndex = (currentIndex + 1) % images.length;
                 updateCarousel();
+                localStorage.setItem(carouselKey, currentIndex); // Save index
             });
 
             prevButton.addEventListener('click', () => {
                 currentIndex = (currentIndex - 1 + images.length) % images.length;
                 updateCarousel();
+                localStorage.setItem(carouselKey, currentIndex); // Save index
             });
 
             dots.forEach((dot, index) => {
                 dot.addEventListener('click', () => setSlide(index));
             });
 
-            // Fullscreen functionality
+            // Restore last viewed slide on load
+            const savedIndex = localStorage.getItem(carouselKey);
+            if (savedIndex !== null && !isNaN(savedIndex)) {
+                setSlide(Number(savedIndex));
+            } else {
+                setSlide(0);
+            }
+
+            // Fullscreen functionality (unchanged)
             fullscreenButton.addEventListener('click', () => {
                 if (carousel.requestFullscreen) {
-                    // Standard Fullscreen API
                     if (!document.fullscreenElement) {
                         carousel.requestFullscreen().catch(err => {
                             console.error(`Error attempting to enable full-screen mode: ${err.message}`);
@@ -391,7 +403,6 @@ const { captions, title, date, location, images, videos} = Astro.props;
                         document.exitFullscreen();
                     }
                 } else if (carousel.webkitRequestFullscreen) {
-                    // Safari Fullscreen API
                     if (!document.webkitFullscreenElement) {
                         carousel.webkitRequestFullscreen();
                     } else {
@@ -403,7 +414,7 @@ const { captions, title, date, location, images, videos} = Astro.props;
             });
 
             window.addEventListener('resize', updateCarousel);
-            updateCarousel(); // Initialize carousel position
+            // updateCarousel(); // No need, setSlide will call it
         });
     </script>
 </BaseLayout>
