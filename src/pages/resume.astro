@@ -27,18 +27,18 @@ import EducationItem from '../components/EducationItem.astro';
                     <p>
                         Hi, I'm Nicole! I have 10 years of experience in data science as a manager and IC delivering solutions that customers love. I earned a PhD in statistics and applied math, plus a BA in women's studies and political science. You can learn more about me at my <a href="/blog" class="blog-link">blog</a>.  
                         <br></br>
-                        <i>Python (Pandas, Polars, Numpy, Matplotlib, Statsmodel, Scikit Learn, SciPy, Ruptures, NetworkX, Streamlit, Plotly, Seaborn) SQL, R, Git, Hadoop Hive, Tableau, Matlab, C++/OpenMP, Astro, HTML, CSS</i>
+                        <i>Statistical and Mathematical Modeling, Python (Pandas, Polars, Numpy, Matplotlib, Statsmodel, Scikit Learn, SciPy, Ruptures, NetworkX, Streamlit, Plotly, Seaborn) SQL, R, Git, Hadoop Hive, Tableau, Matlab, C++/OpenMP, Astro, HTML, CSS</i>
                     </p>
                 </div>
             </div>
             <div class="main-content">
                 <!-- Navigation Bar -->
-                <nav class="main-nav">
-                    <a href="#technical-experience">Tech Experience</a>
-                    <a href="#other-experience">Other Experience</a>
-                    <a href="#education">Education</a>
+                <nav class="main-nav carousel-nav">
+                    <button class="nav-prev" aria-label="Previous">&#10094;</button>
+                    <a id="nav-link" href="#ds-experience">Data Science Experience</a>
+                    <button class="nav-next" aria-label="Next">&#10095;</button>
                 </nav>
-                <div id="technical-experience" class="technical-experience">
+                <div id="ds-experience" class="ds-experience">
                     <WorkItem
                         company="Addium"
                         jobRole="Data Scientist"
@@ -99,6 +99,26 @@ import EducationItem from '../components/EducationItem.astro';
                         location="Boston, MA"
                         accomplishments={[
                         "Acquired physics knowledge and Matlab skills from expert researchers in spectral imaging and continued remote collaboration as part of PhD research",
+                        ]}
+                    />
+                </div>
+                <div id="webdev-experience" class="webdev-experience">
+                    <WorkItem
+                        company="American Women's Club of Korea"
+                        jobRole="Communications Web Developer"
+                        location="Remote & Seoul, SK"
+                        dates="June 2025 - Present"
+                        accomplishments={[
+                        'Design and Deploy <a href="https://awckorea.com/partners">revamped partners page</a> by writing custom code to repurpose WildApricot Online Store feature to show discounts instead of prices and to disable add to cart functionality',
+                        ]}
+                    />
+                    <WorkItem
+                        company="Pathfolk"
+                        jobRole="Freelance Web Developer"
+                        location="Remote & Seoul, SK"
+                        dates="August 2025 - Present"
+                        accomplishments={[
+                        "Format Squarespace site consistently and document squarespace 7.1 best practices user guide",
                         ]}
                     />
                 </div>
@@ -268,45 +288,45 @@ import EducationItem from '../components/EducationItem.astro';
                 flex: 1;
                 margin-bottom: 500px;
             }
-            .main-nav{
-                display: flex;
-                justify-content: center;
-                gap: 20px;
-                position: sticky;
-                top:55px;
-                z-index:2000;
-                font-size: 14px;
-                background-color: coral;
-                padding-top: 9px;
-                padding-bottom: 5px;
+            #ds-experience,
+            #webdev-experience,
+            #other-experience,
+            #education {
+                scroll-margin-top: 86px;
             }
-            .main-nav a {
-                text-decoration: None;
+            .carousel-nav {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 10px;
+                background-color: coral;
+                padding: 2px 0 2px 0; /* Thinner vertical padding */
+                position: sticky;
+                top: 55px;
+                z-index: 2000;
+            }
+            .carousel-nav a {
+                pointer-events: none; /* Makes nav item unclickable */
                 color: white;
                 font-size: 14px;
                 font-family: 'Poppins';
-                height: 100%;
+                text-align: center;
+                min-width: 120px;
+                text-decoration: none;
+                padding: 0px 0 0px 0; /* Thinner link padding */
+                background: none;
             }
-            .main-nav a:hover {
-                text-decoration: underline;
+            .carousel-nav button {
+                background: none;
+                border: none;
+                color: white;
+                font-size: 20px;
+                cursor: pointer;
+                padding: 0 4px; /* Thinner button padding */
+                transition: color 0.2s;
             }
-            .main-nav a.active {
-                /* text-decoration: underline; */
-                color: coral; /* Optional: Change text color for the active     }link */
-                background-color: white;;
-                height: 100%;
-                font-weight: bolder;
-                padding-left: 5px;
-                padding-right: 5px;
-            }
-            #technical-experience {
-                scroll-margin-top: 86px; /* Adjust this value to match the height of the sticky nav bar */
-            }
-            #other-experience {
-                scroll-margin-top: 86px;
-            }
-            #education {
-                scroll-margin-top: 86px;
+            .carousel-nav button:hover {
+                color: #fffbe6;
             }
             @media (min-width: 768px){
                 .layout {
@@ -328,9 +348,6 @@ import EducationItem from '../components/EducationItem.astro';
                     flex: 1;
                     margin-right: 10px;
                     margin-left: 10px;
-                }
-                .main-nav{
-                    padding-top: 9px;
                 }
             }
             @media(max-width: 768px) and (orientation: landscape){
@@ -361,8 +378,11 @@ import EducationItem from '../components/EducationItem.astro';
                     margin-right: 10px;
                     margin-left: 10px;
                 }
-                .main-nav{
-                    padding-top: 9px;
+            }
+            @media (max-width: 768px) {
+                .carousel-nav {
+                    position: sticky;
+                    top: 60px; /* Change this value to where you want the nav bar to stick */
                 }
             }
         </style>
@@ -395,28 +415,51 @@ import EducationItem from '../components/EducationItem.astro';
 
         document.addEventListener('DOMContentLoaded', function () {
             const sections = document.querySelectorAll('.main-content > div[id]');
-            const navLinks = document.querySelectorAll('.main-nav a');
+            const navItems = [
+                { href: "#ds-experience", text: "Data Science Experience" },
+                { href: "#webdev-experience", text: "Web Development Experience" },
+                { href: "#other-experience", text: "Other Experience" },
+                { href: "#education", text: "Education" },
+            ];
+            let currentNav = 0;
+            const navLink = document.getElementById('nav-link');
+            const prevBtn = document.querySelector('.nav-prev');
+            const nextBtn = document.querySelector('.nav-next');
 
-            function setActiveLink() {
-                let activeSection = null;
-
-                sections.forEach((section) => {
-                    const rect = section.getBoundingClientRect();
-                    if (rect.top <= 100 && rect.bottom >= 100) {
-                        activeSection = section;
-                    }
-                });
-
-                navLinks.forEach((link) => {
-                    link.classList.remove('active');
-                    if (activeSection && link.getAttribute('href') === `#${activeSection.id}`) {
-                        link.classList.add('active');
-                    }
-                });
+            function updateNav() {
+                navLink.href = navItems[currentNav].href;
+                navLink.textContent = navItems[currentNav].text;
             }
 
-            window.addEventListener('scroll', setActiveLink);
-            setActiveLink(); // Initialize on page load
+            function setActiveLinkAndNav() {
+                let activeSectionIndex = 0;
+                sections.forEach((section, idx) => {
+                    const rect = section.getBoundingClientRect();
+                    if (rect.top <= 100 && rect.bottom >= 100) {
+                        activeSectionIndex = idx;
+                    }
+                });
+                currentNav = activeSectionIndex;
+                updateNav();
+            }
+
+            prevBtn.addEventListener('click', () => {
+                currentNav = (currentNav - 1 + navItems.length) % navItems.length;
+                updateNav();
+                // Scroll to section
+                document.querySelector(navItems[currentNav].href).scrollIntoView({ behavior: 'smooth' });
+            });
+
+            nextBtn.addEventListener('click', () => {
+                currentNav = (currentNav + 1) % navItems.length;
+                updateNav();
+                // Scroll to section
+                document.querySelector(navItems[currentNav].href).scrollIntoView({ behavior: 'smooth' });
+            });
+
+            window.addEventListener('scroll', setActiveLinkAndNav);
+            updateNav();
+            setActiveLinkAndNav();
         });
         </script>
 </body>

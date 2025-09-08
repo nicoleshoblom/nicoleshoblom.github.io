@@ -20,7 +20,7 @@ const { company, jobRole, jobRole2, jobRole3, jobRole4, location, dates, accompl
     <div class="work-accomplishments">
         <ul>
             {accomplishments.map((item) => (
-                <li>{item}</li>
+                <li set:html={item}></li>
             ))}
         </ul>
     </div>
