@@ -1,0 +1,407 @@
+---
+import BaseLayout from '../layouts/BaseLayout_for_print.astro'
+const PageTitle = "Resume"
+import WorkItem from '../components/WorkItem.astro';
+import EducationItem from '../components/EducationItem.astro';
+//todo: create an in site back button?
+---
+
+<BaseLayout PageTitle={PageTitle}>
+    <body>
+        <div class="layout">
+                <div class="carousel">
+                    <div class="carousel-track">
+                        <img src="/images/linkedin_pic.webp" alt="LinkedIn Picture" class="carousel-image" />
+                    </div>
+                </div>
+                <div class="about">
+                    <p class="location">
+                        <span class="material-icons">email</span> nicole.shoblom@gmail.com
+                    </p>
+                    <p class="location">
+                        <span class="material-icons">location_on</span> Remote | Bay Area, CA | Seoul, SK
+                    </p>
+                    <p>
+                        Hi, I'm Nicole! I have 10 years of experience in data science as a manager and IC delivering solutions that customers love. I earned a PhD in statistics and applied math, plus a BA in women's studies and political science. Please read on to learn more about my experience!  
+                        <br></br>
+                        <i>Statistical and Mathematical Modeling, Python (Pandas, Polars, Numpy, Matplotlib, Statsmodel, Scikit Learn, SciPy, Ruptures, NetworkX, Streamlit, Plotly, Seaborn) SQL, R, Git, <a href="https://github.com/nicoleshoblom">GitHub</a>, Hadoop Hive, Tableau, Matlab, C++/OpenMP, Astro, HTML, CSS</i>
+                    </p>
+                </div>
+            <div class="main-content">
+                <nav class="main-nav">
+                    <a href="#education">Education</a>
+                </nav>
+                <div id="education" class="education">
+                    <EducationItem
+                        degree="PhD, Statistics & Applied Mathematics"
+                        school="University of California"
+                        dates="Jun 2018"
+                        location="Santa Cruz, CA"
+                        accomplishments={[
+                        "Dissertation: “Model selection methods for linear, non-linear, and spatial data in hyperspectral imagery” with advisor, Dr. Abel Rodríguez. Researched, developed, and applied spatial model selection algorithms such as the Fused LASSO, Bayesian indicator model selection, and Bayesian spatial models to hypersepctral images using R, Matlab, and C++ OpenMP to identify chemicals in gasses released in the atmosphere",
+                        "NSF S-STATS MODEL Fellowship recipient, 2012-2013 & 2013-2014",
+                        "Courses include: Bayesian statistics, multivariate statistics, linear models, general linear models, non-parametric modeling, spatial modeling, times-series modeling, stochastic processes, machine learning, data mining, econometrics, micro- and macro- economic analysis, financial analysis, corporate finance, accounting"
+                        ]}
+                    />
+                    <EducationItem
+                        degree="M.S., Statistics & Applied Mathematics"
+                        school="University of California"
+                        dates="Jun 2014"
+                        location="Santa Cruz, CA"
+                        accomplishments={[
+                        "Thesis: “Time series models for MEG data” with advisor, Dr. Raquel Prado. Mapped connectivity in the brain by fitting ARIMA time series models, dynamic linear models, and the cross-correlation function to MEG brain data in R and Matlab"
+                        ]}
+                    />
+                    <EducationItem
+                        degree="B.A., Women's Studies & Political Science"
+                        school="University of California"
+                        dates="Aug 2008"
+                        location="Santa Barbara, CA"
+                        accomplishments={[
+                        "Activities and societies: Events Officer, UCSB Society of Leadership and Success (2006-2007)",
+                        "Courses include: Economics, Modern US Law, Third-World Politics, Philosophy, Gender Studies"
+                        ]}
+                    />
+                    <EducationItem
+                        degree="Machine Learning Certificate"
+                        school="Cornell University"
+                        dates="Oct 2020"
+                        location="Online"
+                        accomplishments={[
+                        "Courses in Python covering linear classifiers, decision trees & model selection, kernel machines, deep learning and neural networks"
+                        ]}
+                    />
+                    <EducationItem
+                        degree="수료증 Certificate of Completion"
+                        degree2="서올대한국어"
+                        school="Seorae Global Village Center"
+                        dates="Level 1 - Jun 18, 2025"
+                        dates2="Level 2 - Summer 2026"
+                        location="Seoul, SK"
+                        accomplishments={[
+                        "서올대한국어 is the 6-level Seoul National University (SNU) Korean Language Course",
+                        "Completed Level 1 and will continue to Level 2 in Fall 2025",
+                        "Curriculum includes beginner level Korean grammar, reading, writing, and speaking"
+                        ]}
+                    />
+                </div>
+                <nav class="main-nav">
+                    <a href="#teaching-experience">Teaching Experience</a>
+                </nav>
+                <div id="teaching-experience" class="teaching-experience">
+                    <WorkItem
+                            company="Introduction to Probability Theory"
+                            jobRole="Teaching Assistant"
+                            location="University of California, Santa Cruz"
+                            dates="Spring 2013, Fall 2015"
+                            accomplishments={[
+                            "Upper division course covering an introduction to probability theory and its applications. Combinatorial analysis, axioms of probability and independence, random variables (discrete and continuous), joint probability distributions, properties of expectation, Central Limit Theorem, Law of Large Numbers, Markov chains",
+                            "Developed review lessons, answered questions, held office hours, and graded assignments for a total of 6 sections"
+                            ]
+                            }
+                        />
+                        <WorkItem
+                            company="Gaming and Gambling"
+                            jobRole="Teaching Assistant"
+                            location="University of California, Santa Cruz"
+                            dates="Winter 2013, Spring 2014"
+                            accomplishments={[
+                            "Lower division, statistics GE course covering games of chance and strategy motivated by early developments in probability, statistics, and decision theory. Course uses popular games to introduce students to these concepts, which underpin recent scientific developments in economics, genetics, ecology, and physics.",
+                            "Developed review lessons, answered questions, held office hours, and graded assignments for a total of 6 sections"
+                            ]
+                            }
+                        />
+                </div>
+                <nav class="main-nav">
+                    <a href="#ds-experience">Data Science Experience</a>
+                </nav>
+                <div id="ds-experience" class="ds-experience">
+                    <WorkItem
+                        company="Addium"
+                        jobRole="Data Scientist"
+                        jobRole2="Director, Data Science"
+                        location="Remote"
+                        dates="Sep 2023 - Feb 2025"
+                        accomplishments={[
+                        "Manage team by tracking team KPI's & ensure team visibility by collaborating with leadership, engineering, product, and customer success",
+                        "Mentor US & offshore team members by understanding their motivations, helping set goals, giving feedback, and providing technical guidance",
+                        "Develop, scale, maintain OOTB platform feature using signal processing on time series data to calculate water uptake by plants. Feature turn-off & turn-on rate equal since release",
+                        "Build Streamlit data dashboard app to POC a solution that predicts when daily plant irrigation should stop using signal processing and regression"
+                        ]}
+                    />
+                    <WorkItem
+                        company="Riverbed Technology"
+                        jobRole="Director, Data Science"
+                        jobRole2="Technical Director"
+                        dates="Oct 2020 - June 2023"
+                        location="Remote"
+                        accomplishments={[
+                            "Develop intelligent software features using network models, density estimation, hypothesis testing, time series models, cluster analysis, linear models, change point detection to provide customers actionable insights for improving digital experience & network performance",
+                            "Strategize cross functionally in launching real-time ML SaaS product that assists customers to automatically identify and remediate network, application, & end-user device problems",
+                            "Stood up company’s first product data science team to provide data science solutions for multiple computer network and end user monitoring products",
+                            "Recognized as a high potential employee to participate in  360 leadership development program"
+                        ]}
+                    />
+                    <WorkItem
+                    company="Walmart"
+                    jobRole="Staff Data Scientist"
+                    jobRole2="Senior Data Scientist"
+                    jobRole3="Decision Manager II"
+                    jobRole4="2015 Summer Intern"
+                    dates="Aug 2016 - Oct 2020"
+                    location="Bentonville, AR"
+                    accomplishments={[
+                        "Boosted online grocery sales by $160 million using Hive to develop an automated weekly audit report for 1 billion store-items that identifies discrepancies among ecommerce site back-end systems to fix items that are erroneously showing as out-of-stock, to provide root cause analysis for back-end system engineers, and to provide leadership with inventory accuracy KPI’s",
+                        "Orchestrated development of AI product that automatically assigns items to slots in a warehouse by gathering requirements from stakeholders, designing linear programming optimization model, preparing dataset via R/SQL/Altyerx, overseeing model improvements and CPLEX implementation, providing logistics leadership with project updates, and launching product in 5 warehouses with estimated $5 million in labor savings",
+                        "Enhanced demand forecasts by cleansing poor historical sales data for every item in all 4,000+ stores using R and Hadoop Hive to implement linear models that predict when a drop in sales is due to unfulfilled customer demand"
+                        ]}
+                    />
+                    <WorkItem
+                        company="University of California"
+                        jobRole="Grad Student Researcher"
+                        jobRole2="Teacher Assistant"
+                        dates="Sep 2011 - Aug 2016"
+                        location="Santa Cruz, CA"
+                        accomplishments={[
+                        "Produced academic papers with proven interest in PhD research as demonstrated by accepted talks and awards at academic conferences. ",
+                        "Educated undergraduate students in probability and statistics courses with proven effectiveness as showcased in excellent teacher assistant evaluations"
+                        ]}
+                    />
+                    <WorkItem
+                        company="MIT Lincoln Laboratory"
+                        jobRole="Research Intern"
+                        dates="Summer 2013 & 2014"
+                        location="Boston, MA"
+                        accomplishments={[
+                        "Acquired physics knowledge and Matlab skills from expert researchers in spectral imaging and continued remote collaboration as part of PhD research",
+                        ]}
+                    />
+                </div>
+                <nav class="main-nav">
+                    <a href="#webdev-experience">Web Development Experience</a>
+                </nav>
+                <div id="webdev-experience" class="webdev-experience">
+                    <WorkItem
+                        company="American Women's Club of Korea"
+                        jobRole="Communications Web Developer"
+                        location="Remote & Seoul, SK"
+                        dates="June 2025 - Present"
+                        accomplishments={[
+                        'Design and deploy <a href="https://awckorea.com/partners">revamped partners page</a> by writing custom code to repurpose WildApricot Online Store feature to show discounts instead of prices and to disable add to cart functionality',
+                        ]}
+                    />
+                    <WorkItem
+                        company="Pathfolk"
+                        jobRole="Freelance Web Developer"
+                        location="Remote & Seoul, SK"
+                        dates="August 2025 - Present"
+                        accomplishments={[
+                        "Format Squarespace site consistently and write custom code to use user provided fonts",
+                        "Document Squarespace 7.1 best practices user guide",
+                        ]}
+                    />
+                </div>
+                <nav class="main-nav">
+                    <a href="#other-experience">Other Experience</a>
+                </nav>
+                <div id="other-experience" class="other-experience">
+                    <WorkItem
+                        company="CTB McGraw Hill"
+                        jobRole="SOX Technical Writer Intern"
+                        dates="Jun 2011 - Aug 2011"
+                        location="Monterey, CA"
+                        accomplishments={[
+                        "Discovered weaknesses in and conveyed improvements for SOX compliance to finance team by producing narratives and Visio flowcharts of billing and revenue recognition processes",
+                        "Delivered company-wide presentation explaining company’s financial processes and the importance of SOX compliance"
+                        ]}
+                    />            
+                    <WorkItem
+                        company="Law Office of W. Parks"
+                        jobRole="Legal Assistant"
+                        dates="Mar 2009 - Oct 2010"
+                        location="Sunnyvale, CA"
+                        accomplishments={[
+                        "Advocated over 200 clients in filling out legal forms to successfully discharge debts"
+                        ]}
+                    />  
+                    <WorkItem
+                        company="Equality California"
+                        jobRole="Administrative Assistant"
+                        dates="Aug 2008 - Jan 2009"
+                        location="San Francisco, CA"
+                        accomplishments={[
+                        "Worked for the No On 8 campaign by campaigning for monetary donations and maintaining large donor databases"
+                        ]}
+                    /> 
+                    <WorkItem
+                        company="UC Center Sacramento"
+                        jobRole="Scholar Intern"
+                        dates="Jun 2008 - Aug 2008"
+                        location="Sacramento, CA"
+                        accomplishments={[
+                        "Wrote reports analyzing the financial feasibility of bills regarding various topics, such as California’s budget crisis, California’s state prison crisis, and child poverty"
+                        ]}
+                    />
+                </div>
+            </div>
+        </div>
+
+        <style>
+            .layout{
+                display: flex;
+                flex-direction: column;
+                height: 100%;
+            }
+            .carousel {
+                position: relative;
+                overflow: hidden;
+                width: 100%;
+                max-width: 200px;
+                margin: 0 auto;
+            }
+            .carousel-track {
+                display: flex;
+                transition: transform 0.5s ease-in-out;
+                width: 100%;
+            }
+            .carousel-image {
+                min-width: 100%;
+                height: auto;
+                border-radius: 0px;
+            }
+            .carousel-controls {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-top: 0px;
+                gap: 10px;
+                margin-bottom: 0px;
+            }
+            .carousel-button {
+                background-color: whitesmoke;
+                color: black;
+                border: none;
+                padding: 5px;
+                cursor: pointer;
+                z-index: 1;
+            }
+            .carousel-button:hover {
+                color: coral;
+            }
+            .about {
+                flex: 1;
+                padding: 004px;
+                text-align: center;
+                margin-top: 0px;
+                font-size: 14px;
+            }
+            .about .location {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            margin-bottom: 0px;
+            }
+            .about .location .material-icons {
+                font-size: 18px;
+                margin-right: 2px;
+            }
+            .main-content{
+                flex: 1;
+                margin-bottom: 0px;
+            }
+            .main-nav{
+                display: flex;
+                justify-content: center;
+                gap: 20px;
+                top:55px;
+                z-index:2000;
+                font-size: 14px;
+                background-color: coral;
+                padding-top: 9px;
+                padding-bottom: 5px;
+            }
+            .main-nav a {
+                text-decoration: None;
+                color: white;
+                font-size: 14px;
+                font-family: 'Poppins';
+                height: 100%;
+                font-weight: bold;
+            }
+            #technical-experience {
+                scroll-margin-top: 86px; /* Adjust this value to match the height of the sticky nav bar */
+            }
+            #other-experience {
+                scroll-margin-top: 86px;
+            }
+            #education {
+                scroll-margin-top: 86px;
+            }
+            @media print {
+                .main-nav {
+                    background-color: coral !important; /* Ensure coral background is applied in print */
+                    color: white !important;
+                    -webkit-print-color-adjust: exact; /* Ensure colors are printed accurately */
+                    print-color-adjust: exact;
+                }
+                .main-nav a {
+                    color: white !important;
+                }
+            }
+        </style>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const track = document.querySelector('.carousel-track');
+                const images = Array.from(track.children);
+                const prevButton = document.querySelector('.carousel-button.prev');
+                const nextButton = document.querySelector('.carousel-button.next');
+                let currentIndex = 0;
+
+                function updateCarousel() {
+                    const slideWidth = images[0].getBoundingClientRect().width;
+                    track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+                }
+
+                nextButton.addEventListener('click', () => {
+                    currentIndex = (currentIndex + 1) % images.length;
+                    updateCarousel();
+                });
+
+                prevButton.addEventListener('click', () => {
+                    currentIndex = (currentIndex - 1 + images.length) % images.length;
+                    updateCarousel();
+                });
+
+                window.addEventListener('resize', updateCarousel);
+                updateCarousel(); // Initialize carousel position
+            });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const sections = document.querySelectorAll('.main-content > div[id]');
+            const navLinks = document.querySelectorAll('.main-nav a');
+
+            function setActiveLink() {
+                let activeSection = null;
+
+                sections.forEach((section) => {
+                    const rect = section.getBoundingClientRect();
+                    if (rect.top <= 100 && rect.bottom >= 100) {
+                        activeSection = section;
+                    }
+                });
+
+                navLinks.forEach((link) => {
+                    link.classList.remove('active');
+                    if (activeSection && link.getAttribute('href') === `#${activeSection.id}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+
+            window.addEventListener('scroll', setActiveLink);
+            setActiveLink(); // Initialize on page load
+        });
+        </script>
+</body>
+</BaseLayout>
