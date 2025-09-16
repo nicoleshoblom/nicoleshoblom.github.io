@@ -123,6 +123,30 @@ import EducationItem from '../components/EducationItem.astro';
                         ]}
                     />
                 </div>
+                <div id="teaching-experience" class="teaching-experience">
+                    <WorkItem
+                        company="Introduction to Probability Theory"
+                        jobRole="Teaching Assistant"
+                        location="University of California, Santa Cruz"
+                        dates="Spring 2013, Fall 2015"
+                        accomplishments={[
+                        "Upper division course covering an introduction to probability theory and its applications. Combinatorial analysis, axioms of probability and independence, random variables (discrete and continuous), joint probability distributions, properties of expectation, Central Limit Theorem, Law of Large Numbers, Markov chains",
+                        "Developed review lessons, answered questions, held office hours, and graded assignments for a total of 6 sections"
+                        ]
+                        }
+                    />
+                    <WorkItem
+                        company="Gaming and Gambling"
+                        jobRole="Teaching Assistant"
+                        location="University of California, Santa Cruz"
+                        dates="Winter 2013, Spring 2014"
+                        accomplishments={[
+                        "Lower division, statistics GE course covering games of chance and strategy motivated by early developments in probability, statistics, and decision theory. Course uses popular games to introduce students to these concepts, which underpin recent scientific developments in economics, genetics, ecology, and physics.",
+                        "Developed review lessons, answered questions, held office hours, and graded assignments for a total of 6 sections"
+                        ]
+                        }
+                    />
+                </div>
                 <div id="other-experience" class="other-experience">
                     <WorkItem
                         company="CTB McGraw Hill"
@@ -291,6 +315,7 @@ import EducationItem from '../components/EducationItem.astro';
             }
             #ds-experience,
             #webdev-experience,
+            #teaching-experience,
             #other-experience,
             #education {
                 scroll-margin-top: 86px;
@@ -419,6 +444,7 @@ import EducationItem from '../components/EducationItem.astro';
             const navItems = [
                 { href: "#ds-experience", text: "Data Science Experience" },
                 { href: "#webdev-experience", text: "Web Development Experience" },
+                { href: "#teaching-experience", text: "Teaching Experience" },
                 { href: "#other-experience", text: "Other Experience" },
                 { href: "#education", text: "Education" },
             ];
