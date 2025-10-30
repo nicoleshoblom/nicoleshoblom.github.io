@@ -1,0 +1,73 @@
+---
+import BlogPostLayout from '../../layouts/BlogPostLayoutPicVideo.astro';
+const captions = [
+    'Atticus at Legoland Resort in Chuncheon-si, South Korea on April 10, 2025',
+    "Lookout ride at Legoland",
+    "Royal Joust ride at Legoland",
+    "Ezra playing a carnival game at Legoland",
+    "Atticus after not making a shot at a carnival game at Legoland",
+    "Many places to play with legos at Legoland",
+    "4D ride at Legoland",
+    "Ezra at Legoland resort in Chuncheon-si, South Korea on April 10, 2025",
+    "제 엄마 (My mom) and the boys at the mini Trevi Fountain at Jamsil Station on our way to Lotte World on June 24, 2024",
+    "Riding the carousel at Lotte World",
+    "Atticus and Ezra in the outdoor section of Lotte World",
+    "Fantasy Dream ride at Lotte World",
+    "Ezra, Atticus, and Uncle Casey on the World Monorail ride at Lotte World on Oct 23, 2024",
+    "Ezra on a car ride in the outdoor section of Lotte World",
+    "Atticus at Magic Island, the outdoor amusement park at Lotte World ",
+    "Ezra, Atticus, and their friend 견주 (Gyeonju) at Seoulland in Gwacheon-si, South Korea on Aug 12, 2025",
+    'Ezra up high at Kraken Island water park at Seoulland',
+    "Waiting to ride at Seoulland",
+    "Ezra posing at Seoulland",
+    "There are many restaurants at Seoulland, even a California Pizza Kitchen!",
+    "Part of the Alice in Wonderland attraction at Seoulland",
+    "An immersive art installation inside of the Alice in Wonderland attraction at Seoulland",
+    "Ezra in a kiddie plane ride at Seoulland",
+    "View of Seoul Grand Park from Seoulland entrance"
+
+];
+export const title = "Amusement Park Playoff: Legoland vs Lotte World vs Seoulland"
+export const date = "Oct 30, 2025"
+export const location = "Seoul, South Korea"
+const images = Object.values(import.meta.glob('../../assets/amusementparkplayoff/*.webp', { eager: true}));
+const videos = [
+    {index:3, src:"https://drive.google.com/file/d/1IEXkLLIDdJdUZKvoBLCnMIyQ2sC0cDzt/preview"},
+    {index:8, src:"https://drive.google.com/file/d/1kjTTLzvBFFl4M7H0ab8G5_nyroQFXDxO/preview"},
+    {index:11, src:"https://drive.google.com/file/d/1C44PiTEbk23Sp1wqyU5n3vstt4iQ7so1/preview"}, 
+    {index:13, src:"https://drive.google.com/file/d/1EJ4DEjv3vEioxJV2Yf-mEbIsSoPuEznJ/preview"},
+    {index:16, src:"https://drive.google.com/file/d/1Nw4mLojbwl67W4FApTQBk5sqVU-3Zd3A/preview"},
+    {index:20, src:"https://drive.google.com/file/d/14I18_yFPZoU4TF3F_PizdiQtv2EGkZHg/preview"},
+    {index:21, src:"https://drive.google.com/file/d/12txpg9fEVjd2aLghNavVv8fraEnb_FyD/preview"}
+];
+---
+<BlogPostLayout
+    captions={captions}, 
+    title={title},
+    date={date},
+    location={location},
+    images={images},
+    videos={videos}
+>
+<p> 
+    Visiting South Korea with children and considering visiting an amusement park? There are many! I have visited Lotte World, Legoland, and Seoulland with my sons who are seven and five years old. They voted Legoland as their favorite. No surprise there I guess…who can deny Lego’s influence???
+    <span></span>
+    So let’s start with Legoland! It’s much newer than Lotteworld and Seoulland. It is however, in 춘천시 (Chuncheon-si) which is a city outside of Seoul. Many Seoul families will drive two hours to Legoland and stay the night at the hotel on site. Legoland is in fact a resort. I hear the hotel is 100% worth the money to experience the lego themed rooms. However, there aren’t many restaurants on the resort and they all close early. Saturday may be an exception as the park closes 3 hours later than usual at 21:00. So if you drive, expect to go off-resort for dinner. (You may even want to consider taking a drive and ferry to Nami Island if you have the time!) Alternatively, Legoland can easily be a day trip from Seoul via a direct KTX speed train (1 hour 15 min) between Yongsan Station and Chuncheon station. There is also a free shuttle between Chuncheon station and Legoland, or you can take a taxi/Uber. 
+    <span></span>
+    Don’t want to travel far from Seoul? Lotte World right off Jamsil Station may be your best bet, especially if you want to escape bad weather or bad air quality. Lotte World has both an indoor and outdoor amusement park. You can also buy separate tickets to visit its own aquarium and folk museum (not to be confused with the <a href="/posts/folkmuseum">National Folk Museum of Korea</a>). Since it’s in the middle of Seoul it’s more compact than Seoulland or Legoland, and therefore has less rides. So, lines can be really long, with the exception of little kids’ rides (thank goodness!). The Jamsil Station area is overflowing with restaurants and shopping both under and above ground, so you won’t go hungry, and you can absolutely get your retail therapy fix if you decide to visit Lotte World. Or if you need a break from the crowds, I’d recommend going to nearby Seokchon Lake, especially if it’s cherry blossom season.
+    <span></span>
+    Last, but not least is Seoulland! Seoulland is the oldest park of the 3, but only one year older than Lotte World. Seoulland felt massive and it seemed like there were more rides and attractions than Legoland, including a really fun water park called Kraken Island. There were certainly more restaurants at Seoulland than at Legoland. Seoulland is located in city called 과천 (Gwacheon), which is outside of Seoul, however unlike Legoland, one can reach Seoulland from Seoul in only 20 minutes by car. It is also possible to take the Line 4 subway to Seoul Grand Park/Seoulland Station and then use the Elephant Train that circles both Seoulland and Seoul Grand Park.
+    <span></span>
+    To my readers - don’t forget to also consider Everland, Seoul Children’s Grand Park, and Gyeonju World. These amusement parks are still on my list to visit! 잘 여행하는 있어요! Have a nice trip and thanks for stopping by!
+    <span class="end"></span>
+</p>
+</BlogPostLayout>
+<style>
+span{
+        display: block;
+        height: 1.05rem;
+    }
+    .end{
+        height:10px;
+    }
+</style>
