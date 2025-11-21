@@ -240,6 +240,8 @@ const { captions, title, date, location, images, videos} = Astro.props;
             font-size: 1.5rem;
             margin-bottom: 0px;;
             margin-top: 0px;
+            margin-left: 10px;
+            margin-right: 10px;
             text-align: center;
             padding-top: 0;
             font-family: 'Poppins', sans-serif;
@@ -249,8 +251,10 @@ const { captions, title, date, location, images, videos} = Astro.props;
             margin: 0px;
         }
         .content .article{
-            margin-right: 10px;
+            margin-right: 20px;
+            margin-left: 20px;
             font-size: 14px;
+            line-height: 1.6;
         }
 
         /* Desktop-specific layout */
@@ -285,6 +289,9 @@ const { captions, title, date, location, images, videos} = Astro.props;
 
             .content .article{
                 font-size: 17px;
+                margin-right: 10px;
+                margin-left: 10px;
+                line-height: 1.5;
             }
             .video-wrapper{
                 height: 89%;
