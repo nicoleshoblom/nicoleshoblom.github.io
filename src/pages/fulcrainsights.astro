@@ -19,12 +19,52 @@ const PageTitle = "Home"
       </figcaption>
     </figure>
 
-    <!-- <h3 style="text-align: center; margin-left: 50px; margin-right: 50px;">
-        Why does Fulcra return decimals? Also why does Fulcra return a lower step count than Apple Health (see image below) on August 13, 2024? Hover over highest point in times series plot above, and then compare to the total steps reported in image below, which is a screen shot from my Apple Health.
-    </h3>
+    <div id="landscape-warning" class="landscape-warning" style="display:none;">
+  <div class="landscape-warning-content">
+    <p>For the best experience, please rotate your device to landscape mode.</p>
+    <button onclick="document.getElementById('landscape-warning').style.display='none'">Close</button>
+  </div>
+</div>
 
-    <img 
-      src="/images/myhealth_aug132024.jpeg" 
-      alt="My Health - August 13, 2024" 
-      style="display: block; margin: 20px auto; max-width: 40%; height: auto;"> -->
+<style>
+.landscape-warning {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(255,255,255,0.97);
+  color: #222;
+  font-size: 1.2rem;
+  text-align: center;
+  padding-top: 40vh;
+}
+.landscape-warning-content {
+  display: inline-block;
+  background: #fff;
+  padding: 2em 1.5em;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+.landscape-warning button {
+  margin-top: 1em;
+  padding: 0.5em 1.2em;
+  font-size: 1em;
+  border: none;
+  border-radius: 6px;
+  background: coral;
+  color: #fff;
+  cursor: pointer;
+}
+@media (orientation: portrait) and (max-width: 700px) {
+  .landscape-warning {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+  }
+  iframe {
+    height: 180px !important;
+    max-height: 35vh !important;
+  }
+}
+</style>
 </BaseLayout>
