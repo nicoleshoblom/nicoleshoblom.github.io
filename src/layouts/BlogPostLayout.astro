@@ -37,10 +37,17 @@ const { captions, title, date, location, images} = Astro.props;
             <div class="article">
                 <slot />
             </div>
+            <div class="blog_link">
+                <a href="/blog/" class="nav-link">Back to Blog</a>
+            </div>
         </div>
     </div>
 
     <style>
+        .blog_link{
+            text-align: center;
+            font-size: 14px;
+        }
         .blog-layout {
             display: flex;
             flex-direction: column; /* Default to column layout for mobile */
