@@ -260,15 +260,29 @@ const { captions, title, date, location, images, videos} = Astro.props;
 
         /* Desktop-specific layout */
         @media (min-width: 768px) {
+            html, body{
+                height: 100%
+            }
             .blog-layout {
                 flex-direction: row; /* Arrange carousel and content side by side */
                 align-items: flex-start;
                 height: auto;
+                display:flex;
+                height: 100vh;
+                align-items: stretch;
+                min-height: 100vh;
             }
 
             .carousel {
-                flex: 2; /* Allow the carousel to take up space on the left */
-                max-width: 50%; /* Limit the carousel width */
+                position: sticky;
+                top:0;
+                align-self: flex-start;
+                height: 100vh;
+                min-height: 100vh;
+                /*flex: 2;*/ /* Allow the carousel to take up space on the left */
+                max-width: 50vw; /* Limit the carousel width */
+                min-width: 350px;
+                overflow: hidden;
                 margin-left: 9px; /* Remove auto margin for side-by-side layout */
                 margin-right: 0px;
             }
@@ -278,8 +292,12 @@ const { captions, title, date, location, images, videos} = Astro.props;
             }
 
             .content {
-                flex: 2; /* Allow the content to take up more space on the right */
+                flex: 1; /* Allow the content to take up more space on the right */
+                height: 100vh;
+                min-height: 100vh;
+                overflow-y: auto;
                 padding: 0px; /* Add spacing between the carousel and content */
+                padding-bottom: 200px;
                 /* margin-right: 10px;
                 margin-left: 20px; */
                 margin-top: -8px;
