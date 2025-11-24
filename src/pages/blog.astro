@@ -91,3 +91,17 @@ const posts = Object.entries(postFiles).map(([path, module]) => {
             }
         }
     </style>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  // Restore scroll position if available
+  const savedScroll = localStorage.getItem('blogScroll');
+  if (savedScroll) {
+    window.scrollTo(0, parseInt(savedScroll, 10));
+  }
+
+  // Save scroll position on scroll
+  window.addEventListener('scroll', function () {
+    localStorage.setItem('blogScroll', window.scrollY);
+  });
+});
+</script>
