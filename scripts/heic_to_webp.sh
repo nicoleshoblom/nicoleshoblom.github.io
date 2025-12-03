@@ -31,6 +31,17 @@ for file in "$INPUT_DIR"/*.jpg; do
   magick "$file" -strip -quality 75 -define webp:method=4 "$output_file"
 done
 
+for file in "$INPUT_DIR"/*.heic; do
+  [ -e "$file" ] || continue  # Skip if no .jpg files found
+
+  filename=$(basename "$file" .heic)
+  output_file="$OUTPUT_DIR/${filename}.webp"
+
+  echo "Converting $file → $output_file"
+
+  magick "$file" -strip -quality 75 -define webp:method=4 "$output_file"
+done
+
 echo "✅ Conversion complete. Files saved in '$OUTPUT_DIR'"
 
 #terminal commands
