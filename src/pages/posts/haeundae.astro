@@ -1,0 +1,71 @@
+---
+import BlogPostLayout from '../../layouts/BlogPostLayoutPicVideo.astro';
+const captions = [
+    '해운대 Haeundae Beach in Busan, South Korea on August 17, 2025',
+    "Paradise Hotel is located right on the beach",
+    "Excellent amenities at Paradise Hotel, including Cimer, an outdoor spa with many types of hot tubs, including this one that you can eat in!",
+    "Nighttime view of Haeundae Beach from our hotel room balcony at Paradise Hotel",
+    "Ran into some friends and enjoyed some drinks at Paradise Hotel's Crystal Garden Lounge",
+    "Atticus running far out on Haeundae's shallow shore",
+    "My boys enjoying the beach on our last afternoon before heading back to Seoul",
+    "One afternoon lifeguards limited ocean access due to high surf and crowding",
+    "Love that South Korea has these to blow off sand and dirt!",
+    "Entering a Blue Line Park Sky Capsule",
+    "Instagram worthy ^^. Kids wanted the sky capsules to go faster.",
+    "Blue Line Park map",
+    "구남로 (Gunam-ro) right off Haeundae Beach",
+    'Ezra playing a carnival game on Gunam-ro',
+    "Gunam-ro at night",
+    "Haeundae Traditional Market off of Gunam-ro",
+    "Seafood Korean BBQ restaurant on the Haeundae beach strip",
+    "Food at Joseho was delicious!",
+    "돼지국밥 (Dwaeji Gukbap) at a restaurant on Gunam-ro",
+    "Waiting in line for the famous Bonjeon Dwaeji Gukbap near Busan Station",
+    "Finally got our food at Bonjeon Dwaeji Gukbap after an hour long line. It was worth the wait!",
+    "Last family pic before getting on the train back to Seoul"
+];
+export const title = "Haeundae Beach, Busan, South Korea"
+export const date = "Dec 03, 2025"
+export const location = "Seoul, South Korea"
+const images = Object.values(import.meta.glob('../../assets/haeundae/*.webp', { eager: true}));
+const videos = [
+    {index:5, src:"https://drive.google.com/file/d/1rMwNlUPez_8JlaSOGg55hm8B1Vq6YRYR/preview"},
+    {index:7, src:"https://drive.google.com/file/d/1bhrDcmWihdVZmUhqmyM9iQrlo939LaKN/preview"},
+    {index:8, src:"https://drive.google.com/file/d/1nlsskJtm7KQSjAVUq1qbLqtkU2GaQaKB/preview"}, 
+    {index:13, src:"https://drive.google.com/file/d/1TvYEv5N4WdxVDgR3EmPSRqe0O2S79HAi/preview"},
+    {index:14, src:"https://drive.google.com/file/d/19GZ0hUh2lGFt-JU8DBB2DXRIx0qTGT39/preview"},
+    {index:15, src:"https://drive.google.com/file/d/1klJsAmPtOQzvhlXt9sYGEmSfEoDXhrMY/preview"},
+];
+---
+<BlogPostLayout
+    captions={captions}, 
+    title={title},
+    date={date},
+    location={location},
+    images={images},
+    videos={videos}
+>
+<p> 
+    Similar to Waikiki Beach in Hawaii, Haeundae Beach is a famous, must-visit destination in South Korea. We stayed four nights, which was enough time to enjoy our hotel, the beach, Blue Line Park, Gunam-ro, and of course some dishes special to Busan.
+    <span></span>
+    There are many fancy hotels on Haeundae Beach. We stayed at Paradise Hotel because we love its sister branch, Paradise City, in Incheon, and because my gamblin’ husband has points with Paradise Casino. A quick tangent - Korean natives are not allowed to gamble in South Korea’s casinos, and foreigners must show their passport to enter. We had an incredible ocean view from our hotel room balcony, which also served as a great place to dry our swimsuits. Perhaps a risky thing to do however, because it can get very windy in Busan! Paradise Hotel has a 5-star rating so its amenities are exceptional. We enjoyed their pool, outdoor ocean spa named Cimer, and the Kids Village. In the mornings we ate at the Paradise Lounge to take advantage of our breakfast-included reservation. We also enjoyed cocktails and mocktails at the hotel’s Crystal Garden lounge.
+    <span></span>
+    The soft sand, shallow shore, and loads of ready-to-rent beach chairs and umbrellas make Haeundae Beach an easy place to spend your entire day. Nearby are many convenience stores that sell all the snacks and beverages you need plus beach toys for the kids. One thing that may make you leave however, are the lifeguards and their whistles, especially if they think the surf is too high. In fact, one afternoon when the lifeguards felt the ocean was too dangerous and too crowded, they stopped people from entering the ocean, except for one tiny area! The surf was good enough to boogieboard that afternoon, but true to Korean culture which was heavily impacted by the 2014 Sewol Ferry Disaster, these lifeguards took every precaution to prevent drownings.
+    <span></span>
+    We also explored sights off of the beach including Blue Line Park and Gunam-ro. Blue Line Park is home to the Instagram famous sky capsules. Riding the sky capsules is a cute and romantic activity, but a little too slow for my kids’ liking. Gunam-ro is a lively downtown area with shopping, carnival games, restaurants, and street performers. Right off Gunam-ro is the Haeundae Traditional Market that is lined with a wide variety of street food vendors.
+    <span></span>
+    Busan is of course known for its seafood, as well as 돼지 국밥, pronounced dwaeji gukbap which translates to “pork soup with rice”. We tried 2 places that served Dwaeji Gukbap. One on Gunam-ro, and one near Busan station, which is about 30-40 minutes away from Haeudae beach by car. Which one was better? For sure the one near Busan Station which is called Bonjeon Dwaeji Gukbap. It has over 10,000 reviews on Naver! Don’t let the line deter you from eating at Bonjeon. It’s worth the wait!
+    <span></span>
+    To my readers - I feel so fortunate to cross Busan off my bucket list. 부산이 많이 재미있었어요! Busan was very fun! There was still so much that I didn’t get to see, so I plan to visit again! As always, thanks for reading my post! 안녕 안녕! Bye bye!
+    <span class="end"></span>
+</p>
+</BlogPostLayout>
+<style>
+span{
+        display: block;
+        height: 1.05rem;
+    }
+    .end{
+        height:10px;
+    }
+</style>
