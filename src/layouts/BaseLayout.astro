@@ -179,6 +179,45 @@ const { PageTitle } = Astro.props
                 color: black;
                 outline: none
             }
+            .icon-carousel {
+                display: flex;
+                align-items: center;
+                gap: 6px;
+            }
+
+            .icons {
+                display: flex;
+                overflow-x: hidden;
+                scroll-snap-type: x mandatory;
+                width: 44px; /* exactly one icon wide */
+            }
+
+            .icon {
+                flex: 0 0 100%;
+                scroll-snap-align: center;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .icon-arrow {
+                background: none;
+                border: none;
+                font-size: 20px;
+                cursor: pointer;
+                padding: 4px;
+                color: black;
+                line-height: 1;
+            }
+
+            .icon-arrow:active {
+                color: coral;
+            }
+
+            .icon-arrow:focus {
+                outline: none;
+            }
+
             }
             @media (max-width: 300px) {
                 .title {
@@ -204,17 +243,27 @@ const { PageTitle } = Astro.props
             </div>
 			<div class="hamburger" onclick="toggleDropdown()">&#9776;</div>
             <div class="title">Nicole Shoblom</div>
-            <div class="icons">
-                <a href="mailto:nicole.shoblom@gmail.com" class="icon" title="nicole.shoblom@gmail.com">
+            <div class="icon-carousel">
+                <button class="icon-arrow left" aria-label="Previous icon">
+                    ‹
+                </button>
+
+                <div class="icons">
+                    <a href="mailto:nicole.shoblom@gmail.com" class="icon">
                     <span class="material-icons">email</span>
-                </a>
-                <a href="https://www.linkedin.com/in/navmendoza/" class="icon" title="www.linkedin.com/in/navmendoza/">
+                    </a>
+                    <a href="https://www.linkedin.com/in/navmendoza/" class="icon">
                     <i class="fab fa-linkedin"></i>
-                </a>
-                <a href="https://github.com/nicoleshoblom" class="icon" title="github.com/nicoleshoblom">
+                    </a>
+                    <a href="https://github.com/nicoleshoblom" class="icon">
                     <i class="fab fa-github"></i>
-                </a>
-			</div>
+                    </a>
+                </div>
+
+                <button class="icon-arrow right" aria-label="Next icon">
+                    ›
+                </button>
+            </div>
             <div class="dropdown" id="dropdown">
                 <a href="/"), class="nav-link">Home</a>
                 <a href="/resume/", class="nav-link">Resume</a>
@@ -275,6 +324,28 @@ const { PageTitle } = Astro.props
                         icon.blur();
                     });
                 });
+
+                const iconsContainer = document.querySelector('.icons');
+                const leftArrow = document.querySelector('.icon-arrow.left');
+                const rightArrow = document.querySelector('.icon-arrow.right');
+
+                if (iconsContainer && leftArrow && rightArrow) {
+                const iconWidth = iconsContainer.offsetWidth;
+
+                leftArrow.addEventListener('click', () => {
+                    iconsContainer.scrollBy({
+                    left: -iconWidth,
+                    behavior: 'smooth'
+                    });
+                });
+
+                rightArrow.addEventListener('click', () => {
+                    iconsContainer.scrollBy({
+                    left: iconWidth,
+                    behavior: 'smooth'
+                    });
+                });
+                }
 
             });
         </script>
