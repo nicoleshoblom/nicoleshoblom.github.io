@@ -111,6 +111,14 @@ const { PageTitle } = Astro.props
 			.fa-linkedin:hover {
                 color: coral; /* Change color to coral on hover */
             }
+            .fa-github {
+                font-size: 25px;
+                vertical-align: middle;
+                color: black; /* Ensure the icon is black */
+            }
+			.fa-github:hover {
+                color: coral; /* Change color to coral on hover */
+            }
             .dropdown {
                 display: none;
                 flex-direction: column;
@@ -163,6 +171,14 @@ const { PageTitle } = Astro.props
                 color: black;
                 outline: none
             }
+            .fa-github a{
+                touch-action: manipulation;
+            }
+            .fa-github:focus,
+            .fa-github:hover {
+                color: black;
+                outline: none
+            }
             }
             @media (max-width: 300px) {
                 .title {
@@ -172,7 +188,8 @@ const { PageTitle } = Astro.props
                     font-size: 1.2rem;
                 }
                 .material-icons,
-                .fa-linkedin {
+                .fa-linkedin,
+                .fa-github {
                     font-size: 1.2rem;
                 }
             }
@@ -193,6 +210,9 @@ const { PageTitle } = Astro.props
                 </a>
                 <a href="https://www.linkedin.com/in/navmendoza/" class="icon" title="www.linkedin.com/in/navmendoza/">
                     <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/nicoleshoblom" class="icon" title="github.com/nicoleshoblom">
+                    <i class="fab fa-github"></i>
                 </a>
 			</div>
             <div class="dropdown" id="dropdown">
@@ -243,6 +263,14 @@ const { PageTitle } = Astro.props
                 // Remove focus state after click
                 var linkedin_icons = document.querySelectorAll('.fa-linkedin');
                 linkedin_icons.forEach(function(icon) {
+                    icon.addEventListener('click', function() {
+                        icon.blur();
+                    });
+                });
+
+                // Remove focus state after click
+                var github_icons = document.querySelectorAll('.fa-github');
+                github_icons.forEach(function(icon) {
                     icon.addEventListener('click', function() {
                         icon.blur();
                     });
