@@ -144,6 +144,9 @@ const { PageTitle } = Astro.props
                 background-color: coral;
                 color: white;
             }
+            .icon-arrow {
+                display: none;
+            }
             @media (max-width: 768px){
                 .header{
                     padding-bottom: 10px;
@@ -190,6 +193,7 @@ const { PageTitle } = Astro.props
                 overflow-x: hidden;
                 scroll-snap-type: x mandatory;
                 width: 44px; /* exactly one icon wide */
+                gap: 0px;
             }
 
             .icon {
@@ -201,6 +205,9 @@ const { PageTitle } = Astro.props
             }
 
             .icon-arrow {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
                 background: none;
                 border: none;
                 font-size: 20px;
@@ -217,7 +224,6 @@ const { PageTitle } = Astro.props
             .icon-arrow:focus {
                 outline: none;
             }
-
             }
             @media (max-width: 300px) {
                 .title {
