@@ -1,0 +1,64 @@
+---
+import BlogPostLayout from '../../layouts/BlogPostLayoutPicVideo.astro';
+const captions = [
+    "가족 사진 (Family Photo) in the HL Anyang Player's Locker Room on March 21, 2026",
+    "Ezra outfitted in ice hockey gear with his Star-of-the-Week class pet from school.",
+    "Rookie Goalie, 이남규 (Nam-gyu Lee), Number 35, giving my boys an ice ride! ",
+    "Two-time NHL Stanley cup winner and HL Anyang Head Coach, Jim Paek, autographing is own players cards for Attie & Ezra.",  
+    "Me and the boys in our reserved seating.",
+    "We got to watch the pre-game warm up from the bench!",
+    "The players were all so nice to take a minute to greet my kids during warm up.",
+    "Arts and Crafts activity during game breaks in the main entrance hall.",
+    "Kids are now properly introduced to the sport of Ice Hockey!",
+    "Second Asia Ice Hockey League Finals game on March 29, 2026.",
+    "Face-off between HL Anyang and the Hokkaido Red Eagles. Go HL Anyang!",
+];
+export const title = "On the Ice with HL Anyang"
+export const date = "April 9, 2026"
+const location = "Seoul, South Korea"
+const images = Object.values(import.meta.glob('../../assets/hlanyang/*.webp', { eager: true}));
+const videos = [
+    {index: 2, src: "https://drive.google.com/file/d/1M388_2i2Tf3HVfLQiHobuhP1FnMqTemZ/preview"},
+    {index: 6, src: "https://drive.google.com/file/d/1tZ2yBN-jA8iEqbBHostsDlvxzw9aY1BL/preview"},
+    {index: 8, src: "https://drive.google.com/file/d/1mMCZfFXHpP_4N51tHBsRBGR2iWfNKX6f/preview"},
+    {index: 9, src: "https://drive.google.com/file/d/1RYRTnfzXhDlB-AQzJOHXFqd5Yap_T6_W/preview"},
+];
+---
+<BlogPostLayout
+    captions={captions}, 
+    title={title},
+    date={date},
+    location={location},
+    images={images},
+    videos={videos}
+>
+<p> 
+    I am a proud member of the American Women’s Club of Korea (<a href="https://www.awckorea.com" target="_blank" rel="noopener noreferrer">AWCK</a>) and currently serve on its Board. Every year AWCK hosts an annual charity gala, and at this year’s gala my husband won a unique silent auction prize — an all day experience with South Korea’s National ice hockey team, <a href="https://www.hlicehockey.com/" target="_blank" rel="noopener noreferrer">HL Anyang</a>. 
+    <span></span>
+    Sorry San Jose Sharks, but I have a new favorite team! 
+    <span></span>
+    The experience started with a private ice skating lesson taught by the players and coaching staff, including head coach, 백지선, whose English name is Jim Paek. The name may sound familiar as he won the Stanley cup in 1991 and 1992 while playing for the Pittsburgh Penguins. All day long fans were asking for his autograph, and my boys were very lucky to to be gifted his signed players card. He even baked us homemade chocolate chip cookies! 
+    <span></span>
+    The day continued with a behind the scenes tour of the ice rink, including getting to see the players’ locker room. During the tour we learned many interesting things — like that it’s bad luck to step on the team logo on match day, and that players all have different skate sharpness preferences.
+    <span></span>
+    At game time we were invited to watch warm up from the team bench and got special seating. The ice rink itself is intimate with great visibility from every seat — you can follow the puck easily from even the highest rows. Like any ice hockey game it was fast paced and filled with fights!
+    <span></span> 
+    During the game we grabbed fishcake soup, hot chocolate, popcorn, and beer from the convenience store on the basement floor. We also enjoyed kids activities, entertainment, and a souvenir shop between periods in the main entrance hall. 
+    <span></span> 
+    The all day experience ended with dinner alongside Jim and goalie coach, Matt Dalton. We ate at a Korean bbq joint next to the ice rink called <a href="https://map.naver.com/p/entry/place/34937346?c=15.00,0,0,0,dh&placePath=/home?from=map&fromPanelNum=1&additionalHeight=76&timestamp=202604091359&locale=ko&svcName=map_pcv5" target="_blank" rel="noopener noreferrer">운동장 화로구이</a>. We now know where to go if we want to celebrate a home game win with the team!
+    <span></span>
+    Unfortunately, HL Anyang lost that day. It was Game 2 of a best-of-three semifinal against Japan’s Nikko Icebucks. However, they won the third game and advanced to the finals!
+    <span></span>
+    Perhaps the team felt like they let us down by not winning that day, so they invited us back to watch a finals game! Again, unfortunately, they lost that finals game. Even more unfortuante, they were not able to defend their championship title against the Hokkaido Red Eagles. Despite their loss, our time with the team was very memorable and my family and I are now HL Anyang fans for life. Thanks for reading my post and I hope to see <i>you</i> at an HL Anyang game next season! ㅅ.ㅅ 에-이-치 안-양!
+    <span class="end"></span>
+</p>
+</BlogPostLayout>
+<style>
+span{
+        display: block;
+        height: 1.05rem;
+    }
+    .end{
+        height:10px;
+    }
+</style>
