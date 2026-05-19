@@ -1,0 +1,818 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+const PageTitle = "Midterm Presentation: 한국어 2B P1"
+---
+
+<BaseLayout PageTitle={PageTitle}>
+  <div class="presentation-container" id="presentation-container">
+    
+    <!-- Top Progress Bar -->
+    <div class="progress-bar-container">
+      <div class="progress-bar" id="progress-bar"></div>
+    </div>
+
+    <!-- Floating Navigation Controls -->
+    <div class="slide-dots">
+      <button class="dot active" data-slide="0" aria-label="Slide 1"></button>
+      <button class="dot" data-slide="1" aria-label="Slide 2"></button>
+      <button class="dot" data-slide="2" aria-label="Slide 3"></button>
+      <button class="dot" data-slide="3" aria-label="Slide 4"></button>
+      <button class="dot" data-slide="4" aria-label="Slide 5"></button>
+    </div>
+
+    <div class="nav-arrows">
+      <button class="nav-arrow prev" id="nav-prev" aria-label="Previous Slide">
+        <i class="fa-solid fa-chevron-up"></i>
+      </button>
+      <div class="slide-counter"><span id="current-slide-num">1</span>/5</div>
+      <button class="nav-arrow next" id="nav-next" aria-label="Next Slide">
+        <i class="fa-solid fa-chevron-down"></i>
+      </button>
+    </div>
+
+    <!-- Instructions Banner (auto-fades) -->
+    <div class="instructions-banner" id="instructions-banner">
+      <span class="icon"><i class="fa-solid fa-circle-info"></i></span>
+      <span>Use <strong>Scroll</strong>, <strong>Arrow Keys</strong>, <strong>Spacebar</strong>, or the side dots to present.</span>
+    </div>
+
+    <!-- Slide 1: 잠 (Sleep) -->
+    <section class="slide slide-1" data-index="0">
+      <div class="background-glow bg-glow-1"></div>
+      <div class="slide-card">
+        <div class="card-header">
+          <div class="header-main">
+            <div class="icon-circle"><i class="fa-solid fa-bed"></i></div>
+            <div class="title-group">
+              <h1>잠</h1>
+              <span class="subtitle">Sleep</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-content">
+          <div class="item-card error-card">
+            <div class="status-marker"><i class="fa-solid fa-circle-xmark"></i></div>
+            <div class="item-details">
+              <div class="korean-text">휴대폰</div>
+            </div>
+          </div>
+
+          <div class="item-card success-card">
+            <div class="status-marker"><i class="fa-solid fa-circle-check"></i></div>
+            <div class="item-details">
+              <div class="korean-text">책</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 2: 운동 (Exercise) -->
+    <section class="slide slide-2" data-index="1">
+      <div class="background-glow bg-glow-2"></div>
+      <div class="slide-card">
+        <div class="card-header">
+          <div class="header-main">
+            <div class="icon-circle"><i class="fa-solid fa-dumbbell"></i></div>
+            <div class="title-group">
+              <h1>운동</h1>
+              <span class="subtitle">Exercise</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-content">
+          <div class="item-card normal-card">
+            <div class="status-marker"><i class="fa-solid fa-face-frown-open"></i></div>
+            <div class="item-details">
+              <div class="korean-text">답답하다</div>
+              <div class="english-text">To be Frustrated</div>
+            </div>
+          </div>
+
+          <div class="item-card normal-card">
+            <div class="status-marker"><i class="fa-solid fa-face-smile"></i></div>
+            <div class="item-details">
+              <div class="korean-text">마음이 편안하다</div>
+              <div class="english-text">To feel relaxed</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 3: 상담사 (Counselor/Therapist) -->
+    <section class="slide slide-3" data-index="2">
+      <div class="background-glow bg-glow-3"></div>
+      <div class="slide-card">
+        <div class="card-header">
+          <div class="header-main">
+            <div class="icon-circle"><i class="fa-solid fa-user-doctor"></i></div>
+            <div class="title-group">
+              <h1>상담사</h1>
+              <span class="subtitle">Counselor / Therapist</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-content">
+          <div class="item-card normal-card">
+            <div class="status-marker"><i class="fa-solid fa-hand-holding-heart"></i></div>
+            <div class="item-details">
+              <div class="korean-text">분노 도움</div>
+              <div class="english-text">Anger help / management</div>
+            </div>
+          </div>
+
+          <div class="item-card normal-card">
+            <div class="status-marker"><i class="fa-solid fa-wind"></i></div>
+            <div class="item-details">
+              <div class="korean-text">명상</div>
+              <div class="english-text">Meditation</div>
+            </div>
+          </div>
+
+          <div class="item-card normal-card">
+            <div class="status-marker"><i class="fa-solid fa-pen-nib"></i></div>
+            <div class="item-details">
+              <div class="korean-text">과거 쓰다</div>
+              <div class="english-text">past writing/ writing about the past</div>
+            </div>
+          </div>
+
+          <div class="item-card normal-card">
+            <div class="status-marker"><i class="fa-solid fa-brain"></i></div>
+            <div class="item-details">
+              <div class="korean-text">감정을 알아차리다</div>
+              <div class="english-text">Mindfulness / Being aware of emotions</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 4: 노는 곳 (Hanging out) -->
+    <section class="slide slide-4" data-index="3">
+      <div class="background-glow bg-glow-4"></div>
+      <div class="slide-card">
+        <div class="card-header">
+          <div class="header-main">
+            <div class="icon-circle"><i class="fa-solid fa-users"></i></div>
+            <div class="title-group">
+              <h1>노는 곳</h1>
+              <span class="subtitle">Hanging out</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-content">
+          <div class="item-card normal-card">
+            <div class="status-marker"><i class="fa-solid fa-face-laugh-beam"></i></div>
+            <div class="item-details">
+              <div class="korean-text">웃다</div>
+              <div class="english-text">To laugh</div>
+            </div>
+          </div>
+
+          <div class="item-card normal-card">
+            <div class="status-marker"><i class="fa-solid fa-heart-pulse"></i></div>
+            <div class="item-details">
+              <div class="korean-text">행복하다</div>
+              <div class="english-text">To be happy</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 5: 텔레비전 (Television) -->
+    <section class="slide slide-5" data-index="4">
+      <div class="background-glow bg-glow-5"></div>
+      <div class="slide-card">
+        <div class="card-header">
+          <div class="header-main">
+            <div class="icon-circle"><i class="fa-solid fa-tv"></i></div>
+            <div class="title-group">
+              <h1>텔레비전</h1>
+              <span class="subtitle">Television</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-content">
+          <div class="item-card normal-card">
+            <div class="status-marker"><i class="fa-solid fa-couch"></i></div>
+            <div class="item-details">
+              <div class="korean-text">쉬다</div>
+              <div class="english-text">To take a rest</div>
+            </div>
+          </div>
+
+          <div class="item-card normal-card">
+            <div class="status-marker"><i class="fa-solid fa-star"></i></div>
+            <div class="item-details">
+              <div class="korean-text">특히</div>
+              <div class="english-text">Especially</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+  </div>
+</BaseLayout>
+
+<style is:global>
+  /* Lock the global body scroll to avoid double scrollbars on this page */
+  html, body {
+    overflow: hidden !important;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+  }
+</style>
+
+<style>
+  /* Presentation Container Styling */
+  .presentation-container {
+    height: calc(100vh - 70px);
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+    background-color: #0b0f19;
+    color: #e2e8f0;
+    position: relative;
+    font-family: 'Poppins', 'Open Sans', sans-serif;
+  }
+
+  /* Progress Bar styling */
+  .progress-bar-container {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.05);
+    z-index: 1000;
+  }
+
+  .progress-bar {
+    height: 100%;
+    width: 20%;
+    background: linear-gradient(90deg, #ff7a00, #ff0055);
+    transition: width 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+
+  /* Slides */
+  .slide {
+    scroll-snap-align: start;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 2rem;
+    overflow: hidden;
+  }
+
+  /* Glow effects behind cards */
+  .background-glow {
+    position: absolute;
+    width: 45vh;
+    height: 45vh;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.15;
+    pointer-events: none;
+    z-index: 1;
+    transition: all 1s ease;
+  }
+  .bg-glow-1 { background: #3b82f6; top: 20%; left: 20%; }
+  .bg-glow-2 { background: #10b981; bottom: 20%; right: 20%; }
+  .bg-glow-3 { background: #8b5cf6; top: 15%; right: 25%; }
+  .bg-glow-4 { background: #f59e0b; bottom: 15%; left: 25%; }
+  .bg-glow-5 { background: #ec4899; top: 30%; left: 30%; }
+
+  /* Premium Card Design */
+  .slide-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    padding: 2rem;
+    max-width: 800px;
+    width: 100%;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    z-index: 2;
+    transform: translateY(20px);
+    opacity: 0;
+    animation: fadeInUp 0.8s forwards cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  @keyframes fadeInUp {
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  /* Slide card header */
+  .card-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 0.75rem;
+    position: relative;
+  }
+
+  .slide-badge {
+    align-self: flex-start;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 0.25rem 0.75rem;
+    border-radius: 100px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #cbd5e1;
+    font-weight: 600;
+  }
+
+  .header-main {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+  }
+
+  .icon-circle {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02));
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    color: #ff7a00;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  }
+
+  /* Specific header icon colors depending on slide */
+  .slide-1 .icon-circle { color: #60a5fa; }
+  .slide-2 .icon-circle { color: #34d399; }
+  .slide-3 .icon-circle { color: #a78bfa; }
+  .slide-4 .icon-circle { color: #fbbf24; }
+  .slide-5 .icon-circle { color: #f472b6; }
+
+  .title-group h1 {
+    font-size: 2.2rem;
+    margin: 0;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    color: #ffffff;
+    line-height: 1.1;
+  }
+
+  .subtitle {
+    font-size: 1.1rem;
+    color: #94a3b8;
+    font-weight: 400;
+  }
+
+  /* Card content */
+  .card-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+  }
+
+  /* Item Card styling */
+  .item-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 1.25rem;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+
+  .item-card:hover {
+    transform: translateY(-4px);
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+  }
+
+  .status-marker {
+    font-size: 1.4rem;
+    line-height: 1;
+  }
+
+  /* Colors for status types */
+  .error-card .status-marker { color: #f87171; }
+  .success-card .status-marker { color: #4ade80; }
+  .normal-card .status-marker { color: #38bdf8; }
+
+  .item-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  .korean-text {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #ffffff;
+  }
+
+  .pronunciation {
+    font-size: 0.85rem;
+    color: #64748b;
+    font-style: italic;
+  }
+
+  .english-text {
+    font-size: 1rem;
+    color: #cbd5e1;
+    margin-top: 0.15rem;
+  }
+
+  .note-spelling {
+    font-size: 0.8rem;
+    color: rgba(248, 113, 113, 0.85);
+    display: block;
+    margin-top: 0.1rem;
+    font-weight: 500;
+  }
+
+  /* Shorter viewport adjustments */
+  @media (max-height: 750px) {
+    .slide-card {
+      padding: 1.5rem;
+    }
+    .card-header {
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+    }
+    .title-group h1 {
+      font-size: 1.8rem;
+    }
+    .subtitle {
+      font-size: 1rem;
+    }
+    .icon-circle {
+      width: 48px;
+      height: 48px;
+      font-size: 1.3rem;
+    }
+    .card-content {
+      gap: 1rem;
+    }
+    .item-card {
+      padding: 1rem;
+    }
+    .korean-text {
+      font-size: 1.2rem;
+    }
+    .english-text {
+      font-size: 0.9rem;
+    }
+  }
+
+  /* Dots indicator */
+  .slide-dots {
+    position: fixed;
+    right: 2.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    z-index: 100;
+  }
+
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    padding: 0;
+  }
+
+  .dot:hover {
+    background: rgba(255, 255, 255, 0.6);
+    transform: scale(1.2);
+  }
+
+  .dot.active {
+    background: #ffffff;
+    transform: scale(1.4);
+    box-shadow: 0 0 15px #ffffff;
+  }
+
+  /* Arrow controls */
+  .nav-arrows {
+    position: fixed;
+    bottom: 2.5rem;
+    right: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    z-index: 100;
+  }
+
+  .nav-arrow {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #e2e8f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+  }
+
+  .nav-arrow:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    transform: translateY(-2px);
+  }
+
+  .nav-arrow:active {
+    transform: translateY(0);
+  }
+
+  .slide-counter {
+    font-size: 0.9rem;
+    color: #94a3b8;
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+
+  #current-slide-num {
+    color: #ffffff;
+  }
+
+  /* Instruction Banner styling */
+  .instructions-banner {
+    position: fixed;
+    bottom: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(15, 23, 42, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 0.75rem 1.5rem;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.9rem;
+    color: #94a3b8;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+    pointer-events: none;
+    animation: fadeOutLater 6s forwards ease-in-out;
+  }
+
+  .instructions-banner .icon {
+    color: #38bdf8;
+  }
+
+  @keyframes fadeOutLater {
+    0%, 70% { opacity: 1; transform: translateX(-50%) translateY(0); }
+    100% { opacity: 0; transform: translateX(-50%) translateY(20px); }
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .slide-card {
+      padding: 1.75rem;
+      margin-bottom: 2rem;
+    }
+
+    .title-group h1 {
+      font-size: 2.2rem;
+    }
+
+    .subtitle {
+      font-size: 1.1rem;
+    }
+
+    .card-content {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .korean-text {
+      font-size: 1.3rem;
+    }
+
+    .english-text {
+      font-size: 0.95rem;
+    }
+
+    .slide-dots {
+      right: 1rem;
+    }
+
+    .nav-arrows {
+      display: none; /* Hide arrow cluster on mobile to save screen space */
+    }
+
+    .instructions-banner {
+      width: 85%;
+      box-sizing: border-box;
+      text-align: center;
+      justify-content: center;
+    }
+  }
+
+  /* Support landscape mobile orientations */
+  @media (max-height: 500px) and (orientation: landscape) {
+    .slide-card {
+      padding: 1.25rem;
+      max-width: 90%;
+    }
+
+    .card-header {
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+    }
+
+    .title-group h1 {
+      font-size: 1.8rem;
+    }
+
+    .subtitle {
+      font-size: 1rem;
+    }
+
+    .icon-circle {
+      width: 44px;
+      height: 44px;
+      font-size: 1.2rem;
+    }
+
+    .card-content {
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+    }
+
+    .item-card {
+      padding: 0.75rem;
+    }
+    
+    .korean-text {
+      font-size: 1.1rem;
+    }
+
+    .english-text {
+      font-size: 0.85rem;
+    }
+    
+    .nav-arrows {
+      bottom: 1rem;
+      right: 1rem;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const container = document.getElementById('presentation-container');
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.dot');
+    const progressBar = document.getElementById('progress-bar');
+    const currentSlideNum = document.getElementById('current-slide-num');
+    
+    let isScrolling = false;
+
+    // Intersection Observer to detect current slide in viewport
+    const observerOptions = {
+      root: container,
+      threshold: 0.5,
+      rootMargin: "0px"
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const index = parseInt(entry.target.getAttribute('data-index') || '0');
+          updateActiveState(index);
+        }
+      });
+    }, observerOptions);
+
+    slides.forEach(slide => observer.observe(slide));
+
+    // Update active slide state across dots, counter, progress bar
+    function updateActiveState(index: number) {
+      // Update dots
+      dots.forEach((dot, idx) => {
+        if (idx === index) {
+          dot.classList.add('active');
+        } else {
+          dot.classList.remove('active');
+        }
+      });
+
+      // Update counter
+      if (currentSlideNum) {
+        currentSlideNum.textContent = (index + 1).toString();
+      }
+
+      // Update progress bar
+      if (progressBar) {
+        const percent = ((index + 1) / slides.length) * 100;
+        progressBar.style.width = `${percent}%`;
+      }
+    }
+
+    // Dot click scrolling
+    dots.forEach(dot => {
+      dot.addEventListener('click', (e) => {
+        const slideIndex = (e.currentTarget as HTMLElement).getAttribute('data-slide');
+        scrollToSlide(parseInt(slideIndex || '0'));
+      });
+    });
+
+    // Arrow controls scrolling
+    const prevBtn = document.getElementById('nav-prev');
+    const nextBtn = document.getElementById('nav-next');
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => {
+        const activeDot = document.querySelector('.dot.active');
+        const currentIndex = parseInt(activeDot?.getAttribute('data-slide') || '0');
+        if (currentIndex > 0) {
+          scrollToSlide(currentIndex - 1);
+        }
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        const activeDot = document.querySelector('.dot.active');
+        const currentIndex = parseInt(activeDot?.getAttribute('data-slide') || '0');
+        if (currentIndex < slides.length - 1) {
+          scrollToSlide(currentIndex + 1);
+        }
+      });
+    }
+
+    // Scroll helper
+    function scrollToSlide(index: number) {
+      if (index < 0 || index >= slides.length) return;
+      const targetSlide = slides[index];
+      if (targetSlide) {
+        isScrolling = true;
+        targetSlide.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        setTimeout(() => {
+          isScrolling = false;
+        }, 800);
+      }
+    }
+
+    // Keyboard controls
+    document.addEventListener('keydown', (e) => {
+      const activeDot = document.querySelector('.dot.active');
+      const currentIndex = parseInt(activeDot?.getAttribute('data-slide') || '0');
+      
+      if (e.key === 'ArrowDown' || e.key === 'PageDown' || e.key === ' ') {
+        e.preventDefault();
+        scrollToSlide(currentIndex + 1);
+      } else if (e.key === 'ArrowUp' || e.key === 'PageUp') {
+        e.preventDefault();
+        scrollToSlide(currentIndex - 1);
+      } else if (e.key === 'Home') {
+        e.preventDefault();
+        scrollToSlide(0);
+      } else if (e.key === 'End') {
+        e.preventDefault();
+        scrollToSlide(slides.length - 1);
+      }
+    });
+  });
+</script>
