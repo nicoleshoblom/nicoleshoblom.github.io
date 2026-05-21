@@ -1,0 +1,456 @@
+---
+// Standalone One Pager Resume
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nicole Shoblom - Resume</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Lunar Blossom';
+            src: url('/fonts/Lunar-Blossom.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        :root {
+            --coral: #ff7f50; /* Same as the website */
+            --text-main: #000;
+            --bg-main: #fff;
+            --sidebar-bg: #fff;
+        }
+
+        /* A4 Size configuration */
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--text-main);
+            background-color: #e0e0e0; /* Grey background outside the page in web view */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .resume-container {
+            width: 595pt;
+            height: 841pt;
+            background: white;
+            display: flex;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Sidebar Styling */
+        .sidebar {
+            width: 25%;
+            background-color: var(--sidebar-bg);
+            border-right: 2px dotted var(--coral);
+            padding: 10pt 10pt;
+            display: flex;
+            flex-direction: column;
+            gap: 8pt;
+        }
+
+        .profile-pic-container {
+            text-align: center;
+        }
+
+        .profile-pic {
+            width: 110pt;
+            height: 110pt;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--coral);
+        }
+
+        .name-section {
+            text-align: center;
+        }
+
+        .name {
+            font-family: 'Lunar Blossom', sans-serif;
+            font-size: 24pt;
+            line-height: 1.1;
+            margin-bottom: 2pt;
+        }
+
+        .title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 9pt;
+            font-weight: 600;
+            color: var(--coral);
+            line-height: 1.2;
+        }
+
+        .contact-info {
+            font-size: 7.5pt;
+            display: flex;
+            flex-direction: column;
+            gap: 3pt;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 5pt;
+            word-break: break-word;
+        }
+
+        .contact-item i, .contact-item .material-icons {
+            font-size: 10pt;
+            color: var(--coral);
+            width: 12pt;
+            text-align: center;
+        }
+
+        .contact-item a {
+            color: var(--text-main);
+            text-decoration: none;
+        }
+
+        .section-header-sidebar {
+            font-family: 'Poppins', sans-serif;
+            font-size: 11pt;
+            font-weight: 600;
+            border-bottom: 1px solid var(--coral);
+            padding-bottom: 2pt;
+            margin-bottom: 4pt;
+            text-transform: uppercase;
+        }
+
+        .list-section {
+            font-size: 7.5pt;
+            line-height: 1.3;
+        }
+
+        .list-section ul {
+            padding-left: 12pt;
+        }
+
+        .list-section li {
+            margin-bottom: 2pt;
+        }
+
+        .domains {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3pt;
+        }
+        
+        .domain-badge {
+            background-color: var(--coral);
+            color: white;
+            padding: 2pt 4pt;
+            border-radius: 3pt;
+            font-size: 7pt;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Main Body Styling */
+        .main-body {
+            width: 75%;
+            padding: 15pt 15pt 10pt 15pt;
+            display: flex;
+            flex-direction: column;
+            gap: 4pt;
+        }
+
+        .one-liner {
+            font-family: 'Poppins', sans-serif;
+            font-size: 11pt;
+            font-weight: 700;
+            color: var(--coral);
+            line-height: 1.3;
+        }
+
+        .summary {
+            font-size: 7.5pt;
+            line-height: 1.35;
+            text-align: justify;
+            margin-bottom: 6pt;
+        }
+
+        .section-header-main {
+            font-family: 'Poppins', sans-serif;
+            font-size: 10pt;
+            font-weight: 600;
+            color: var(--coral);
+            border-bottom: 2px solid var(--coral);
+            padding-bottom: 1pt;
+            margin-bottom: 3pt;
+            text-transform: uppercase;
+        }
+
+        .experience-item, .education-item {
+            margin-bottom: 5pt;
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 1pt;
+        }
+
+        .company-name {
+            font-family: 'Poppins', sans-serif;
+            font-size: 9pt;
+            font-weight: 600;
+        }
+
+        .exp-dates {
+            font-size: 7.5pt;
+            font-style: italic;
+            color: #555;
+            text-align: right;
+            white-space: nowrap;
+        }
+
+        .job-title {
+            font-size: 8pt;
+            font-weight: 600;
+            margin-bottom: 2pt;
+        }
+
+        .exp-bullets {
+            font-size: 7.5pt;
+            line-height: 1.3;
+            padding-left: 10pt;
+        }
+
+        .exp-bullets li {
+            margin-bottom: 2pt;
+            text-align: justify;
+        }
+
+        /* Print Specific Adjustments */
+        @media print {
+            body {
+                background: white;
+                height: 100%;
+                width: 100%;
+                margin: 0;
+            }
+            .resume-container {
+                box-shadow: none;
+                width: 595pt;
+                height: 841pt;
+            }
+            /* To ensure background colors and borders print correctly */
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="profile-pic-container">
+                <img src="/images/linkedin_pic.webp" alt="Nicole Shoblom" class="profile-pic" />
+            </div>
+            
+            <div class="name-section">
+                <h1 class="name">Nicole Shoblom</h1>
+                <div class="title">PhD Data Science Leader &<br/>AI Product Strategist</div>
+            </div>
+
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span class="material-icons">location_on</span>
+                    <span>Remote | Seoul, SK | Bay Area, CA, USA</span>
+                </div>
+                <div class="contact-item">
+                    <span class="material-icons">phone</span>
+                    <span>+82 10-9379-2491</span>
+                </div>
+                <div class="contact-item">
+                    <span class="material-icons">email</span>
+                    <a href="mailto:nicole.shoblom@gmail.com">nicole.shoblom@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-github"></i>
+                    <a href="https://github.com/nicoleshoblom">github.com/nicoleshoblom</a>
+                </div>
+                <div class="contact-item">
+                    <span class="material-icons">language</span>
+                    <a href="https://www.nicoleshoblom.com/blog">nicoleshoblom.com/blog</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-linkedin"></i>
+                    <a href="https://www.linkedin.com/in/navmendoza/">linkedin.com/in/navmendoza</a>
+                </div>
+            </div>
+
+            <div class="list-section">
+                <div class="section-header-sidebar">Competencies</div>
+                <ul>
+                    <li>AI Product Strategy</li>
+                    <li>Data Science Team Leadership</li>
+                    <li>Machine Learning</li>
+                    <li>Advanced Analytics</li>
+                    <li>Statistical Modeling</li>
+                    <li>SQL & Large-Scale Data</li>
+                    <li>Analytical Problem Solving</li>
+                    <li>Technical Communication</li>
+                    <li>Cross-Functional Collaboration</li>
+                    <li>Strategic Planning</li>
+                    <li>User-Centric Design</li>
+                    <li>Front-End Development</li>
+                </ul>
+            </div>
+
+            <div class="list-section">
+                <div class="section-header-sidebar">Tech Stack</div>
+                <p>Python (Pandas, Polars, NumPy, SciPy, Scikit-Learn, Statsmodels, Ruptures, NetworkX, Streamlit, Matplotlib, Plotly, Seaborn), SQL, R, Tableau, Matlab, C++/OpenMP, Hammerspoon/Lua, Hadoop Hive, AI Agent Workflows, Google AI Notebooks, Astro, HTML, CSS</p>
+            </div>
+
+            <div class="list-section">
+                <div class="section-header-sidebar">Domains</div>
+                <div class="domains">
+                    <span class="domain-badge">Retail</span>
+                    <span class="domain-badge">Agtech</span>
+                    <span class="domain-badge">IT</span>
+                    <span class="domain-badge">Education</span>
+                    <span class="domain-badge">Nonprofit</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Body -->
+        <div class="main-body">
+            <div class="one-liner">
+                AI Product Strategist (PhD, 10+ Years) | Building User-Centric Tools via AI Agent Workflows
+            </div>
+            
+            <div class="summary">
+                PhD Data Science leader with 10+ years of experience driving AI product strategy and development across Retail, Agtech, and IT. A proven history in analytical problem solving and strategic planning, delivering high-impact solutions that generated over $160 million in boosted sales and $5 million in labor savings. Excels at Technical Communication, Cross-Functional Collaboration, and team leadership. Harnessing AI agent workflows and user-centric design to develop high-impact, intuitive technology that optimizes operational efficiency and maximizes ROI.
+            </div>
+
+            <div>
+                <div class="section-header-main">Experience</div>
+                
+                <div class="experience-item">
+                    <div class="exp-header">
+                        <span class="company-name">Jane Trading, Ltd</span>
+                        <span class="exp-dates">Feb 2026 - Present</span>
+                    </div>
+                    <div class="job-title">CEO</div>
+                    <ul class="exp-bullets">
+                        <li>Architected and developed a pricing analysis dashboard leveraging AI Agent Workflows on top of an AI agent built app that captures real-time client-side browsing data from e-commerce sites (e.g., Coupang, Naver), directly streamlining product pricing decisions.</li>
+                        <li>Streamlined marketing asset creation by implementing AI Agent Workflows to automate the translation of product images (English to Korean) and conversion of assets (JPG/PNG/PDF) into deployable HTML/CSS/JavaScript, including building a supporting desktop asset downloader.</li>
+                        <li>Optimized administrative efficiency in a foreign market by utilizing Google AI Notebooks to rapidly process and complete complex business tasks, including document comprehension and form submission in the Korean language.</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="exp-header">
+                        <span class="company-name">American Women’s Club of Korea</span>
+                        <span class="exp-dates">June 2025 - Present</span>
+                    </div>
+                    <div class="job-title">Board Member (Technical Lead) & Communications Web Developer</div>
+                    <ul class="exp-bullets">
+                        <li>Leading a strategic migration from costly paid platforms (Wild Apricot, Zoom) to Google Workspace for Nonprofits, slashing annual software expenditures and preserving 11.5% of the organization's total bank reserves.</li>
+                        <li>Modernized the club's digital presence using AI-assisted development and custom HTML/CSS/JavaScript, resulting in a responsive, mobile-optimized website to enhance user experience.</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="exp-header">
+                        <span class="company-name">Addium</span>
+                        <span class="exp-dates">Sept 2023 - Feb 2025</span>
+                    </div>
+                    <div class="job-title">Director, Data Science</div>
+                    <ul class="exp-bullets">
+                        <li>Spearheaded an Intelligent Plant Monitoring initiative in collaboration with Product, Engineering, and Customer Success, leading a team of three data scientists to build AI features on crop data that assisted farmers in real-time growing decisions, estimated to increase revenue by $1M USD.</li>
+                        <li>Provided leadership and technical guidance to US and offshore data science teams, managing performance KPIs, setting strategic roadmaps, and ensuring alignment with product goals.</li>
+                        <li>Developed, scaled, maintained OOTB platform feature using signal processing on time series data to calculate water uptake by plants. Feature turn-off & turn-on rate equal since release.</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="exp-header">
+                        <span class="company-name">Riverbed Technology</span>
+                        <span class="exp-dates">Oct 2020 - June 2023</span>
+                    </div>
+                    <div class="job-title">Director, Data Science | Technical Director</div>
+                    <ul class="exp-bullets">
+                        <li>Founded and led the company’s first Product Data Science team, establishing a cross-functional model to deliver data science solutions across a suite of network and end-user monitoring products. Launched a real-time Machine Learning SaaS product designed to automatically identify and remediate complex network, application, and end-user device issues for enterprise customers.</li>
+                        <li>Secured a high-profile customer renewal by developing, patenting (Patent No: 12353277, first author), and technically communicating a Chi-square based tool that enabled IT teams to accurately root-cause widespread device issues.</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="exp-header">
+                        <span class="company-name">Walmart</span>
+                        <span class="exp-dates">Aug 2016 - Oct 2020</span>
+                    </div>
+                    <div class="job-title">Staff Data Scientist | Senior Data Scientist | Decision Manager II</div>
+                    <ul class="exp-bullets">
+                        <li>Boosted online grocery sales by $160 million by developing an automated weekly audit report (1 billion store-items via Hive) that identified e-commerce back-end discrepancies, enabling engineers to resolve erroneous out-of-stock issues and providing leadership with inventory accuracy KPIs.</li>
+                        <li>Orchestrated the development and launch of an AI product across five warehouses that automatically assigned items to slots, yielding an estimated $5 million in labor savings. This included gathering stakeholder requirements, designing a linear programming model, and overseeing model improvements.</li>
+                        <li>Enhanced demand forecasts across 4,000+ stores by using R and Hadoop Hive to cleanse historical sales data and implement linear models, accurately predicting drops in sales attributable to unfulfilled customer demand.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div>
+                <div class="section-header-main">Education</div>
+                
+                <div class="education-item">
+                    <div class="exp-header">
+                        <span class="company-name">University of California, Santa Cruz</span>
+                    </div>
+                    <div class="exp-header">
+                        <span class="job-title">PhD Statistics & Applied Mathematics</span>
+                        <span class="exp-dates">Jun 2018</span>
+                    </div>
+                    <div class="exp-header">
+                        <span class="job-title">MS Statistics & Applied Mathematics</span>
+                        <span class="exp-dates">Jun 2014</span>
+                    </div>
+                    <ul class="exp-bullets">
+                        <li>MIT Lincoln Laboratory Research Intern (Summers 2013 & 2014)</li>
+                        <li>As part of PhD thesis funded by the Department of Defense (DoD) researched, developed, and applied spatial model selection algorithms to hyperspectral images using R, Matlab, and C++ OpenMP to identify chemicals in gasses released in the atmosphere.</li>
+                        <li>As part of Master’s thesis, mapped connectivity in the brain by fitting ARIMA time series models, dynamic linear models, and the cross-correlation function to MEG brain data in R and Matlab.</li>
+                    </ul>
+                </div>
+
+                <div class="education-item">
+                    <div class="exp-header">
+                        <span class="company-name">University of California, Santa Barbara</span>
+                    </div>
+                    <div class="exp-header">
+                        <span class="job-title">BA Women’s Studies & Political Science</span>
+                        <span class="exp-dates">Aug 2008</span>
+                    </div>
+                    <ul class="exp-bullets">
+                        <li>Developed strong skills in communication, writing, cultural competence, inclusion, empathy, ethical thinking, critical thinking, and strategic thinking.</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

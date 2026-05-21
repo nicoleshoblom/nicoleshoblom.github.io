@@ -1,0 +1,98 @@
+﻿SIDEBAR
+<Picture>
+Nicole Shoblom
+PhD Data Science Leader & AI Product Strategist
+<location icon> Remote | Seoul, SK | Bay Area, CA, USA
+<Telephone icon> +82 10-9379-2491
+<email icon> nicole.shoblom@gmail.com
+<github icon> https://github.com/nicoleshoblom
+<world wide web icon> www.nicoleshoblom.com/blog (Built from scratch with AI Assistance)
+<linkedin icon> https://www.linkedin.com/in/navmendoza/
+
+
+Competencies
+* AI Product Strategy
+* Data Science Team Leadership
+* Machine Learning
+* Advanced Analytics
+* Statistical Modeling
+* SQL & Large-Scale Data
+* Analytical Problem Solving
+* Technical Communication
+* Cross-Functional Collaboration
+* Strategic Planning
+* User-Centric Design
+* Front-End Development
+
+
+Tech Stack
+* Python (Pandas, Polars, NumPy, SciPy, Scikit-Learn, Statsmodels, Ruptures, NetworkX, Streamlit, Matplotlib, Plotly, Seaborn),SQL, R, Tableau, Matlab, C++/OpenMP, Hammerspoon/Lua, Hadoop Hive, AI Agent Workflows, Google AI Notebooks, Astro, HTML, CSS
+
+
+Domains
+Retail
+Agtech
+IT
+Education
+Nonprofit
+
+
+MAIN BODY
+AI Product Strategist (PhD, 10+ Years) | Building User-Centric Tools via AI Agent Workflows
+PhD Data Science leader with 10+ years of experience driving AI product strategy and development across Retail, Agtech, and IT. A proven history in analytical problem solving and strategic planning, delivering high-impact solutions that generated over $160 million in boosted sales and $5 million in labor savings. Excels at Technical Communication, Cross-Functional Collaboration, and team leadership. Harnessing AI agent workflows and user-centric design to develop high-impact, intuitive technology that optimizes operational efficiency and maximizes ROI
+
+
+Experience
+Jane Trading, Ltd
+Feb 2026 - Present, CEO
+* Architected and developed a pricing analysis dashboard leveraging AI Agent Workflows on top of an AI agent built app that captures real-time client-side browsing data from e-commerce sites (e.g., Coupang, Naver), directly streamlining product pricing decisions
+* Streamlined marketing asset creation by implementing AI Agent Workflows to automate the translation of product images (English to Korean) and conversion of assets (JPG/PNG/PDF) into deployable HTML/CSS/JavaScript, including building a supporting desktop asset downloader.
+* Optimized administrative efficiency in a foreign market by utilizing Google AI Notebooks to rapidly process and complete complex business tasks, including document comprehension and form submission in the Korean language.
+
+
+American Women’s Club of Korea
+Oct 2025 - Present, Board Member (Technical Lead)
+June 2025 - Oct 2025, Communications Web Developer
+* Leading a strategic migration from costly paid platforms (Wild Apricot, Zoom) to Google Workspace for Nonprofits, slashing annual software expenditures and preserving 11.5% of the organization's total bank reserves.
+* Modernized the club's digital presence using AI-assisted development and custom HTML/CSS/JavaScript, resulting in a responsive, mobile-optimized website to enhance user experience.
+
+
+Addium
+Sept 2023 - Feb 2025, Director, Data Science
+* Spearheaded an Intelligent Plant Monitoring initiative in collaboration with Product, Engineering, and Customer Success, leading a team of three data scientists to build AI features on crop data that assisted farmers in real-time growing decisions, estimated to increase revenue by $1M USD.
+* Provided leadership and technical guidance to US and offshore data science teams, managing performance KPIs, setting strategic roadmaps, and ensuring alignment with product goals.
+* Developed, scaled, maintained OOTB platform feature using signal processing on time series data to calculate water uptake by plants. Feature turn-off & turn-on rate equal since release
+
+
+Riverbed Technology
+Oct 2020 - Mar 2022, Technical Director
+Mar 2022 - June 2023 Director, Data Science
+* Founded and led the company’s first Product Data Science team, establishing a cross-functional model to deliver data science solutions across a suite of network and end-user monitoring products. Launched a real-time Machine Learning SaaS product designed to automatically identify and remediate complex network, application, and end-user device issues for enterprise customers.
+* Secured a high-profile customer renewal by developing, patenting (Patent No: 12353277, first author), and technically communicating a Chi-square based tool that enabled IT teams to accurately root-cause widespread device issues.
+
+
+Walmart
+Aug 2016 - Jul 2018, Decision Manager II
+Jul 2018 - Apr 2019 Senior Data Scientist
+Apr 2019 - Oct 2020 Staff Data Scientist
+* Boosted online grocery sales by $160 million by developing an automated weekly audit report (1 billion store-items via Hive) that identified e-commerce back-end discrepancies, enabling engineers to resolve erroneous out-of-stock issues and providing leadership with inventory accuracy KPIs.
+* Orchestrated the development and launch of an AI product across five warehouses that automatically assigned items to slots, yielding an estimated $5 million in labor savings. This included gathering stakeholder requirements, designing a linear programming model, and overseeing model improvements.
+* Enhanced demand forecasts across 4,000+ stores by using R and Hadoop Hive to cleanse historical sales data and implement linear models, accurately predicting drops in sales attributable to unfulfilled customer demand.
+
+
+MIT Lincoln Laboratory
+Summer 2013 & Summer 2014, Research Intern
+* As part of PhD thesis funded by the Department of Defense (DoD) researched, developed, and applied spatial model selection algorithms such as the Fused LASSO, Bayesian indicator model selection, and Bayesian spatial models to hyperspectral images using R, Matlab, and C++ OpenMP to identify chemicals in gasses released in the atmosphere
+
+
+EDUCATION
+University of California, Santa Cruz
+Jun 2018, PhD Statistics & Applied Mathematics
+Jun 2014, MS Statistics & Applied Mathematics
+* See MIT Lincoln Laboratory for PhD Thesis description
+* As part of Master’s thesis, mapped connectivity in the brain by fitting ARIMA time series models, dynamic linear models, and the cross-correlation function to MEG brain data in R and Matlab
+
+
+University of California, Santa Barbara
+Aug 2008, BA Women’s Studies & Political Science
+* Developed strong skills in communication, writing, cultural competence, inclusion, empathy, ethical thinking, critical thinking, and strategic thinking
