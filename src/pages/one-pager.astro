@@ -241,6 +241,26 @@
             text-align: justify;
         }
 
+        /* Mobile Screen Adjustments (scale A4 page to fit screen) */
+        @media screen and (max-width: 800px) {
+            body {
+                background-color: #e0e0e0;
+                display: block;
+                min-height: auto;
+                padding: 10px 0;
+                overflow-x: hidden;
+            }
+
+            .resume-container {
+                /* Scale the 595pt (~793.33px) container to fit the viewport width exactly (minus 20px padding) */
+                transform: scale(calc((100vw - 20px) / 793.33));
+                transform-origin: top center;
+                margin: 0 auto;
+                /* Pull up the bottom to remove the large blank whitespace created by scaling */
+                margin-bottom: calc(-841pt * (1 - ((100vw - 20px) / 793.33)));
+            }
+        }
+
         /* Print Specific Adjustments */
         @media print {
             body {
