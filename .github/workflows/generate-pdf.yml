@@ -1,0 +1,46 @@
+name: Generate One-Pager PDF
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'src/pages/one-pager.astro'
+      - 'src/components/**' # You can add other paths here if needed
+      - 'scripts/generate-pdf.js'
+
+permissions:
+  contents: write
+
+jobs:
+  generate-pdf:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          # Important so we can push back without auth errors on the default token
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        # Install puppeteer specifically along with standard dependencies
+        run: npm ci || npm install
+
+      - name: Build Astro site
+        run: npm run build
+
+      - name: Generate PDF
+        run: node scripts/generate-pdf.js
+
+      - name: Commit and Push changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add public/NicoleShoblom_OnePager.pdf
+          # Only commit if there are changes
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-generate updated PDF for one-pager [skip ci]" && git push)
