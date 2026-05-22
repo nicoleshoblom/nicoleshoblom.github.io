@@ -74,6 +74,12 @@ const { PageTitle } = Astro.props
                 font-size: clamp(1.5rem, 7vw, 35px); /* Responsive font size */
                 word-spacing: 5px;
                 color: black;
+                font-weight: normal;
+                letter-spacing: 0.05em;
+                margin-right: -0.05em;
+            }
+            .kern-ic {
+                letter-spacing: -0.02em;
             }
             .hamburger {
                 display: none;
@@ -252,7 +258,7 @@ const { PageTitle } = Astro.props
                 <a href="/blog/" class="nav-link">Blog</a>
             </div>
 			<div class="hamburger" onclick="toggleDropdown()">&#9776;</div>
-            <div class="title">Nicole Shoblom</div>
+            <div class="title">N<span class="kern-ic">i</span>cole Shoblom</div>
             <div class="icon-carousel">
                 <button class="icon-arrow left" aria-label="Previous icon">
                     ‹
