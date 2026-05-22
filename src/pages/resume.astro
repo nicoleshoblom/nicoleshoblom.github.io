@@ -50,14 +50,37 @@ import EducationItem from '../components/EducationItem.astro';
                         "Optimized administrative efficiency in a foreign market by utilizing Google AI Notebooks to rapidly process and complete complex business tasks, including document comprehension and form submission in the Korean language"
                         ]}
                     />
+                    
+                    <WorkItem
+                        company="American Women's Club of Korea"
+                        jobRole="Board Member, IT & Communications"
+                        jobRole2="Communications Web Developer"
+                        location="Seoul, SK"
+                        dates="June 2025 - Present"
+                        accomplishments={[
+                        "Leading a strategic migration from costly paid platforms (Wild Apricot, Zoom) to Google Workspace for Nonprofits, slashing annual software expenditures and preserving 5% of the organization's total bank reserves",
+                        "Modernized the club's digital presence using AI-assisted development and custom HTML/CSS/JavaScript, resulting in a responsive, mobile-optimized website to enhance user experience",
+                        ]}
+                    />
+                    <WorkItem
+                        company="Pathfolk"
+                        jobRole="Freelance Web Developer"
+                        location="Remote & Seoul, SK"
+                        dates="August 2025 - September 2025"
+                        accomplishments={[
+                        "Maintained strict visual consistency across a Squarespace platform and deployed AI-assisted custom code to enable user-provided fonts",
+                        "Documented Squarespace 7.1 best practices user guide",
+                        ]}
+                    />
+                    
                     <WorkItem
                         company="Addium"
                         jobRole="Director, Data Science"
                         location="Remote"
                         dates="Sep 2023 - Feb 2025"
                         accomplishments={[
-                        "Manage team by tracking team KPI's & ensure team visibility by collaborating with leadership, engineering, product, and customer success",
-                        "Mentor US & offshore team members by understanding their motivations, helping set goals, giving feedback, and providing technical guidance",
+                        "Spearheaded an Intelligent Plant Monitoring initiative in collaboration with Product, Engineering, and Customer Success, leading a team of three data scientists to build AI features on crop data that assisted farmers in real-time growing decisions, estimated to increase revenue by $1M USD",
+                        "Provided leadership and technical guidance to US and offshore data science teams, managing performance KPIs setting strategic roadmaps, and ensuring alignment with product goals.",
                         "Develop, scale, maintain OOTB platform feature using signal processing on time series data to calculate water uptake by plants. Feature turn-off & turn-on rate equal since release",
                         "Build Streamlit data dashboard app to POC a solution that predicts when daily plant irrigation should stop using signal processing and regression"
                         ]}
@@ -69,9 +92,8 @@ import EducationItem from '../components/EducationItem.astro';
                         dates="Oct 2020 - June 2023"
                         location="Remote"
                         accomplishments={[
-                            "Develop intelligent software features using network models, density estimation, hypothesis testing, time series models, cluster analysis, linear models, change point detection to provide customers actionable insights for improving digital experience & network performance",
-                            "Strategize cross functionally in launching real-time ML SaaS product that assists customers to automatically identify and remediate network, application, & end-user device problems",
-                            "Stood up company’s first product data science team to provide data science solutions for multiple computer network and end user monitoring products",
+                            "Founded and led the company’s first Product Data Science team, establishing a cross-functional model to deliver data science solutions across a suite of network and end-user monitoring products. Launched a real-time Machine Learning SaaS product designed to automatically identify and remediate complex network, application, and enduser device issues for enterprise customers",
+                            "Secured a high-profile customer renewal by developing, patenting (Patent No: 12353277, first author), and technically communicating a Chi-square based tool that enabled IT teams to accurately root-cause widespread device issues",
                             "Recognized as a high potential employee to participate in  360 leadership development program"
                         ]}
                     />
@@ -112,29 +134,7 @@ import EducationItem from '../components/EducationItem.astro';
                         ]}
                     />
                 </div>
-                <div id="webdev-experience" class="webdev-experience">
-                    <WorkItem
-                        company="American Women's Club of Korea"
-                        jobRole="Board Member & Communications Team Lead"
-                        jobRole2="Communications Web Developer"
-                        location="Seoul, SK"
-                        dates="June 2025 - Present"
-                        accomplishments={[
-                        'Developed and redesigned HOME, GALA 2026, and JOIN US pages on club <a href="https://awckorea.com/">website</a>.',
-                        'Design and deploy <a href="https://awckorea.com/partners">revamped partners page</a> by writing custom code to repurpose WildApricot Online Store feature to show discounts instead of prices and to disable add to cart functionality',
-                        ]}
-                    />
-                    <WorkItem
-                        company="Pathfolk"
-                        jobRole="Freelance Web Developer"
-                        location="Remote & Seoul, SK"
-                        dates="August 2025 - Present"
-                        accomplishments={[
-                        "Format Squarespace site consistently and write custom code to use user provided fonts",
-                        "Document Squarespace 7.1 best practices user guide",
-                        ]}
-                    />
-                </div>
+
                 <div id="teaching-experience" class="teaching-experience">
                     <WorkItem
                         company="Introduction to Probability Theory"
@@ -326,7 +326,6 @@ import EducationItem from '../components/EducationItem.astro';
                 margin-bottom: 500px;
             }
             #technical-experience,
-            #webdev-experience,
             #teaching-experience,
             #other-experience,
             #education {
@@ -455,7 +454,6 @@ import EducationItem from '../components/EducationItem.astro';
             const sections = document.querySelectorAll('.main-content > div[id]');
             const navItems = [
                 { href: "#technical-experience", text: "Technical Experience" },
-                { href: "#webdev-experience", text: "Web Development Experience" },
                 { href: "#teaching-experience", text: "Teaching Experience" },
                 { href: "#other-experience", text: "Other Experience" },
                 { href: "#education", text: "Education" },

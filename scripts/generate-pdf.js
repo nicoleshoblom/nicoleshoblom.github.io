@@ -73,6 +73,10 @@ async function generatePdf() {
   } finally {
     console.log('Killing preview server...');
     previewProcess.kill();
+    // Force process exit in case child processes hang the event loop
+    setTimeout(() => {
+      process.exit(process.exitCode || 0);
+    }, 1000);
   }
 }
 
