@@ -35,10 +35,10 @@ import EducationItem from '../components/EducationItem.astro';
                 <!-- Navigation Bar -->
                 <nav class="main-nav carousel-nav">
                     <button class="nav-prev" aria-label="Previous">&#10094;</button>
-                    <a id="nav-link" href="#ds-experience">Data Science Experience</a>
+                    <a id="nav-link" href="#technical-experience">Technical Experience</a>
                     <button class="nav-next" aria-label="Next">&#10095;</button>
                 </nav>
-                <div id="ds-experience" class="ds-experience">
+                <div id="technical-experience" class="technical-experience">
                     <WorkItem
                         company="Addium"
                         jobRole="Director, Data Science"
@@ -314,7 +314,7 @@ import EducationItem from '../components/EducationItem.astro';
                 flex: 1;
                 margin-bottom: 500px;
             }
-            #ds-experience,
+            #technical-experience,
             #webdev-experience,
             #teaching-experience,
             #other-experience,
@@ -443,7 +443,7 @@ import EducationItem from '../components/EducationItem.astro';
         document.addEventListener('DOMContentLoaded', function () {
             const sections = document.querySelectorAll('.main-content > div[id]');
             const navItems = [
-                { href: "#ds-experience", text: "Data Science Experience" },
+                { href: "#technical-experience", text: "Technical Experience" },
                 { href: "#webdev-experience", text: "Web Development Experience" },
                 { href: "#teaching-experience", text: "Teaching Experience" },
                 { href: "#other-experience", text: "Other Experience" },
