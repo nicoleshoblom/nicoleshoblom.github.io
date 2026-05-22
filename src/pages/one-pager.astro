@@ -69,8 +69,12 @@
             gap: 8pt;
         }
 
-        .profile-pic-container {
+        .profile-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             text-align: center;
+            gap: 6pt;
         }
 
         .profile-pic {
@@ -81,15 +85,13 @@
             border: 2px solid var(--coral);
         }
 
-        .name-section {
-            text-align: center;
-        }
-
         .name {
             font-family: 'Lunar Blossom', sans-serif;
             font-size: 24pt;
+            font-weight: normal;
+            letter-spacing: 0.05em;
+            margin-right: -0.05em; /* Offset trailing letter-spacing for pixel-perfect horizontal centering */
             line-height: 1.1;
-            margin-bottom: 2pt;
         }
 
         .title {
@@ -286,11 +288,8 @@
     <div class="resume-container">
         <!-- Sidebar -->
         <div class="sidebar">
-            <div class="profile-pic-container">
+            <div class="profile-header">
                 <img src="/images/linkedin_pic.webp" alt="Nicole Shoblom" class="profile-pic" />
-            </div>
-            
-            <div class="name-section">
                 <h1 class="name">Nicole Shoblom</h1>
                 <div class="title">PhD Data Science Leader &<br/>AI Product Strategist</div>
             </div>
