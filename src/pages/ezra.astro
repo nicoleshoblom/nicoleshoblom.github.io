@@ -1,0 +1,62 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+const PageTitle = "Ezra";
+const galleries = [
+    { title: "Ezra Photos 1", images: Object.values(import.meta.glob('../assets/ezra_1/*.jpg', { eager: true })) },
+    { title: "Ezra Photos 2", images: Object.values(import.meta.glob('../assets/ezra_2/*.jpg', { eager: true })) },
+];
+---
+
+<BaseLayout PageTitle={PageTitle}>
+    <div class="gallery-page">
+        {galleries.map((gallery) => (
+            <section class="gallery-section">
+                <h2>{gallery.title}</h2>
+                <div class="gallery-grid">
+                    {gallery.images.map((image, index) => (
+                        <a href={image.default.src} target="_blank" rel="noopener noreferrer" class="gallery-item">
+                            <Image src={image.default} alt={`${gallery.title} - photo ${index + 1}`} width={800} format="jpg" class="gallery-image"/>
+                        </a>
+                    ))}
+                </div>
+            </section>
+        ))}
+    </div>
+</BaseLayout>
+<style>
+    .gallery-page {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 10px 16px 40px 16px;
+    }
+    .gallery-section h2 {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+        font-size: 1.4rem;
+        text-align: center;
+        margin: 20px 0 16px 0;
+    }
+    .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
+        gap: 12px;
+    }
+    .gallery-item {
+        display: block;
+        overflow: hidden;
+        border-radius: 8px;
+        aspect-ratio: 4 / 3;
+        background-color: #e8e8e8;
+    }
+    .gallery-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.25s ease;
+    }
+    .gallery-item:hover .gallery-image {
+        transform: scale(1.03);
+    }
+</style>
