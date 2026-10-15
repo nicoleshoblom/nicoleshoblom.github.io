@@ -1,0 +1,36 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const PageTitle = "Atticus";
+---
+
+<BaseLayout PageTitle={PageTitle}>
+    <div class="video-page">
+        <h2>Flume Ride at Gyeongju World</h2>
+        <video class="video-player" controls playsinline preload="metadata">
+            <source src="/videos/atticus-show-and-tell.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+        </video>
+    </div>
+</BaseLayout>
+<style>
+    .video-page {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 10px 16px 40px 16px;
+    }
+    .video-page h2 {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+        font-size: 1.4rem;
+        text-align: center;
+        margin: 20px 0 16px 0;
+    }
+    .video-player {
+        display: block;
+        width: 100%;
+        max-width: 854px;
+        margin: 0 auto;
+        border-radius: 8px;
+        background-color: #000;
+    }
+</style>
