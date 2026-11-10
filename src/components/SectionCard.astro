@@ -60,4 +60,21 @@ const { title, href, image, alt = title } = Astro.props;
     .section-card:hover .section-card-title {
         text-decoration: underline;
     }
+    /* Mobile: full-bleed images (the page container drops its side padding) */
+    @media (max-width: 600px) {
+        .section-card,
+        .section-card-image-wrap {
+            border-radius: 0;
+        }
+        .section-card-image-wrap {
+            box-shadow: none;
+        }
+        .section-card:hover,
+        .section-card:focus-visible {
+            transform: none;
+        }
+        .section-card-title {
+            padding: 0 16px;
+        }
+    }
 </style>

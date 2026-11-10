@@ -1,5 +1,5 @@
 ---
-const { PageTitle } = Astro.props
+const { PageTitle, noindex = false } = Astro.props
 //refactor base layout by creating separate style file and components files
 ---
 
@@ -17,6 +17,7 @@ const { PageTitle } = Astro.props
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <meta name="generator" content={Astro.generator} />
         <title>{PageTitle}</title>
+        {noindex && <meta name="robots" content="noindex, nofollow, noimageindex" />}
         <style>
             @font-face {
                 font-family: 'Lunar Blossom';

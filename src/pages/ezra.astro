@@ -6,7 +6,7 @@ import starOfWeekCover from '../assets/ezra/y1-t1-star-of-week/pic01.jpg';
 const PageTitle = "Ezra";
 ---
 
-<BaseLayout PageTitle={PageTitle}>
+<BaseLayout PageTitle={PageTitle} noindex>
     <h1 class="page-title">Ezra</h1>
     <div class="section-cards">
         <SectionCard
@@ -29,7 +29,13 @@ const PageTitle = "Ezra";
         font-weight: 600;
         font-size: 2rem;
         text-align: center;
-        margin: 24px 16px 8px 16px;
+        margin: 0;
+        padding: 24px 16px 8px 16px;
+        /* Stays just below the fixed site header while scrolling */
+        position: sticky;
+        top: 60px;
+        z-index: 10;
+        background-color: whitesmoke;
     }
     .section-cards {
         max-width: 1200px;
@@ -39,5 +45,13 @@ const PageTitle = "Ezra";
         grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 400px));
         justify-content: center;
         gap: 28px;
+    }
+    /* Mobile: no side padding so the card images run edge to edge */
+    @media (max-width: 600px) {
+        .section-cards {
+            padding-left: 0;
+            padding-right: 0;
+            grid-template-columns: 100%;
+        }
     }
 </style>

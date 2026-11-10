@@ -8,7 +8,7 @@ const images = Object.entries(import.meta.glob<{ default: ImageMetadata }>('../.
     .map(([, mod]) => mod.default);
 ---
 
-<BaseLayout PageTitle={PageTitle}>
+<BaseLayout PageTitle={PageTitle} noindex>
     <div class="detail-page">
         <a href="/ezra/" class="back-link">&larr; Back to Ezra</a>
         <h2>Y1 T1 Star of the Week</h2>
