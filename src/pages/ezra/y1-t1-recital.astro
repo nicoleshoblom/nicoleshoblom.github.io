@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getImage } from 'astro:assets';
+import thumbnail from '../../assets/ezra/y1-t1-recital/thumbnail.jpg';
+const PageTitle = "Ezra - Y1 T1 Private Music Lesson Recital";
+const poster = await getImage({ src: thumbnail, width: 1280, format: 'jpg' });
+---
+
+<BaseLayout PageTitle={PageTitle}>
+    <div class="detail-page">
+        <a href="/ezra/" class="back-link">&larr; Back to Ezra</a>
+        <h2>Y1 T1 Private Music Lesson Recital</h2>
+        <video class="video-player" controls playsinline preload="metadata" poster={poster.src}>
+            <source src="/videos/ezra-y1-t1-recital.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+        </video>
+    </div>
+</BaseLayout>
+<style>
+    .detail-page {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 10px 16px 40px 16px;
+    }
+    .detail-page h2 {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+        font-size: 1.4rem;
+        text-align: center;
+        margin: 12px 0 16px 0;
+    }
+    .back-link {
+        display: inline-block;
+        margin-top: 10px;
+        font-family: 'Poppins', sans-serif;
+        color: inherit;
+    }
+    .video-player {
+        display: block;
+        width: 100%;
+        max-width: 854px;
+        margin: 0 auto;
+        border-radius: 8px;
+        background-color: #000;
+    }
+</style>

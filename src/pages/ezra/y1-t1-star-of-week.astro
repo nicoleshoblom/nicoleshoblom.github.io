@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PhotoGallery from '../../components/PhotoGallery.astro';
+import type { ImageMetadata } from 'astro';
+const PageTitle = "Ezra - Y1 T1 Star of the Week";
+const images = Object.entries(import.meta.glob<{ default: ImageMetadata }>('../../assets/ezra/y1-t1-star-of-week/*.jpg', { eager: true }))
+    .sort(([a], [b]) => a.localeCompare(b))
+    .map(([, mod]) => mod.default);
+---
+
+<BaseLayout PageTitle={PageTitle}>
+    <div class="detail-page">
+        <a href="/ezra/" class="back-link">&larr; Back to Ezra</a>
+        <h2>Y1 T1 Star of the Week</h2>
+        <PhotoGallery images={images} altPrefix="Y1 T1 Star of the Week" />
+    </div>
+</BaseLayout>
+<style>
+    .detail-page {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 10px 16px 40px 16px;
+    }
+    .detail-page h2 {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+        font-size: 1.4rem;
+        text-align: center;
+        margin: 12px 0 16px 0;
+    }
+    .back-link {
+        display: inline-block;
+        margin-top: 10px;
+        font-family: 'Poppins', sans-serif;
+        color: inherit;
+    }
+</style>
